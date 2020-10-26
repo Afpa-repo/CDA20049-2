@@ -1,8 +1,5 @@
-.Competences #button {
-  background-color: green;
-}
-.Competences #button:hover {
-  background-color: #fefefe;
+.card {
+  background-color: #718C00;
 }
 
 /*# sourceMappingURL=app.css.map */
