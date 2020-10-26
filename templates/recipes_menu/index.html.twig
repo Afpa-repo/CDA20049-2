@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipes Menu{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class ="row">
+
+            <div class="col s3">
+                <h1>Category</h1>
+                <ul>
+                    <li><a href="#">Breakfast</a></li>
+                    <li><a href="#">Dessert</a></li>
+                    <li><a href="#">Main course</a></li>
+                    <li><a href="#">Side dish</a></li>
+                    <li><a href="#">Snack</a></li>
+                    <li><a href="#">Soup</a></li>
+                </ul>
+            </div>
+
+            <div class="col s9">
+                <p class="col s2">Search</p>
+                <div class="col s10 searchbar">
+                    <input type="text" placeholder="type filter here...">
+                </div>
+
+                <div class="RecipesItems row">
+                    {% for i in 0..recipes %}
+                        <div class="col s4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="/pictures/Recipes.png">
+                                    <span class="card-title">Card Title</span>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
