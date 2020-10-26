@@ -3,13 +3,13 @@
 
 ___
 ### Technologies utilisées
-1. Materialize
-2. SASS
-3. MariaDB 10.5.6
-4. PHP 7.4.11
-5. Symfony 4.4.*
-6. Composer v.2
-7. npm
+1. Materialize v.1.0.0
+1. SASS v.1.27.0
+1. MariaDB 10.5.6
+1. PHP 7.4.11
+1. Symfony 4.4.*
+1. Composer v.2
+1. Npm v.6.14.8
 
 ___
 ### Bundles installés
