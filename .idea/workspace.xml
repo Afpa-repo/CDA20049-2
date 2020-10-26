@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="renamed asstes folder into pictures. actually did it.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +28,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -250,6 +250,12 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -304,6 +310,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1147" y="329" key="#Twig/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603723650370" />
+    <state x="-1828" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1603726949794">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1828" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603726949794" />
     <state x="-1292" y="298" width="663" height="678" key="EditFileWatcherDialog" timestamp="1603726232691">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -344,9 +354,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1080" y="460" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603722736400" />
-    <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603715178156">
-      <screen x="1920" y="-316" width="1920" height="1040" />
+    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603727804457">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603727804457" />
     <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603715178156" />
   </component>
 </project>
