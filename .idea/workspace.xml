@@ -19,18 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="rajour de materialize en npm et essai de style navabar">
-      <change afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_26__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_26__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_36__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_36__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_16__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_17__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_17__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="renamed asstes folder into pictures.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +28,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -259,7 +248,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -279,7 +267,6 @@
       <option name="presentableId" value="Default" />
       <updated>1603713716096</updated>
       <workItem from="1603713717282" duration="419000" />
-      <workItem from="1603721328849" duration="4879000" />
     </task>
     <task id="LOCAL-00001" summary="renamed asstes folder into pictures.">
       <created>1603715292461</created>
@@ -308,14 +295,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="renamed asstes folder into pictures." />
-    <MESSAGE value="rajour de materialize en npm et essai de style navabar" />
-    <option name="LAST_COMMIT_MESSAGE" value="rajour de materialize en npm et essai de style navabar" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed asstes folder into pictures." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2649" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603725864404">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2649" y="322" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1603725864404" />
     <state x="2104" y="-230" key="MergeDialog" timestamp="1603715196178">
       <screen x="1920" y="-316" width="1920" height="1040" />
     </state>
@@ -324,11 +306,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1459" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603719572050" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603726636311">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="2472" y="-63" key="Vcs.Push.Dialog.v2" timestamp="1603715494941">
+      <screen x="1920" y="-316" width="1920" height="1040" />
     </state>
     <state x="2472" y="-63" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603715494941" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1603726636311" />
     <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603715178156">
       <screen x="1920" y="-316" width="1920" height="1040" />
     </state>
