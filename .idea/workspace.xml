@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="" />
+    <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Conception/Looping.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conception/MCD Fil Rouge_MealWith.Loo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conception/MCD Fil Rouge_MealWith.lo1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conception/MealsWithInc - web.fig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conception/Meats_With_v2.drawio" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conception/ScriptCreationBDD.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Conception/play.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603713716096</updated>
-      <workItem from="1603713717282" duration="1139000" />
+      <workItem from="1603713717282" duration="419000" />
     </task>
     <servers />
   </component>
