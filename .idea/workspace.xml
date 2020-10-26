@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="renamed asstes folder into pictures.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipes_menu/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recipes_menu/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
