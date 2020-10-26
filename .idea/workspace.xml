@@ -19,31 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="renamed asstes folder into pictures.">
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/1posIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/1posIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/2posIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/2posIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/3posIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/3posIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/CartIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/CartIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/ClockIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/ClockIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/FavoriteIconEmpty.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/FavoriteIconEmpty.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/FavoriteIconFull.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/FavoriteIconFull.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/GearIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/GearIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/HeartcircleIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/HeartcircleIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/Ingredients.png" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/Ingredients.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/LocationIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/LocationIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/LogIn.png" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/LogIn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/LogOutIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/LogOutIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/Logo.ico" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/Logo.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/Logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/Logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/PackageIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/PackageIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/ProfileIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/ProfileIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/RatingStarEmptyIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/RatingStarEmptyIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/RatingStarFullIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/RatingStarFullIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/Recipes.png" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/Recipes.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/TempIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/TempIcon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/start.png" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/start.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/stop.png" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/stop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealsWith/public/assets/symfony.png" beforeDir="false" afterPath="$PROJECT_DIR$/MealsWith/public/pictures/symfony.png" afterDir="false" />
+    <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="renamed asstes folder into pictures. actually did it.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +32,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="doctrineMathieu" />
+                    <option name="lastUsedInstant" value="1603715967" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1603715966" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="ProjectId" id="1jPlfyDFsCieRTgh8MjkwNBcsAJ" />
   <component name="ProjectViewState">
@@ -84,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603715292461</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="renamed asstes folder into pictures. actually did it.">
+      <created>1603715460553</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603715460553</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,7 +113,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="renamed asstes folder into pictures." />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed asstes folder into pictures." />
+    <MESSAGE value="renamed asstes folder into pictures. actually did it." />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed asstes folder into pictures. actually did it." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2104" y="-230" key="MergeDialog" timestamp="1603715196178">
@@ -115,9 +125,9 @@
       <screen x="1920" y="-316" width="1920" height="1040" />
     </state>
     <state x="2472" y="-63" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603715494941" />
-    <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603715178156">
+    <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603715656878">
       <screen x="1920" y="-316" width="1920" height="1040" />
     </state>
-    <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603715178156" />
+    <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603715656878" />
   </component>
 </project>
