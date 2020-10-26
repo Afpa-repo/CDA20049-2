@@ -23,5 +23,5 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 ### dossier .idea propre à phpstorm ###
-.idea
+/.idea
 ######
