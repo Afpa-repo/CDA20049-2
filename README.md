@@ -13,7 +13,7 @@ ___
 
 ___
 ### Bundles installés
-1. webpack-Encore-Bundle
+1. webpack-Encore-Bundle v.1.7.3
 <https://symfony.com/doc/current/frontend.html>
 2. doctrine-enum-bundle - V.6.6.4
 <https://packagist.org/packages/fresh/doctrine-enum-bundle#v6.6.4>

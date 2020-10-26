@@ -1,0 +1,11 @@
+$couleur : #fefefe;
+
+.Competences {
+  #button {
+    background-color: green;
+
+    &:hover {
+      background-color: $couleur;
+    }
+  }
+}
