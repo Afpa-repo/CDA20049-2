@@ -3,6 +3,7 @@
         "@symfony/webpack-encore": "^0.31.0",
         "core-js": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
+        "sass-loader": "^9.0.1",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -14,7 +15,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "materialize-css": "^1.0.0-rc.2",
+        "materialize-css": "^1.0.0",
         "sass": "^1.27.0"
     }
 }

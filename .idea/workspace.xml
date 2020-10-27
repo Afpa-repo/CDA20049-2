@@ -20,14 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5199073b-8649-4160-8bef-9bc321a7086c" name="Default Changelist" comment="renamed asstes folder into pictures. actually did it.">
+      <change afterPath="$PROJECT_DIR$/.run/php.exe.run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_26__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_26__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_36__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_13_36__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_16__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_17__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_10_2020_14_17__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -250,6 +266,7 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../prog/php-7.4.11-Win32-vc15-x64/php.exe" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -257,13 +274,32 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\80010-80-11\Desktop\All\CDA\Symfony\CDA20049-2\public\pictures" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="ShConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/../prog/php-7.4.11-Win32-vc15-x64/php.exe">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2">
+        <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_Symfony Server Start" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -275,6 +311,8 @@
       <updated>1603713716096</updated>
       <workItem from="1603713717282" duration="419000" />
       <workItem from="1603717744382" duration="7729000" />
+      <workItem from="1603733673186" duration="10111000" />
+      <workItem from="1603765513732" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="renamed asstes folder into pictures.">
       <created>1603715292461</created>
@@ -306,10 +344,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="renamed asstes folder into pictures." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="540" y="194" key="#CLI_Interpreters" timestamp="1603733760670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="194" key="#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040" timestamp="1603733760670" />
     <state x="-1147" y="329" key="#Twig" timestamp="1603723650370">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1147" y="329" key="#Twig/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603723650370" />
+    <state x="414" y="175" width="1092" height="790" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603736243684">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" width="1092" height="790" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603736243684" />
+    <state x="739" y="225" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1603733967736">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="225" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603733967736" />
+    <state x="728" y="350" width="463" height="342" key="#com.intellij.tools.ToolEditorDialog" timestamp="1603735035749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="728" y="350" width="463" height="342" key="#com.intellij.tools.ToolEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603735035749" />
     <state x="-1828" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1603726949794">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -318,34 +372,40 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1292" y="298" width="663" height="678" key="EditFileWatcherDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603726232691" />
-    <state x="-1180" y="262" key="FileChooserDialogImpl" timestamp="1603722735658">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="740" y="262" key="FileChooserDialogImpl" timestamp="1603736136984">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1180" y="262" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603722735658" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1603725834455">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="740" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603736136984" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1603736688200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603725834455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1603725834455">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603736688200" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1603736688200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603725834455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1603725834455">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603736688200" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1603736688200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603725834455" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1603725834455">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603736688200" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1603736688200">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603725834455" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603736688200" />
     <state x="2104" y="-230" key="MergeDialog" timestamp="1603715196178">
       <screen x="1920" y="-316" width="1920" height="1040" />
     </state>
     <state x="2104" y="-230" key="MergeDialog/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603715196178" />
-    <state x="-1459" y="165" key="SettingsEditor" timestamp="1603726233263">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1603736574829">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1459" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603726233263" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603736574829" />
     <state x="2472" y="-63" key="Vcs.Push.Dialog.v2" timestamp="1603715494941">
       <screen x="1920" y="-316" width="1920" height="1040" />
     </state>
@@ -359,5 +419,13 @@
     </state>
     <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603727804457" />
     <state x="2697" y="118" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603715178156" />
+    <state x="855" y="305" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey" timestamp="1603736156947">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="855" y="305" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey/0.0.1920.1040@0.0.1920.1040" timestamp="1603736156947" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1603736631097">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603736631097" />
   </component>
 </project>

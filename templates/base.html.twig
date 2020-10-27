@@ -3,24 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+            {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-            <script src="public/build/app.js"></script>
+
         {% endblock %}
     </head>
     <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="">Sass</a></li>
+                    <li><a href="">Components</a></li>
+                    <li><a href="">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
         {% block body %}
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Logo</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="">Sass</a></li>
-                        <li><a href="">Components</a></li>
-                        <li><a href="">JavaScript</a></li>
-                    </ul>
-                </div>
-            </nav>
+
         {% endblock %}
+        {{ encore_entry_script_tags('app') }}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
