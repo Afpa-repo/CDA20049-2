@@ -2,21 +2,53 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Meal With{% endblock %}</title>
             {{ encore_entry_link_tags('app') }}
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+
+        {% endblock %}
     </head>
     <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="">Sass</a></li>
-                    <li><a href="">Components</a></li>
-                    <li><a href="">JavaScript</a></li>
-                </ul>
-            </div>
-        </nav>
+    <div class="Debut">
+        <a href="#" class="Titre"><img src= "{{ asset('pictures/Logo.svg') }}"  alt="logo" title="Meal With" class="logo">Meal With</a>
+        <div class="right Top">
+            <a class="User" href=""><i class="far fa-user-circle fa-2x"></i>My account</a>
+            <a class="User" href=""><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
+        </div>
+    </div>
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li class="MenuDrop"><a href="">one</a></li>
+        <li><a href="">two</a></li>
+        <li><a href="">three</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="">one</a></li>
+        <li><a href="">two</a></li>
+        <li><a href="">three</a></li>
+    </ul>
+
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper">
+              <ul class="NavLink">
+                <li class="NavDrop"><a href=""><i class="fas fa-home fa-3x Home"></i></a></li>
+                <li class="NavDrop"><a class="dropdown-trigger NavTrigger" href="" data-target="dropdown1">Recipes<i class="fas fa-arrow-down"></i></a></li>
+                <li class="NavDrop"><a class="dropdown-trigger NavTrigger" href="" data-target="dropdown2">Ingredients<i class="fas fa-arrow-down"></i></a></li>
+                <li class="right NavDrop"><a class="NavContact" href="">Contact</a></li>
+              </ul>
+        </div>
+    </nav>
+
+
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+
+
         {% block body %}
 
         {% endblock %}

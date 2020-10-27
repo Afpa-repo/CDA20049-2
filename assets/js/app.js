@@ -14,4 +14,9 @@ import 'jquery';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/js/all.js');
+$(document).ready(function(){
+    $(".dropdown-trigger").dropdown();
+    $('.sidenav').sidenav();
+});
