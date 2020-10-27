@@ -13,7 +13,7 @@ class RecipesMenuController extends AbstractController
      */
     public function index(): Response
     {
-        $recipes=15;
+        $recipes=9;
         return $this->render('recipes_menu/index.html.twig', [
             'controller_name' => 'RecipesMenuController',
             'recipes' => $recipes

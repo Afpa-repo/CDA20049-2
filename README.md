@@ -10,6 +10,7 @@ ___
 1. Symfony v.4.4.*
 1. Composer v.2
 1. Npm v.6.14.8
+    1. "sass-loader": "^9.0.1",
 1. JQUERY v.3.5.1
 
 ___
