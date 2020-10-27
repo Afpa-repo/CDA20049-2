@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipes Menu{% endblock %}
+{% block title %}Ingredients Menu{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('RecipesMenu') }}
@@ -13,12 +13,10 @@
             <div class="col s12 l3 category">
                 <h1>Category</h1>
                 <ul>
-                    <li class="col s2 l12"><a href="#">Breakfast</a></li>
-                    <li class="col s2 l12"><a href="#">Dessert</a></li>
-                    <li class="col s2 l12"><a href="#">Main course</a></li>
-                    <li class="col s2 l12"><a href="#">Side dish</a></li>
-                    <li class="col s2 l12"><a href="#">Snack</a></li>
-                    <li class="col s2 l12"><a href="#">Soup</a></li>
+                    <li class="col s2 l12"><a href="#">Meat/Fish</a></li>
+                    <li class="col s2 l12"><a href="#">Fruits/Vegetables</a></li>
+                    <li class="col s2 l12"><a href="#">Dairy products</a></li>
+                    <li class="col s2 l12"><a href="#">Grocery</a></li>
                 </ul>
             </div>
 
@@ -32,7 +30,7 @@
                 </div>
 
                 <div class="row Items">
-                    {% for i in 1..recipes %}
+                    {% for i in 1..ingredients %}
                         <div class="col s6 l4">
                             <div class="card hoverable">
                                 <div class="card-image">
@@ -45,21 +43,21 @@
                         </div>
                     {% endfor %}
                 </div>
-            <div class="PageSelection pinned-bottom">
-                <ul class="pagination">
-                    <li><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                    <li class="waves-effect active"><a href="#!">1</a></li>
-                    <li class="waves-effect"><a href="#!">2</a></li>
-                    <li class="waves-effect"><a href="#!">3</a></li>
-                    <li class="waves-effect"><a href="#!">4</a></li>
-                    <li class="waves-effect"><a href="#!">5</a></li>
-                    <li class="waves-effect"><a href="#!">6</a></li>
-                    <li class="waves-effect"><a href="#!">7</a></li>
-                    <li class="waves-effect"><a href="#!">8</a></li>
-                    <li class="waves-effect"><a href="#!">9</a></li>
-                    <li><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                </ul>
-            </div>
+                <div class="PageSelection pinned-bottom">
+                    <ul class="pagination">
+                        <li><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="waves-effect active"><a href="#!">1</a></li>
+                        <li class="waves-effect"><a href="#!">2</a></li>
+                        <li class="waves-effect"><a href="#!">3</a></li>
+                        <li class="waves-effect"><a href="#!">4</a></li>
+                        <li class="waves-effect"><a href="#!">5</a></li>
+                        <li class="waves-effect"><a href="#!">6</a></li>
+                        <li class="waves-effect"><a href="#!">7</a></li>
+                        <li class="waves-effect"><a href="#!">8</a></li>
+                        <li class="waves-effect"><a href="#!">9</a></li>
+                        <li><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

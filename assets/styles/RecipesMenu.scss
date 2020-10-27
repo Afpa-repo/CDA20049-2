@@ -1,3 +1,111 @@
-.card {
-  background-color: red;
+$main-orange : #F27507;
+$active-link-color: #b35b18;
+
+.row{
+    margin-left: 20px;
+}
+
+.category{
+
+    h1{
+        font-size: 3.5rem;
+    }
+
+    ul {
+        li{
+            margin-top: 20px;
+            a{
+                text-decoration: none;
+                font-size: 2rem;
+
+                &:visited{
+                    color: $main-orange;
+                }
+
+                &:active{
+                    color: $active-link-color;
+                    text-decoration: underline;
+                }
+
+                &:hover{
+                    color: $active-link-color;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1200px){
+        h1{
+            font-size: 2.5rem;
+        }
+        ul {
+            justify-content: space-between;
+            li{
+                margin-top: 0;
+                a{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 992px){
+        h1{
+            font-size: 2rem;
+        }
+        ul {
+            justify-content: space-between;
+            li{
+                margin-top: 0;
+                a{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 600px){
+        h1{
+            font-size: 1.5rem;
+        }
+        ul {
+            justify-content: space-between;
+            li{
+                margin-top: 0;
+                a{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.list{
+    .searchbar{
+        input{
+            background-color: #F2F2F2;
+            border-radius: 10px;
+            padding-left: 10px;
+
+            &::placeholder{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+.Items{
+    .card{
+        cursor: pointer;
+    }
+}
+
+.PageSelection{
+    ul{
+        background-color: wheat;
+        li{
+
+            &.active{
+                background-color: $main-orange;
+            }
+        }
+    }
 }
