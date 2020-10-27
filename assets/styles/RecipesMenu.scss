@@ -105,31 +105,56 @@ $active-link-color: #b35b18;
 
 .list{
     .searchbar{
+
+        i.active{
+            color: $main-orange;
+            transform: scale(1.5);
+            transition: all 0.6s ease-in-out;
+        }
         input{
             background-color: #F2F2F2;
             border-radius: 10px;
             padding-left: 10px;
+            font-size: 1.5rem;
 
             &::placeholder{
                 font-size: 1.5rem;
+            }
+
+            &:focus{
+                border-bottom-color: $main-orange !important;
+                box-shadow: 0 2px 0 0 $main-orange !important;
+                background-color: lighten(#F2F2F2,30);
+                transition: all 0.6s ease-in-out;
             }
         }
     }
 }
 
-.Items{
+.items{
     .card{
         cursor: pointer;
+        &:hover{
+            transition: transform 0.5s ease-in-out;
+            transform-origin: center;
+            transform: scale(1.08);
+
+            a {
+                color: $active-link-color !important;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
     }
 }
 
-.PageSelection{
-    width: auto;
+.pageSelection{
+
     ul{
         background-color: lighten($main-orange,40);
+        border-radius: 30px;
 
         li{
-
             &.active{
                 background-color: $main-orange;
             }
