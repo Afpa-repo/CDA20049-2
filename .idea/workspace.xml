@@ -20,19 +20,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290f8ad9-2ece-4cbf-abe2-6831ecc7232d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/CDA20049-2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3130e9b5-0fa1-48af-9455-eb35b45c7e15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3130e9b5-0fa1-48af-9455-eb35b45c7e15/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201027124655.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201027133403.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201027143238.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/CartItems.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/GroceryList.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Orders.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Origin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Payment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/CartItemsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/CartRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/GroceryListRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/OrdersRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/OriginRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/PaymentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Ingredients.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ingredients.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Recipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Recipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -244,9 +276,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -258,6 +293,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603786135207</updated>
       <workItem from="1603786136552" duration="211000" />
+      <workItem from="1603800721511" duration="7310000" />
     </task>
     <servers />
   </component>
@@ -275,5 +311,47 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2472" y="-138" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603802889734">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="-138" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603802889734" />
+    <state x="2829" y="-18" key="FileChooserDialogImpl" timestamp="1603801912744">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state x="2829" y="-18" key="FileChooserDialogImpl/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603801912744" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1603800933864">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603800933864" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1603800933864">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603800933864" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1603800933864">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603800933864" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1603800933864">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603800933864" />
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1603802903154">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603802903154" />
+    <state x="2381" y="-151" key="SettingsEditor" timestamp="1603801931870">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state x="2381" y="-151" key="SettingsEditor/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603801931870" />
+    <state x="2752" y="48" key="cloudConfig.SelfSettingsDialog" timestamp="1603802192041">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state x="2752" y="48" key="cloudConfig.SelfSettingsDialog/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603802192041" />
+    <state x="2760" y="144" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog" timestamp="1603801914359">
+      <screen x="1920" y="-316" width="1920" height="1040" />
+    </state>
+    <state x="2760" y="144" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog/0.0.1920.1040/1920.-316.1920.1040@1920.-316.1920.1040" timestamp="1603801914359" />
   </component>
 </project>

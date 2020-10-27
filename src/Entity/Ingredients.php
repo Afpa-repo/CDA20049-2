@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\IngredientsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,22 @@ class Ingredients
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CartItems::class, mappedBy="idIngredient")
+     */
+    private $relatedCartItems;
+
+    /**
+     * @ORM\OneToMany(targetEntity=GroceryList::class, mappedBy="idIngredient", orphanRemoval=true)
+     */
+    private $relatedGroceryLists;
+
+    public function __construct()
+    {
+        $this->relatedCartItems = new ArrayCollection();
+        $this->relatedGroceryLists = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +138,66 @@ class Ingredients
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CartItems[]
+     */
+    public function getRelatedCartItems(): Collection
+    {
+        return $this->relatedCartItems;
+    }
+
+    public function addRelatedCartItem(CartItems $relatedCartItem): self
+    {
+        if (!$this->relatedCartItems->contains($relatedCartItem)) {
+            $this->relatedCartItems[] = $relatedCartItem;
+            $relatedCartItem->setIdIngredient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelatedCartItem(CartItems $relatedCartItem): self
+    {
+        if ($this->relatedCartItems->removeElement($relatedCartItem)) {
+            // set the owning side to null (unless already changed)
+            if ($relatedCartItem->getIdIngredient() === $this) {
+                $relatedCartItem->setIdIngredient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GroceryList[]
+     */
+    public function getRelatedGroceryLists(): Collection
+    {
+        return $this->relatedGroceryLists;
+    }
+
+    public function addRelatedGroceryList(GroceryList $relatedGroceryList): self
+    {
+        if (!$this->relatedGroceryLists->contains($relatedGroceryList)) {
+            $this->relatedGroceryLists[] = $relatedGroceryList;
+            $relatedGroceryList->setIdIngredient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelatedGroceryList(GroceryList $relatedGroceryList): self
+    {
+        if ($this->relatedGroceryLists->removeElement($relatedGroceryList)) {
+            // set the owning side to null (unless already changed)
+            if ($relatedGroceryList->getIdIngredient() === $this) {
+                $relatedGroceryList->setIdIngredient(null);
+            }
+        }
 
         return $this;
     }
