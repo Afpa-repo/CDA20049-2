@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecipesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Recipes
      * @ORM\Column(type="json")
      */
     private $instructions = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="idRecipe")
+     */
+    private $relatedComments;
+
+    public function __construct()
+    {
+        $this->relatedComments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,36 @@ class Recipes
     public function setInstructions(array $instructions): self
     {
         $this->instructions = $instructions;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getRelatedComments(): Collection
+    {
+        return $this->relatedComments;
+    }
+
+    public function addRelatedComment(Comments $relatedComment): self
+    {
+        if (!$this->relatedComments->contains($relatedComment)) {
+            $this->relatedComments[] = $relatedComment;
+            $relatedComment->setIdRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelatedComment(Comments $relatedComment): self
+    {
+        if ($this->relatedComments->removeElement($relatedComment)) {
+            // set the owning side to null (unless already changed)
+            if ($relatedComment->getIdRecipe() === $this) {
+                $relatedComment->setIdRecipe(null);
+            }
+        }
 
         return $this;
     }

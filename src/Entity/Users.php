@@ -47,6 +47,11 @@ class Users
      */
     private $address;
 
+    /**
+     * @ORM\OneToOne(targetEntity=GroceryList::class, mappedBy="idUser", cascade={"persist", "remove"})
+     */
+    private $groceryList;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,23 @@ class Users
     public function setAddress(?string $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getGroceryList(): ?GroceryList
+    {
+        return $this->groceryList;
+    }
+
+    public function setGroceryList(GroceryList $groceryList): self
+    {
+        $this->groceryList = $groceryList;
+
+        // set the owning side of the relation if necessary
+        if ($groceryList->getIdUser() !== $this) {
+            $groceryList->setIdUser($this);
+        }
 
         return $this;
     }

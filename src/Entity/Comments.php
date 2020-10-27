@@ -27,6 +27,16 @@ class Comments
      */
     private $dateCreation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ingredients::class)
+     */
+    private $idIngredient;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=recipes::class, inversedBy="relatedComments")
+     */
+    private $idRecipe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +62,30 @@ class Comments
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
         $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    public function getIdIngredient(): ?ingredients
+    {
+        return $this->idIngredient;
+    }
+
+    public function setIdIngredient(?ingredients $idIngredient): self
+    {
+        $this->idIngredient = $idIngredient;
+
+        return $this;
+    }
+
+    public function getIdRecipe(): ?recipes
+    {
+        return $this->idRecipe;
+    }
+
+    public function setIdRecipe(?recipes $idRecipe): self
+    {
+        $this->idRecipe = $idRecipe;
 
         return $this;
     }
