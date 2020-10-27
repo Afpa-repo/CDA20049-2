@@ -6,9 +6,9 @@
  */
 
 // any CSS you import will output into a single css file (app.scss in this case)
-import '../styles/RecipesMenu.scss';
 import 'materialize-css';
-import 'materialize-css/dist/css/materialize.css';
+import 'materialize-css/sass/materialize.scss';
+import '../styles/RecipesMenu.scss';
 import 'jquery';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
@@ -21,6 +21,13 @@ import $ from 'jquery';
 
 $(".pagination li.waves-effect").click(function (){
     $(this).toggleClass('active');
+    $(this).siblings('li').removeClass('active');
+});
+
+//Manage category active link status
+$(".category li").click(function (){
+    console.log('test');
+    $(this).addClass('active');
     $(this).siblings('li').removeClass('active');
 });
 

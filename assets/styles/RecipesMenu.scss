@@ -1,3 +1,4 @@
+//Colors used in page
 $main-orange : #F27507;
 $active-link-color: #b35b18;
 
@@ -12,20 +13,29 @@ $active-link-color: #b35b18;
     }
 
     ul {
+
         li{
             margin-top: 20px;
-            a{
-                text-decoration: none;
-                font-size: 2rem;
 
-                &:visited{
-                    color: $main-orange;
-                }
-
-                &:active{
+            &.active{
+                a{
                     color: $active-link-color;
                     text-decoration: underline;
                 }
+
+                &::before{
+                    content: "filter_list";
+                    font-family: "Material Icons";
+                    color: $active-link-color;
+                    font-size: 2rem;
+                    padding: 0;
+                }
+            }
+
+            a{
+                text-decoration: none;
+                font-size: 2rem;
+                color: $main-orange;
 
                 &:hover{
                     color: $active-link-color;
@@ -42,9 +52,6 @@ $active-link-color: #b35b18;
             justify-content: space-between;
             li{
                 margin-top: 0;
-                a{
-                    font-size: 2rem;
-                }
             }
         }
     }
@@ -56,6 +63,15 @@ $active-link-color: #b35b18;
             justify-content: space-between;
             li{
                 margin-top: 0;
+                margin-bottom: 20px;
+
+                &.active {
+                    &::before{
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                    }
+                }
+
                 a{
                     font-size: 1.5rem;
                 }
@@ -70,6 +86,15 @@ $active-link-color: #b35b18;
             justify-content: space-between;
             li{
                 margin-top: 0;
+                margin-bottom: 10px;
+
+                &.active {
+                    &::before{
+                        font-size: 0.9rem;
+                        font-weight: bold;
+                    }
+                }
+
                 a{
                     font-size: 1rem;
                 }
@@ -99,8 +124,10 @@ $active-link-color: #b35b18;
 }
 
 .PageSelection{
+    width: auto;
     ul{
-        background-color: wheat;
+        background-color: lighten($main-orange,40);
+
         li{
 
             &.active{
