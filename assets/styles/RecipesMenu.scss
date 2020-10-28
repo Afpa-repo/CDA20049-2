@@ -149,14 +149,27 @@ $active-link-color: #b35b18;
 }
 
 .pageSelection{
+ padding: 0 !important;
 
     ul{
         background-color: lighten($main-orange,40);
         border-radius: 30px;
 
         li{
-            &.active{
+            a{
+                padding-left: 4px ;
+                padding-right: 4px ;
+            }
+            &.active {
                 background-color: $main-orange;
+            }
+            &.disable{
+                i {
+                    transition: all 0.5s ease-in-out;
+                    transform: rotateY(180deg);
+                    color: #b35b18 ;
+                    cursor: default;
+                }
             }
         }
     }

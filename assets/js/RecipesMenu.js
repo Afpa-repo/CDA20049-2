@@ -18,32 +18,50 @@ import $ from 'jquery';
 //$(".card").click(function () {console.log(this.children('p'))});
 
 //Manage pagination active status
-    $(".pagination li.waves-effect").click(function (){
-        $(this).toggleClass('active');
-        $(this).siblings('li').removeClass('active');
-    });
-
     $(".pagination li.ArrowPrevious").click(function (){
-        const list = $(".pagination li.active"); // Get the current active element on the list
+        const activeItem = $(".pagination li.active"); // Get the current active element on the list
         const sizeList = 0 ;
 
-        if ($(".pagination li.waves-effect").index(list) == sizeList) { // Is this the first item in the list?
+        if ($(".pagination li.waves-effect").index(activeItem) == sizeList) { // Is this the first item in the list?
         }else {
-            list.removeClass('active');
-            list.prev().addClass('active');
+            activeItem.removeClass('active');
+            activeItem.prev().addClass('active');
         }
     });
 
     $(".pagination li.ArrowNext").click(function (){
-        const list = $(".pagination li.active"); // Get the current active element on the list
-        const sizeList = $(".pagination li.waves-effect").length-1 // Size of the pagination items
+        const activeItem = $(".pagination li.active"); // Get the current active element on the list
+        const sizeList = $(".pagination li.waves-effect").length-1 ;// Size of the pagination items
 
-        if ($(".pagination li.waves-effect").index(list) == sizeList){ // Is this the last item in the list?
+        if ($(".pagination li.waves-effect").index(activeItem) == sizeList){ // Is this the last item in the list?
         } else {
-            list.removeClass('active');
-            list.next().addClass('active');
+            activeItem.removeClass('active');
+            activeItem.next().addClass('active');
         }
     });
+
+    $(".pagination li").click(function(){
+
+        if ($(this).hasClass('waves-effect')){  // If it's a link to a page number then switch the active one
+            $(this).addClass('active');
+            $(this).siblings('li').removeClass('active');
+        }
+
+        const activeItem = $(".pagination li.active"); // Get the current active element on the list
+        const activeItemIndex = $(".pagination li.waves-effect").index(activeItem); //Get the index of the current active element
+        const sizeList = $(".pagination li.waves-effect").length-1 ;// Size of the pagination items
+
+        if (activeItemIndex == sizeList){ // If on the last item of the list?
+            $(".pagination li.ArrowNext").addClass('disable');
+            $(".pagination li.ArrowPrevious").removeClass('disable');
+        } else if (activeItemIndex == 0) { // If on the first item of the list?
+            $(".pagination li.ArrowNext").removeClass('disable');
+            $(".pagination li.ArrowPrevious").addClass('disable');
+        } else {
+            $(".pagination li.ArrowNext").removeClass('disable');
+            $(".pagination li.ArrowPrevious").removeClass('disable');
+        }
+    })
 
 //Manage category active link status
 $(".category li").click(function (){
