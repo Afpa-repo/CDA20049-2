@@ -1,0 +1,59 @@
+//Colors used in page
+$main-orange : #F27507;
+$active-link-color: #b35b18;
+
+.card{
+    margin-top: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+
+    .card-image{
+        max-width: 30%;
+    }
+
+    .card-stacked{
+
+    }
+
+    p{
+        font-size: 1.5rem;
+    }
+
+    h1{
+        padding-left: 24px;
+    }
+
+    .btn-large{
+        margin: 0 auto 20px auto;
+        width: 50%;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+
+    &.Recipes{
+        background-color: #1B191A;
+        color: white;
+
+        h1{
+            color: gold;
+        }
+
+        .btn-large{
+            background-color: gold;
+            color: black;
+        }
+    }
+
+    &.Ingredients{
+        background-color: #FCFCFC;
+        color : #666666;
+
+        h1{
+            color: $main-orange;
+        }
+
+        .btn-large{
+            background-color: $main-orange;
+        }
+    }
+}

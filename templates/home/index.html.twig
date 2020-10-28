@@ -1,5 +1,48 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Ingredients Menu{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('HomeMenu') }}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h1>Yop</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card horizontal Recipes">
+                    <div class="card-stacked">
+                        <h1>Recipes</h1>
+                        <div class="card-content valign-wrapper">
+                            <p>Vitae et sed sit lectus adipiscing. Elementum eget vitae hac iaculis neque. Eget nec at lacus feugiat mi vitae fringilla sed ut massa in.</p>
+                        </div>
+                        <a class="waves-effect waves-light btn-large" href="{{ path('recipes_menu') }}">Browse</a>
+                    </div>
+                    <div class="card-image valign-wrapper">
+                        <img src={{ asset('pictures/Recipes.png') }}>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="card horizontal Ingredients">
+                    <div class="card-stacked">
+                        <h1>Ingredients</h1>
+                        <div class="card-content valign-wrapper">
+                            <p>Vitae et sed sit lectus adipiscing. Elementum eget vitae hac iaculis neque. Eget nec at lacus feugiat mi vitae fringilla sed ut massa in.</p>
+                        </div>
+                        <a class="waves-effect waves-light btn-large " href="{{ path('ingredients_menu') }}">Browse</a>
+                    </div>
+                    <div class="card-image valign-wrapper">
+                        <img src={{ asset('pictures/Ingredients.png') }}>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('HomeMenu') }}
 {% endblock %}

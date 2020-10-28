@@ -8,50 +8,40 @@
 
     {% endblock %}
 </head>
+<body>
 
-<div class="Debut">
-    <a href="{{ path('home') }}" class="Titre"><img src= "{{ asset('pictures/Logo.svg') }}"  alt="logo" title="Meal With" class="logo">Meal With</a>
-    <div class="right Top">
-        <a class="User" href=""><i class="far fa-user-circle fa-2x"></i>My account</a>
-        <a class="User" href=""><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
+    <div class="row">
+        <a class="col s4 offset-s5 xl1 offset-xl10" href=""><i class="far fa-user-circle fa-2x"></i>My account</a>
+        <a class="col s3 xl1" href=""><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
     </div>
-</div>
 
-<!-- Dropdown Structure -->
-<ul id="Recipes" class="dropdown-content">
-    <li class="MenuDrop"><a href="{{ path('recipes_menu') }}">Recipes</a></li>
-    <li class="MenuDrop"><a href="">Breakfast</a></li>
-    <li class="MenuDrop"><a href="">Dessert</a></li>
-    <li class="MenuDrop"><a href="">Main course</a></li>
-    <li class="MenuDrop"><a href="">Side dish</a></li>
-    <li class="MenuDrop"><a href="">Snack</a></li>
-    <li class="MenuDrop"><a href="">Soup</a></li>
-</ul>
-<ul id="Ingredients" class="dropdown-content">
-    <li class="MenuDrop"><a href="{{ path('ingredients_menu') }}">Ingredients</a></li>
-    <li class="MenuDrop"><a href="">Meat/Fish</a></li>
-    <li class="MenuDrop"><a href="">Fruits/Vegetables</a></li>
-    <li class="MenuDrop"><a href="">Dairy products</a></li>
-    <li class="MenuDrop"><a href="">Grocery</a></li>
-</ul>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li><a href="#!">three</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">test</a></li>
+        <li><a href="#!">three</a></li>
+    </ul>
 
-<nav class="transparent z-depth-0">
-    <div class="nav-wrapper">
-        <ul class="NavLink">
-            <li><a class="NavTrigger" href="{{ path('home') }}"><i class="fas fa-home fa-3x Home"></i></a></li>
-            <li><a class="dropdown-trigger NavTrigger" href="" data-target="Recipes">Recipes<i class="fas fa-arrow-down"></i></a></li>
-            <li><a class="dropdown-trigger NavTrigger" href="" data-target="Ingredients">Ingredients<i class="fas fa-arrow-down"></i></a></li>
-            <li class="right"><a class="NavContact" href="">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+        <nav>
+            <div class="row">
+                <a href="{{ path('home') }}" class="brand-logo left"><img src="{{ asset('pictures/Logo.svg') }}">MealsWith</a>
+                <ul id="nav-mobile" class="hide-on-med-and-down">
+                    <li class="col offset-s3 offset-m4 offset-l3 offset-xl2"><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recipes<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li class="col"><a class="dropdown-trigger" href="#!" data-target="dropdown2">Ingredients<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li class="col push-s7 push-m7 push-l4 push-xl7 dropdown-trigger "><a>Contact</a></li>
+                </ul>
+            </div>
+        </nav>
 
-{% block body %}
+{% block body %}{% endblock %}
 
-{% endblock %}
 {{ encore_entry_script_tags('app') }}
 
 {% block javascripts %}{% endblock %}
-<body>
+
 </body>
 </html>

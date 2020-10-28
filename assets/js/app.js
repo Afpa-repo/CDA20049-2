@@ -8,14 +8,14 @@
 // any CSS you import will output into a single css file (app.scss in this case)
 import '../styles/app.scss';
 import 'materialize-css';
-import 'materialize-css/dist/css/materialize.css';
+import 'materialize-css/sass/materialize.scss';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 import 'jquery';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
-require('@fortawesome/fontawesome-free/css/all.min.css');
-require('@fortawesome/fontawesome-free/js/all.js');
 $(document).ready(function(){
     $(".dropdown-trigger").dropdown();
     $('.sidenav').sidenav();
