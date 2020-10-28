@@ -1,0 +1,74 @@
+$main-orange:#F27507;
+$active-link-color: #b35b18;
+$main-font:Roboto;
+
+.Debut {
+  a {
+    color: $main-orange;
+    font-family: $main-font;
+    font-weight: bold;
+  }
+  .logo {
+    margin-top: 0.5rem;
+  }
+  .Titre {
+    font-size: 3rem;
+  }
+  .Top {
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+nav {
+  border: 0.5px solid #cdcdcd;
+  .dropdown-trigger {
+    color: $main-orange;
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 2rem;
+
+  }
+  .NavContact {
+    color: $main-orange;
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 2rem;
+    &:hover{
+      background-color: transparent;
+      border-top: $main-orange solid 5px;
+    }
+
+  }
+  .Home {
+    color: $main-orange;
+    margin-top: 0.5rem;
+  }
+  .NavLink{
+    .NavTrigger {
+      &:hover{
+        background-color: transparent;
+        border-top: $main-orange solid 5px;
+      }
+    }
+    .MenuDrop {
+      &:hover{
+        background-color: transparent;
+        border-top: $main-orange solid 5px;
+      }
+      a {
+        color: $main-orange;
+        font-family: $main-font;
+        font-weight: bold;
+        background-color: transparent;
+        &:hover{
+          background-color: $main-orange;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+

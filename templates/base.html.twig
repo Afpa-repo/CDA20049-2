@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-            {{ encore_entry_link_tags('app') }}
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="">Sass</a></li>
-                    <li><a href="">Components</a></li>
-                    <li><a href="">JavaScript</a></li>
-                </ul>
-            </div>
-        </nav>
-        {% block body %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Meal With{% endblock %}</title>
+    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %}
 
-        {% endblock %}
-        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
 
-        {% block javascripts %}{% endblock %}
-    </body>
+<div class="Debut">
+    <a href="{{ path('home') }}" class="Titre"><img src= "{{ asset('pictures/Logo.svg') }}"  alt="logo" title="Meal With" class="logo">Meal With</a>
+    <div class="right Top">
+        <a class="User" href=""><i class="far fa-user-circle fa-2x"></i>My account</a>
+        <a class="User" href=""><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
+    </div>
+</div>
+
+<!-- Dropdown Structure -->
+<ul id="Recipes" class="dropdown-content">
+    <li class="MenuDrop"><a href="{{ path('recipes_menu') }}">Recipes</a></li>
+    <li class="MenuDrop"><a href="">Breakfast</a></li>
+    <li class="MenuDrop"><a href="">Dessert</a></li>
+    <li class="MenuDrop"><a href="">Main course</a></li>
+    <li class="MenuDrop"><a href="">Side dish</a></li>
+    <li class="MenuDrop"><a href="">Snack</a></li>
+    <li class="MenuDrop"><a href="">Soup</a></li>
+</ul>
+<ul id="Ingredients" class="dropdown-content">
+    <li class="MenuDrop"><a href="{{ path('ingredients_menu') }}">Ingredients</a></li>
+    <li class="MenuDrop"><a href="">Meat/Fish</a></li>
+    <li class="MenuDrop"><a href="">Fruits/Vegetables</a></li>
+    <li class="MenuDrop"><a href="">Dairy products</a></li>
+    <li class="MenuDrop"><a href="">Grocery</a></li>
+</ul>
+
+<nav class="transparent z-depth-0">
+    <div class="nav-wrapper">
+        <ul class="NavLink">
+            <li><a class="NavTrigger" href="{{ path('home') }}"><i class="fas fa-home fa-3x Home"></i></a></li>
+            <li><a class="dropdown-trigger NavTrigger" href="" data-target="Recipes">Recipes<i class="fas fa-arrow-down"></i></a></li>
+            <li><a class="dropdown-trigger NavTrigger" href="" data-target="Ingredients">Ingredients<i class="fas fa-arrow-down"></i></a></li>
+            <li class="right"><a class="NavContact" href="">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% block body %}
+
+{% endblock %}
+{{ encore_entry_script_tags('app') }}
+
+{% block javascripts %}{% endblock %}
+<body>
+</body>
 </html>
