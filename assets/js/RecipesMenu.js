@@ -68,14 +68,3 @@ $(".category li").click(function (){
     $(this).addClass('active');
     $(this).siblings('li').removeClass('active');
 });
-
-/*
-$(document).ready(function(){
-    $('.pinned-bottom').pushpin(
-        {
-            top : 0,
-            offset: 500
-        }
-    );
-});
-*/
