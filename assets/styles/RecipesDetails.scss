@@ -1,0 +1,26 @@
+//Colors used in page
+$main-orange : #F27507;
+$active-link-color: #b35b18;
+
+div.embed {
+    margin-top: 10px;
+    background-color: wheat;
+}
+
+.leftMenu{
+    margin-top: 10px;
+
+    img{
+        border-radius: 20px;
+    }
+
+    a{
+        margin-top: 10px;
+        background-color: $main-orange;
+        border-radius: 20px;
+
+        &:hover, &:focus, &.active{
+            background-color: darken($main-orange,20%);
+        }
+    }
+}
