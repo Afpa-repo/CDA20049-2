@@ -16,12 +16,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecipesController extends AbstractController
 {
     /**
-     * @Route("/", name="recipes_menu", methods={"GET"})
+     * @Route("/", name="recipes_index", methods={"GET"})
      */
     public function index(RecipesRepository $recipesRepository): Response
     {
-        return $this->render('recipes/menu.html.twig', [
-            'recipes' => $recipesRepository->findLimit(5,0),
+        static $limit = 9;
+        static $offset = 0;
+        return $this->render('recipes/index.html.twig', [
+            'recipes' => $recipesRepository->findLimit($limit,$offset),
         ]);
     }
 

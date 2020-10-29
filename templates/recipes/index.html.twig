@@ -34,17 +34,20 @@
                 <div class="row items">
                     {% for recipe in recipes %}
                         <div class="col s6 l4">
-                            <div class="card hoverable">
-                                <div class="card-image">
-                                    <img src="{{ recipe.picture }}" alt="Recipes picture">
+                            <a href="{{ path('recipes_show', {'id': recipe.id}) }}" class="card-title">
+                                <div class="card hoverable">
+                                    <div class="card-image">
+                                        <img src="/pictures/{{ recipe.picture }}" alt="{{ recipe.picture }}" >
+                                    </div>
+                                    <div class="card-action">
+                                        {{ recipe.name }}
+                                    </div>
                                 </div>
-                                <div class="card-action">
-                                    <a href="{{ path('recipes_details') }}" class="card-title">{{ recipe.name }}</a>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     {% endfor %}
                 </div>
+
                 <div class="pageSelection center-align col s8 offset-s2 m6 offset-m3 l6 offset-l3 xl4 offset-xl4">
                     <ul class="pagination">
                         <li class="ArrowPrevious disable"><a href="#"><i class="material-icons">chevron_left</i></a></li>
