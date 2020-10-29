@@ -170,14 +170,6 @@ $active-link-color: #b35b18;
             &.active {
                 background-color: $main-orange;
             }
-            &.disable{
-                i {
-                    transition: all 0.5s ease-in-out;
-                    transform: rotateY(180deg);
-                    color: #b35b18 ;
-                    cursor: default;
-                }
-            }
         }
     }
 }
