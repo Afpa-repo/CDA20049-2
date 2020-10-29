@@ -13,7 +13,7 @@ class RecipesDetailsController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('recipes_details/index.html.twig', [
+        return $this->render('recipes_details/menu.html.twig', [
             'controller_name' => 'RecipesDetailsController',
         ]);
     }
