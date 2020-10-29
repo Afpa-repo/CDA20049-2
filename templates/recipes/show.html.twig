@@ -1,42 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipes{% endblock %}
+{% block title %}Recipes Menu{% endblock %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('RecipesDetails') }}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
 {% block body %}
-    <h1>Recipes</h1>
+    <div class="row">
+        <div class="col s3 center-align leftMenu">
+            <h1>{{ recipe.name }}</h1>
+            <img src="/pictures/{{ recipe.picture }}">
+            <div>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="#">Instructions</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Ingredients</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Comments</a>
+            </div>
+        </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ recipe.id }}</td>
-            </tr>
-            <tr>
-                <th>IdCategory</th>
-                <td>{{ recipe.idCategory }}</td>
-            </tr>
-            <tr>
-                <th>IdAuthor</th>
-                <td>{{ recipe.idAuthor }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ recipe.name }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ recipe.picture }}</td>
-            </tr>
-            <tr>
-                <th>Instructions</th>
-                <td>{{ recipe.instructions ? recipe.instructions|json_encode : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="col s9 embed">
+            {% block content %}
+                {% embed "recipes_details/instructions.html.twig" %}
 
-    <a href="{{ path('recipes_index') }}">back to list</a>
+                {% endembed %}
+            {% endblock %}
+        </div>
+    </div>
 
-    <a href="{{ path('recipes_edit', {'id': recipe.id}) }}">edit</a>
+    <div class="row">
+        <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="{{ path('recipes_index') }}">back to list</a>
+        <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('recipes_edit', {'id': recipe.id}) }}">edit</a>
+    </div>
 
     {{ include('recipes/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('RecipesDetails') }}
 {% endblock %}

@@ -61,6 +61,8 @@ import $ from 'jquery';
             $(".pagination li.ArrowNext").removeClass('disable');
             $(".pagination li.ArrowPrevious").removeClass('disable');
         }
+
+
     })
 
 //Manage category active link status
