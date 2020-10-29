@@ -59,6 +59,11 @@ class Ingredients
      */
     private $relatedGroceryLists;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=IngredientRecipe::class, inversedBy="RelatedIngredients")
+     */
+    private $Category;
+
     public function __construct()
     {
         $this->relatedCartItems = new ArrayCollection();
@@ -198,6 +203,18 @@ class Ingredients
                 $relatedGroceryList->setIdIngredient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?IngredientRecipe
+    {
+        return $this->Category;
+    }
+
+    public function setCategory(?IngredientRecipe $Category): self
+    {
+        $this->Category = $Category;
 
         return $this;
     }

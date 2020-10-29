@@ -19,10 +19,7 @@ class Recipes
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $idCategory;
+
 
     /**
      * @ORM\Column(type="integer")
@@ -49,6 +46,11 @@ class Recipes
      */
     private $relatedComments;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=RecipeCategory::class, inversedBy="relatedRecipes")
+     */
+    private $category;
+
     public function __construct()
     {
         $this->relatedComments = new ArrayCollection();
@@ -59,10 +61,7 @@ class Recipes
         return $this->id;
     }
 
-    public function getIdCategory(): ?int
-    {
-        return $this->idCategory;
-    }
+
 
     public function setIdCategory(?int $idCategory): self
     {
@@ -145,6 +144,18 @@ class Recipes
                 $relatedComment->setIdRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?RecipeCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?RecipeCategory $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
