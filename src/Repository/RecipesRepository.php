@@ -22,7 +22,6 @@ class RecipesRepository extends ServiceEntityRepository
     /*
       * @return Recipes[] Returns an array of Recipes objects
     */
-
     public function findLimit($numberElements,$offset)
     {
         // automatically knows to select Products
@@ -37,6 +36,18 @@ class RecipesRepository extends ServiceEntityRepository
         return $query->execute();
     }
 
+    /*
+      * @return the number of elements in Recipes
+    */
+    public function countElement()
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->select('count(r.id)');
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 
     /*
     public function findOneBySomeField($value): ?Recipes

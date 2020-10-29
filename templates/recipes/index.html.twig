@@ -47,18 +47,12 @@
                         </div>
                     {% endfor %}
                 </div>
-
                 <div class="pageSelection center-align col s8 offset-s2 m6 offset-m3 l6 offset-l3 xl4 offset-xl4">
                     <ul class="pagination">
                         <li class="ArrowPrevious disable"><a href="#"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="waves-effect active"><a href="#">1</a></li>
-                        <li class="waves-effect"><a href="#">2</a></li>
-                        <li class="waves-effect"><a href="#">4</a></li>
-                        <li class="waves-effect"><a href="#">5</a></li>
-                        <li class="waves-effect"><a href="#">6</a></li>
-                        <li class="waves-effect"><a href="#">7</a></li>
-                        <li class="waves-effect"><a href="#">8</a></li>
-                        <li class="waves-effect"><a href="#">9</a></li>
+                        {% for i in 0..page[0][1]/limit %}
+                            <li class="waves-effect"><a href="{{ path('recipes_index', {'offset': 0}) }}">{{ i+1 }}</a></li>
+                        {% endfor %}
                         <li class="ArrowNext"><a href="#"><i class="material-icons">chevron_right</i></a>
                     </ul>
                 </div>
