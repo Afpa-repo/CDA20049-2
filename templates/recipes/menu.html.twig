@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipes Menu{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('RecipesMenu') }}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+        <div class ="row">
+            <div class="col s12 l3 category">
+                <h1>Category</h1>
+                <ul>
+                    <li class="col s2 m2 l12 active"><a href="#">All</a></li>
+                    <li class="col s3 m3 l12"><a href="#">Breakfast</a></li>
+                    <li class="col s3 m3 l12"><a href="#">Dessert</a></li>
+                    <li class="col s4 m4 l12"><a href="#">Main course</a></li>
+                    <li class="col s3 offset-s2 m3 offset-m2 l12"><a href="#">Side dish</a></li>
+                    <li class="col s3 m3 l12"><a href="#">Snack</a></li>
+                    <li class="col s3 m3 l12"><a href="#">Soup</a></li>
+                </ul>
+            </div>
+
+            <div class="col s12 l9 list">
+                <div>
+                    <div class="searchbar input-field">
+                        <i class="material-icons prefix">search</i>
+                        <label for="search" hidden>Search</label>
+                        <input id="search" type="text" placeholder="type your search here...">
+                    </div>
+                </div>
+
+                <div class="row items">
+                    {% for recipe in recipes %}
+                        <div class="col s6 l4">
+                            <div class="card hoverable">
+                                <div class="card-image">
+                                    <img src="{{ recipe.picture }}" alt="Recipes picture">
+                                </div>
+                                <div class="card-action">
+                                    <a href="{{ path('recipes_details') }}" class="card-title">{{ recipe.name }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="pageSelection center-align col s8 offset-s2 m6 offset-m3 l6 offset-l3 xl4 offset-xl4">
+                    <ul class="pagination">
+                        <li class="ArrowPrevious disable"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="waves-effect active"><a href="#">1</a></li>
+                        <li class="waves-effect"><a href="#">2</a></li>
+                        <li class="waves-effect"><a href="#">4</a></li>
+                        <li class="waves-effect"><a href="#">5</a></li>
+                        <li class="waves-effect"><a href="#">6</a></li>
+                        <li class="waves-effect"><a href="#">7</a></li>
+                        <li class="waves-effect"><a href="#">8</a></li>
+                        <li class="waves-effect"><a href="#">9</a></li>
+                        <li class="ArrowNext"><a href="#"><i class="material-icons">chevron_right</i></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('RecipesMenu') }}
+{% endblock %}

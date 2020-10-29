@@ -19,22 +19,24 @@ class RecipesRepository extends ServiceEntityRepository
         parent::__construct($registry, Recipes::class);
     }
 
-    // /**
-    //  * @return Recipes[] Returns an array of Recipes objects
-    //  */
     /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+      * @return Recipes[] Returns an array of Recipes objects
     */
+
+    public function findLimit($numberElements,$offset)
+    {
+        // automatically knows to select Products
+        // the "r" is an alias you'll use in the rest of the query
+
+        $qb = $this->createQueryBuilder('r')
+            ->setFirstResult( $offset )
+            ->setMaxResults( $numberElements );
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Recipes
