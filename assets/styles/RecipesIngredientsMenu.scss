@@ -26,8 +26,9 @@ $active-link-color: #b35b18;
                 }
 
                 &::before{
-                    content: "filter_list";
-                    font-family: "Material Icons";
+                    content: "\f0b0";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
                     color: $active-link-color;
                     font-size: 2rem;
                     padding: 0;
@@ -108,10 +109,10 @@ $active-link-color: #b35b18;
 .list{
     .searchbar{
 
-        i.active{
-            color: $main-orange;
-            transform: scale(1.5);
+        svg.active{
             transition: all 0.6s ease-in-out;
+            color: $main-orange;
+            transform: scale(1.2);
         }
         input{
             background-color: #F2F2F2;
@@ -170,6 +171,13 @@ $active-link-color: #b35b18;
             &.active {
                 background-color: $main-orange;
             }
+            &.ArrowNext,&.ArrowPrevious{
+
+                &.disable{
+                    color: $active-link-color;
+                }
+            }
+
         }
     }
 }

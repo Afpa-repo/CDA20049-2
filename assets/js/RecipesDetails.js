@@ -9,6 +9,8 @@
 import 'materialize-css';
 import 'materialize-css/sass/materialize.scss';
 import '../styles/RecipesDetails.scss';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 import 'jquery';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
