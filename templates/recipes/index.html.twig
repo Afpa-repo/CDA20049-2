@@ -3,29 +3,29 @@
 {% block title %}Recipes Menu{% endblock %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('RecipesMenu') }}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {{ encore_entry_link_tags('RecipesIngredientsMenu') }}
 {% endblock %}
 {% block body %}
 
         <div class ="row">
+
             <div class="col s12 l3 category">
                 <h1>Category</h1>
                 <ul>
-                    <li class="col s2 m2 l12 active"><a href="#">All</a></li>
-                    <li class="col s3 m3 l12"><a href="#">Breakfast</a></li>
-                    <li class="col s3 m3 l12"><a href="#">Dessert</a></li>
-                    <li class="col s4 m4 l12"><a href="#">Main course</a></li>
-                    <li class="col s3 offset-s2 m3 offset-m2 l12"><a href="#">Side dish</a></li>
-                    <li class="col s3 m3 l12"><a href="#">Snack</a></li>
-                    <li class="col s3 m3 l12"><a href="#">Soup</a></li>
+                        <li class="col s2 m2 l12 active"><a href="#">All</a></li>
+                        <li class="col s3 m3 l12"><a href="#">Breakfast</a></li>
+                        <li class="col s3 m3 l12"><a href="#">Dessert</a></li>
+                        <li class="col s4 m4 l12"><a href="#">Main course</a></li>
+                        <li class="col s3 offset-s2 m3 offset-m2 l12"><a href="#">Side dish</a></li>
+                        <li class="col s3 m3 l12"><a href="#">Snack</a></li>
+                        <li class="col s3 m3 l12"><a href="#">Soup</a></li>
                 </ul>
             </div>
 
             <div class="col s12 l9 list">
                 <div>
                     <div class="searchbar input-field">
-                        <i class="material-icons prefix">search</i>
+                        <i class="fas fa-search prefix active">search</i>
                         <label for="search" hidden>Search</label>
                         <input id="search" type="text" placeholder="type your search here...">
                     </div>
@@ -51,9 +51,9 @@
                 <div class="pageSelection center-align col s8 offset-s2 m6 offset-m3 l6 offset-l3 xl4 offset-xl4">
                     <ul class="pagination">
                         {% if CurrentPage-1 >= 1 %}
-                            <li class="ArrowPrevious"><a href="{{ path('recipes_index', {'CurrentPage': CurrentPage-1}) }}"><i class="material-icons">chevron_left</i></a></li>
+                            <li class="ArrowPrevious"><a href="{{ path('recipes_index', {'CurrentPage': CurrentPage-1}) }}"><i class="fas fa-angle-left fa-2x"></i></a></li>
                         {% else %}
-                            <li class="ArrowPrevious disable"><i class="material-icons">chevron_left</i></li>
+                            <li class="ArrowPrevious disable"><i class="fas fa-angle-left fa-2x"></i></li>
                         {% endif %}
                         {% for i in 1..nbPage %}
                             {% if i == CurrentPage %}
@@ -63,9 +63,9 @@
                             {% endif %}
                         {% endfor %}
                         {% if CurrentPage+1 <= nbPage %}
-                            <li class="ArrowNext"><a href="{{ path('recipes_index', {'CurrentPage': CurrentPage+1}) }}"><i class="material-icons">chevron_right</i></a>
+                            <li class="ArrowNext"><a href="{{ path('recipes_index', {'CurrentPage': CurrentPage+1}) }}"><i class="fas fa-angle-right fa-2x"></i></a>
                         {% else %}
-                            <li class="ArrowNext disable"><i class="material-icons">chevron_right</i></li>
+                            <li class="ArrowNext disable"><i class="fas fa-angle-right fa-2x"></i></li>
                             {% endif %}
                     </ul>
                 </div>
@@ -75,5 +75,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('RecipesMenu') }}
+    {{ encore_entry_script_tags('RecipesIngredientsMenu') }}
 {% endblock %}
