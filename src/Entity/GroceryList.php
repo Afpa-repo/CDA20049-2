@@ -23,7 +23,7 @@ class GroceryList
     private $Quantity;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ingredients::class, inversedBy="relatedGroceryLists")
+     * @ORM\ManyToOne(targetEntity=Ingredients::class, inversedBy="relatedGroceryLists")
      * @ORM\JoinColumn(nullable=false)
      */
     private $idIngredient;

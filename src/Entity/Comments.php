@@ -28,12 +28,12 @@ class Comments
     private $dateCreation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ingredients::class)
+     * @ORM\ManyToOne(targetEntity=Ingredients::class)
      */
     private $idIngredient;
 
     /**
-     * @ORM\ManyToOne(targetEntity=recipes::class, inversedBy="relatedComments")
+     * @ORM\ManyToOne(targetEntity=Recipes::class, inversedBy="relatedComments")
      */
     private $idRecipe;
 

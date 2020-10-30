@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201029151430 extends AbstractMigration
+final class Version20201030100335 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -25,6 +25,7 @@ final class Version20201029151430 extends AbstractMigration
         $this->addSql('CREATE TABLE comments (id INT AUTO_INCREMENT NOT NULL, id_ingredient_id INT DEFAULT NULL, id_recipe_id INT DEFAULT NULL, content VARCHAR(255) NOT NULL, date_creation DATETIME NOT NULL, INDEX IDX_5F9E962A2D1731E9 (id_ingredient_id), INDEX IDX_5F9E962AD9ED1E33 (id_recipe_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE favorites (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE grocery_list (id INT AUTO_INCREMENT NOT NULL, id_ingredient_id INT NOT NULL, id_user_id INT NOT NULL, quantity INT NOT NULL, INDEX IDX_D44D068C2D1731E9 (id_ingredient_id), UNIQUE INDEX UNIQ_D44D068C79F37AE5 (id_user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE ingredient_category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE ingredient_recipe (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE ingredients (id INT AUTO_INCREMENT NOT NULL, category_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, price NUMERIC(6, 2) DEFAULT NULL, temp_min INT DEFAULT NULL, temp_max INT DEFAULT NULL, shelf_life INT DEFAULT NULL, picture VARCHAR(255) DEFAULT NULL, INDEX IDX_4B60114F12469DE2 (category_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE orders (id INT AUTO_INCREMENT NOT NULL, order_date DATETIME NOT NULL, delivery_addres VARCHAR(255) NOT NULL, delivery_date DATETIME DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -60,6 +61,7 @@ final class Version20201029151430 extends AbstractMigration
         $this->addSql('DROP TABLE comments');
         $this->addSql('DROP TABLE favorites');
         $this->addSql('DROP TABLE grocery_list');
+        $this->addSql('DROP TABLE ingredient_category');
         $this->addSql('DROP TABLE ingredient_recipe');
         $this->addSql('DROP TABLE ingredients');
         $this->addSql('DROP TABLE orders');
