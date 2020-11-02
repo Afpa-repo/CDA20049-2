@@ -17,6 +17,5 @@ import 'jquery';
 import $ from 'jquery';
 
 $(document).ready(function(){
-    $(".dropdown-trigger").dropdown();
     $('.sidenav').sidenav();
 });
