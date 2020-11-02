@@ -6,17 +6,17 @@
  */
 
 // any CSS you import will output into a single css file (app.scss in this case)
-
 import 'materialize-css';
 import 'materialize-css/sass/materialize.scss';
+import '../styles/ContactM.scss';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import 'jquery';
-import '../styles/app.scss';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-});
+//Manage redirection to details pages after clicking on a card
+//$(".card").click(function () {console.log(this.children('p'))});
+
+//Manage category active link status

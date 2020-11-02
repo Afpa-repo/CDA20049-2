@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Recipes;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,11 +13,13 @@ class RecipesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idCategory')
+
             ->add('idAuthor')
             ->add('name')
-            ->add('picture')
+            ->add('category')
             ->add('instructions')
+            ->add('picture')
+
         ;
     }
 

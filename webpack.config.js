@@ -27,6 +27,9 @@ Encore
     .addEntry('RecipesIngredientsMenu', './assets/js/RecipesIngredientsMenu.js')
     .addEntry('HomeMenu', './assets/js/HomeMenu.js')
     .addEntry('RecipesDetails', './assets/js/RecipesDetails.js')
+    .addEntry('ContactM', './assets/js/ContactM.js')
+    .addEntry('base', './assets/js/base.js')
+
     //.addEntry('page2', './assets/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
