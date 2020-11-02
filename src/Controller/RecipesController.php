@@ -16,26 +16,26 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecipesController extends AbstractController
 {
     /**
-     * @Route("/page_{CurrentPage}", name="recipes_index", methods={"GET"})
+     * @Route("/page_{currentPage}", name="recipes_index", methods={"GET"})
      */
-    public function index(RecipesRepository $recipesRepository, $CurrentPage = false): Response // $CurrentPage is optional
+    public function index(RecipesRepository $recipesRepository, $currentPage = false): Response // $CurrentPage is optional
     {
-        $limit = 9; // Set the number of recipes per page
+        $numberElements = 9; // Set the number of recipes per page
 
         // Calculation of the proper offset to browse through recipes from database
-        if($CurrentPage == 1 || !isset($CurrentPage) || !$CurrentPage){ //If CurrentPage is 1 or unset or false
+        if($currentPage == 1 || !isset($currentPage) || !$currentPage){ //If CurrentPage is 1 or unset or false
             $offset = 0;
         } else{ // Else offset is set using the limit variable
-            $offset = $CurrentPage-2 + $limit;
+            $offset = $currentPage-2 + $numberElements;
         }
 
         $nbRecipes = $recipesRepository->countElement(); // Count recipes in DB
-        $nbPage = intval(ceil(intval($nbRecipes[0][1])/$limit)); // Count necessary number of pages
+        $nbPage = intval(ceil(intval($nbRecipes[0][1])/$numberElements)); // Count necessary number of pages
 
         return $this->render('recipes/index.html.twig', [
-            'recipes' => $recipesRepository->findLimit($limit,$offset),
+            'recipes' => $recipesRepository->findLimit($numberElements,$offset,1),
             'nbPage' => $nbPage,
-            'CurrentPage' => $CurrentPage
+            'currentPage' => $currentPage
         ]);
     }
 

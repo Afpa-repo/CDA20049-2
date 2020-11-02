@@ -19,3 +19,5 @@ ___
 <https://symfony.com/doc/current/frontend.html>
 2. doctrine-enum-bundle - V.6.6.4
 <https://packagist.org/packages/fresh/doctrine-enum-bundle#v6.6.4>
+
+A TESTER : LiipImagineBundle => dimensionnement d'image à l'upload
