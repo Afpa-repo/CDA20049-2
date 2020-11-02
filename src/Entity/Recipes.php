@@ -19,8 +19,6 @@ class Recipes
      */
     private $id;
 
-
-
     /**
      * @ORM\Column(type="integer")
      */
@@ -52,9 +50,11 @@ class Recipes
     private $ingredient;
 
     /**
-     * @ORM\Column(type="simple_array", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $instructions = [];
+    private $instructions;
+
+
 
     public function __construct()
     {
@@ -65,15 +65,6 @@ class Recipes
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-
-
-    public function setIdCategory(?int $idCategory): self
-    {
-        $this->idCategory = $idCategory;
-
-        return $this;
     }
 
     public function getIdAuthor(): ?int
@@ -186,15 +177,16 @@ class Recipes
         return $this;
     }
 
-    public function getInstructions(): ?array
+    public function getInstructions(): ?string
     {
         return $this->instructions;
     }
 
-    public function setInstructions(?array $instructions): self
+    public function setInstructions(?string $instructions): self
     {
         $this->instructions = $instructions;
 
         return $this;
     }
+
 }
