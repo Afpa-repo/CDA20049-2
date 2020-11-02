@@ -37,11 +37,6 @@ class Recipes
     private $picture;
 
     /**
-     * @ORM\Column(type="json")
-     */
-    private $instructions = [];
-
-    /**
      * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="idRecipe")
      */
     private $relatedComments;
@@ -55,6 +50,11 @@ class Recipes
      * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="recipe")
      */
     private $ingredient;
+
+    /**
+     * @ORM\Column(type="simple_array", nullable=true)
+     */
+    private $instructions = [];
 
     public function __construct()
     {
@@ -112,17 +112,7 @@ class Recipes
         return $this;
     }
 
-    public function getInstructions(): ?array
-    {
-        return $this->instructions;
-    }
 
-    public function setInstructions(array $instructions): self
-    {
-        $this->instructions = $instructions;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Comments[]
@@ -192,6 +182,18 @@ class Recipes
                 $favorites->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getInstructions(): ?array
+    {
+        return $this->instructions;
+    }
+
+    public function setInstructions(?array $instructions): self
+    {
+        $this->instructions = $instructions;
 
         return $this;
     }
