@@ -51,9 +51,15 @@ class Recipes
      */
     private $category;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="recipe")
+     */
+    private $ingredient;
+
     public function __construct()
     {
         $this->relatedComments = new ArrayCollection();
+        $this->ingredient = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,6 +162,36 @@ class Recipes
     public function setCategory(?RecipeCategory $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favorites[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorites $favorites): self
+    {
+        if (!$this->favorites->contains($favorites)) {
+            $this->favorites[] = $favorites;
+            $favorites->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Favorites $favorites): self
+    {
+        if ($this->favorites->removeElement($favorites)) {
+            // set the owning side to null (unless already changed)
+            if ($favorites->getRecipe() === $this) {
+                $favorites->setRecipe(null);
+            }
+        }
 
         return $this;
     }

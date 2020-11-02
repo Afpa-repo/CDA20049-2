@@ -64,10 +64,16 @@ class Ingredients
      */
     private $Category;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="ingredient")
+     */
+    private $favorites;
+
     public function __construct()
     {
         $this->relatedCartItems = new ArrayCollection();
         $this->relatedGroceryLists = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -215,6 +221,36 @@ class Ingredients
     public function setCategory(?IngredientRecipe $Category): self
     {
         $this->Category = $Category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favorites[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorites $favorite): self
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites[] = $favorite;
+            $favorite->setIngredient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Favorites $favorite): self
+    {
+        if ($this->favorites->removeElement($favorite)) {
+            // set the owning side to null (unless already changed)
+            if ($favorite->getIngredient() === $this) {
+                $favorite->setIngredient(null);
+            }
+        }
 
         return $this;
     }

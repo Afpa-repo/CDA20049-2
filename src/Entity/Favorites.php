@@ -17,8 +17,42 @@ class Favorites
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=recipes::class, inversedBy="ingredient")
+     */
+    private $recipe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ingredients::class, inversedBy="favorites")
+     */
+    private $ingredient;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getRecipe(): ?recipes
+    {
+        return $this->recipe;
+    }
+
+    public function setRecipe(?recipes $recipe): self
+    {
+        $this->recipe = $recipe;
+
+        return $this;
+    }
+
+    public function getIngredient(): ?ingredients
+    {
+        return $this->ingredient;
+    }
+
+    public function setIngredient(?ingredients $ingredient): self
+    {
+        $this->ingredient = $ingredient;
+
+        return $this;
     }
 }
