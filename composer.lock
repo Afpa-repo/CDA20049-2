@@ -4,7 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
     "content-hash": "2df6a8735ada5f69c5edb2702dd5629a",
+
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1462,6 +1464,7 @@
                 "validation",
                 "validator"
             ],
+
             "support": {
                 "issues": "https://github.com/egulias/EmailValidator/issues",
                 "source": "https://github.com/egulias/EmailValidator/tree/2.1.23"
@@ -1562,6 +1565,7 @@
                 }
             ],
             "time": "2020-09-25T09:03:32+00:00"
+
         },
         {
             "name": "laminas/laminas-code",
