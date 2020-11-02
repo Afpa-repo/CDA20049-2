@@ -1,0 +1,44 @@
+//Colors used in page
+$main-orange : #F27507;
+$active-link-color: #b35b18;
+
+img {
+  padding-top: 1rem;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.contactbox {
+  box-shadow: 0px 2px 5px black;
+  padding: 10px 10px 10px 5px;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-size: 1.2rem;
+}
+button {
+  margin-top: 1rem;
+  padding: 10px 10px 10px 10px;
+  background: #488C03;
+  font-family: Roboto;
+  font-size: 2rem;
+  color: white;
+  border-radius: 10px;
+}
+textarea {
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px black;
+  font-family: Roboto;
+  height:5rem;
+}
+label {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+input{
+  &:focus{
+    border-bottom-color: $main-orange !important;
+    box-shadow: 0 2px 0 0 $main-orange !important;
+    transition: all 0.6s ease-in-out
+  }}
