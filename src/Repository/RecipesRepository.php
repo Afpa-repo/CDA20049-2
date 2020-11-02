@@ -19,17 +19,28 @@ class RecipesRepository extends ServiceEntityRepository
         parent::__construct($registry, Recipes::class);
     }
 
-    /*
-      * @return Recipes[] Returns an array of Recipes objects
+    /**
+     * @label ('Return $limit element from recipes, starting at $offset index')
+     * @param integer limit - number of returned recipes
+     * @param integer offset - starting index for returned element
+     * @param integer category - (OPTIONAL) ID of the category
+     * @return Returns An array of {$limit} Recipes objects starting at {$offset} index
     */
-    public function findLimit($numberElements,$offset)
+    public function findLimit($numberElements,$offset,$category = false)
     {
-        // automatically knows to select Products
+        // automatically knows to select Recipes
         // the "r" is an alias you'll use in the rest of the query
 
+        if(!$category){
+            $qb = $this->createQueryBuilder('r')
+                ->setFirstResult( $offset )
+                ->setMaxResults( $numberElements );
+        }
         $qb = $this->createQueryBuilder('r')
+            ->where('r.category = :category')
             ->setFirstResult( $offset )
-            ->setMaxResults( $numberElements );
+            ->setMaxResults( $numberElements )
+            ->setParameter('category',$category);
 
         $query = $qb->getQuery();
 
