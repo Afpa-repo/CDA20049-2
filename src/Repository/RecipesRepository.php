@@ -28,32 +28,37 @@ class RecipesRepository extends ServiceEntityRepository
     */
     public function findLimit($numberElements,$offset,$category = false)
     {
-        // automatically knows to select Recipes
-        // the "r" is an alias you'll use in the rest of the query
-
-        if(!$category){
-            $qb = $this->createQueryBuilder('r')
-                ->setFirstResult( $offset )
-                ->setMaxResults( $numberElements );
-        }
+        // Find elements from all categories with limit and offset
         $qb = $this->createQueryBuilder('r')
-            ->where('r.category = :category')
             ->setFirstResult( $offset )
-            ->setMaxResults( $numberElements )
-            ->setParameter('category',$category);
+            ->setMaxResults( $numberElements );
+
+        // Add a category criteria if needed
+        if($category){
+            $qb = $qb->where('r.category = :category')
+                ->setParameter('category', $category);
+        }
 
         $query = $qb->getQuery();
 
         return $query->execute();
     }
 
-    /*
-      * @return the number of elements in Recipes
+    /**
+     * @param integer category - (OPTIONAL) ID of the category
+     * @return the number of elements in Recipes
     */
-    public function countElement()
+    public function countElement($category = false)
     {
-        $qb = $this->createQueryBuilder('r')
-            ->select('count(r.id)');
+        if(!$category || $category === 0){
+            $qb = $this->createQueryBuilder('r')
+                ->select('count(r.id)');
+        }else{
+            $qb = $this->createQueryBuilder('r')
+                ->select('count(r.id)')
+                ->where('r.category = :category')
+                ->setParameter('category',$category);
+        }
 
         $query = $qb->getQuery();
 

@@ -19,8 +19,23 @@ import $ from 'jquery';
 //Manage redirection to details pages after clicking on a card
 //$(".card").click(function () {console.log(this.children('p'))});
 
-//Manage category active link status
-$(".category li").click(function (){
-    $(this).addClass('active');
-    $(this).siblings('li').removeClass('active');
+//Manage AJAX request when selecting a specific category
+$(".category li").click(function () {
+    let idCategory = $(this).attr('id'); // Get the ID of the selected category in menu
+    let requestCategory = $.ajax({
+        url: "AJAXCategoryID",
+        method: "POST",
+        async: true,
+        data: {idCategory: idCategory}
+        });
+
+    requestCategory.done(function (serverData) {
+        $('#contentAJAX').html(serverData); //Select and change the hmtl content of the #contentAJAX div
+
+    });
+
+    requestCategory.fail(function () {
+        alert("Request failed");
+    });
+
 });

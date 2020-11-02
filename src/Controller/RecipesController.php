@@ -4,11 +4,18 @@ namespace App\Controller;
 
 use App\Entity\Recipes;
 use App\Form\RecipesType;
+use App\Repository\RecipeCategoryRepository;
 use App\Repository\RecipesRepository;
+use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\LazyProxy\Instantiator\RealServiceInstantiator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/recipes")
@@ -18,9 +25,12 @@ class RecipesController extends AbstractController
     /**
      * @Route("/page_{currentPage}", name="recipes_index", methods={"GET"})
      */
-    public function index(RecipesRepository $recipesRepository, $currentPage = false): Response // $CurrentPage is optional
+    public function index(RecipesRepository $recipesRepository,RecipeCategoryRepository $recipeCategoryRepository,$currentPage = false): Response // $CurrentPage is optional
     {
+        $categoriesList= $recipeCategoryRepository->findAll(); // Find all categories in DB
         $numberElements = 9; // Set the number of recipes per page
+        $nbRecipes = $recipesRepository->countElement(); // Count recipes in DB
+        $nbPage = intval(ceil(intval($nbRecipes[0][1])/$numberElements)); // Count necessary number of pages
 
         // Calculation of the proper offset to browse through recipes from database
         if($currentPage == 1 || !isset($currentPage) || !$currentPage){ //If CurrentPage is 1 or unset or false
@@ -29,13 +39,49 @@ class RecipesController extends AbstractController
             $offset = $currentPage-2 + $numberElements;
         }
 
+        return $this->render('recipes/index.html.twig', [
+            'recipes' => $recipesRepository->findLimit($numberElements,$offset),
+            'nbPage' => $nbPage,
+            'currentPage' => $currentPage,
+            'nbRecipes' =>$nbRecipes,
+            'categories'=>$categoriesList,
+        ]);
+    }
+
+    /**
+     * @Route("/AJAXCategoryID", name="AJAX_Category_ID", methods={"GET","POST"})
+     */
+    public function AJAXCategorySelected(RecipesRepository $recipesRepository,RecipeCategoryRepository $recipeCategoryRepository,Request $request) :Response
+    {
+        $categoriesList= $recipeCategoryRepository->findAll(); //Find all categories in DB
+        $numberElements = 9; // Set the number of recipes per page
         $nbRecipes = $recipesRepository->countElement(); // Count recipes in DB
-        $nbPage = intval(ceil(intval($nbRecipes[0][1])/$numberElements)); // Count necessary number of pages
+        $nbPage = ceil(intval($nbRecipes[0][1])/$numberElements); // Count necessary number of pages
+
+        if($request->isXmlHttpRequest()) {
+            $idCategory = $request->request->get('idCategory');
+
+            if($idCategory != 0){ // If not 'All' category
+                $nbRecipes = $recipesRepository->countElement($idCategory); // Count recipes in DB for this category
+
+            }
+
+            return $this->render('recipes/indexAJAX.html.twig', [
+                'recipes' => $recipesRepository->findLimit($numberElements,0,$idCategory),
+                'nbPage' => $nbPage,
+                'currentPage' => 1,
+                'nbRecipes' =>$nbRecipes,
+                'idCategory' => intval($idCategory),
+                'categories'=>$categoriesList,
+                ]);
+        }
 
         return $this->render('recipes/index.html.twig', [
-            'recipes' => $recipesRepository->findLimit($numberElements,$offset,1),
+            'recipes' => $recipesRepository->findLimit(9,0),
             'nbPage' => $nbPage,
-            'currentPage' => $currentPage
+            'currentPage' => 1,
+            'nbRecipes' =>$nbRecipes,
+            'categories'=>$categoriesList,
         ]);
     }
 

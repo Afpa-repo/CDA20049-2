@@ -1,7 +1,3 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Recipes Menu{% endblock %}
-
 {% block stylesheets %}
     {{ encore_entry_link_tags('RecipesIngredientsMenu') }}
 {% endblock %}
@@ -11,9 +7,13 @@
             <div class="col s12 l3 category">
                 <h1>Category</h1>
                 <ul>
-                        <li class="col s2 m2 l12 active" id="0"><a href="#">All</a></li>
+                    <li class="col s2 m2 l12" id="0"><a href="#">All</a></li>
                     {% for category in categories %}
-                        <li class="col s3 l12" id="{{ category.id }}"><a href="#">{{ category.name }}</a></li>
+                        {% if category.id == idCategory %}
+                            <li class="col s3 l12 active" id="{{ category.id }}"><a href="#">{{ category.name }}</a></li>
+                        {% else %}
+                            <li class="col s3 l12" id="{{ category.id }}"><a href="#">{{ category.name }}</a></li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </div>
