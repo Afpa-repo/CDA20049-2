@@ -12,12 +12,11 @@ ___
 1. Npm v.6.14.8
     1. "sass-loader": "^9.0.1",
 1. JQUERY v.3.5.1
-
+1. Vue.js v.2.6.12
 ___
 ### Bundles installés
 1. webpack-Encore-Bundle v.1.7.3
 <https://symfony.com/doc/current/frontend.html>
-2. doctrine-enum-bundle - V.6.6.4
-<https://packagist.org/packages/fresh/doctrine-enum-bundle#v6.6.4>
 
 A TESTER : LiipImagineBundle => dimensionnement d'image à l'upload
+A TESTER : KNP Paginator => gestion pagination PHP

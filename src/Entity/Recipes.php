@@ -47,7 +47,7 @@ class Recipes
     private $relatedComments;
 
     /**
-     * @ORM\ManyToOne(targetEntity=RecipeCategory::class, inversedBy="relatedRecipes")
+     * @ORM\ManyToOne(targetEntity=RecipeCategory::class, inversedBy="relatedRecipes", fetch="EAGER")
      */
     private $category;
 
