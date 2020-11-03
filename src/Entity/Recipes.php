@@ -19,8 +19,6 @@ class Recipes
      */
     private $id;
 
-
-
     /**
      * @ORM\Column(type="integer")
      */
@@ -37,9 +35,9 @@ class Recipes
     private $picture;
 
     /**
-     * @ORM\Column(type="json")
+     *  @ORM\Column(type="text", nullable=true)
      */
-    private $instructions = [];
+    private $instructions;
 
     /**
      * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="idRecipe")
@@ -65,15 +63,6 @@ class Recipes
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-
-
-    public function setIdCategory(?int $idCategory): self
-    {
-        $this->idCategory = $idCategory;
-
-        return $this;
     }
 
     public function getIdAuthor(): ?int
@@ -108,18 +97,6 @@ class Recipes
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getInstructions(): ?array
-    {
-        return $this->instructions;
-    }
-
-    public function setInstructions(array $instructions): self
-    {
-        $this->instructions = $instructions;
 
         return $this;
     }
@@ -192,6 +169,18 @@ class Recipes
                 $favorites->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getInstructions(): ?string
+    {
+        return $this->instructions;
+    }
+
+    public function setInstructions(?string $instructions): self
+    {
+        $this->instructions = $instructions;
 
         return $this;
     }
