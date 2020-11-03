@@ -71,11 +71,17 @@ class Ingredients
      */
     private $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Recipes::class, inversedBy="ingredients")
+     */
+    private $IngRec;
+
     public function __construct()
     {
         $this->relatedCartItems = new ArrayCollection();
         $this->relatedGroceryLists = new ArrayCollection();
         $this->favorites = new ArrayCollection();
+        $this->IngRec = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -253,6 +259,30 @@ class Ingredients
     public function setCategory(?IngredientCategory $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Recipes[]
+     */
+    public function getIngRec(): Collection
+    {
+        return $this->IngRec;
+    }
+
+    public function addIngRec(Recipes $ingRec): self
+    {
+        if (!$this->IngRec->contains($ingRec)) {
+            $this->IngRec[] = $ingRec;
+        }
+
+        return $this;
+    }
+
+    public function removeIngRec(Recipes $ingRec): self
+    {
+        $this->IngRec->removeElement($ingRec);
 
         return $this;
     }
