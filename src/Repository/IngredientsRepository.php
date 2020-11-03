@@ -35,7 +35,7 @@ class IngredientsRepository extends ServiceEntityRepository
 
         // Add a category criteria if needed
         if($category){
-            $qb = $qb->where('i.Category = :category')
+            $qb = $qb->where('i.category = :category')
                 ->setParameter('category', $category);
         }
 
@@ -56,7 +56,7 @@ class IngredientsRepository extends ServiceEntityRepository
         }else{
             $qb = $this->createQueryBuilder('i')
                 ->select('count(i.id)')
-                ->where('i.Category = :category')
+                ->where('i.category = :category')
                 ->setParameter('category',$category);
         }
 
