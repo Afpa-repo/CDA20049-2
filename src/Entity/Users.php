@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +53,22 @@ class Users
      * @ORM\OneToOne(targetEntity=GroceryList::class, mappedBy="idUser", cascade={"persist", "remove"})
      */
     private $groceryList;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Ingredients::class, mappedBy="favorites")
+     */
+    private $ingredients;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Recipes::class, mappedBy="favorites")
+     */
+    private $recipes;
+
+    public function __construct()
+    {
+        $this->ingredients = new ArrayCollection();
+        $this->recipes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -141,6 +159,60 @@ class Users
         // set the owning side of the relation if necessary
         if ($groceryList->getIdUser() !== $this) {
             $groceryList->setIdUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ingredients[]
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredients $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->addFavorite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredients $ingredient): self
+    {
+        if ($this->ingredients->removeElement($ingredient)) {
+            $ingredient->removeFavorite($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Recipes[]
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipes $recipe): self
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes[] = $recipe;
+            $recipe->addFavorite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipes $recipe): self
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            $recipe->removeFavorite($this);
         }
 
         return $this;
