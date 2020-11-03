@@ -29,7 +29,7 @@ class GroceryList
     private $idIngredient;
 
     /**
-     * @ORM\OneToOne(targetEntity=users::class, inversedBy="groceryList", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Users::class, inversedBy="groceryList", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $idUser;
@@ -68,7 +68,7 @@ class GroceryList
         return $this->idUser;
     }
 
-    public function setIdUser(users $idUser): self
+    public function setIdUser(Users $idUser): self
     {
         $this->idUser = $idUser;
 

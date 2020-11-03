@@ -34,7 +34,7 @@ class CartItems
     private $idIngredient;
 
     /**
-     * @ORM\ManyToOne(targetEntity=cart::class, inversedBy="relatedCartItems")
+     * @ORM\ManyToOne(targetEntity=Cart::class, inversedBy="relatedCartItems")
      * @ORM\JoinColumn(nullable=false)
      */
     private $idCart;
