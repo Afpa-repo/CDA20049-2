@@ -59,21 +59,29 @@ class Ingredients
      */
     private $relatedGroceryLists;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=IngredientRecipe::class, inversedBy="RelatedIngredients")
-     */
-    private $Category;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="ingredient")
      */
     private $favorites;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=IngredientCategory::class, inversedBy="RelatedIngredients")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Recipes::class, inversedBy="ingredients")
+     */
+    private $IngRec;
+
     public function __construct()
     {
         $this->relatedCartItems = new ArrayCollection();
         $this->relatedGroceryLists = new ArrayCollection();
         $this->favorites = new ArrayCollection();
+        $this->IngRec = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -213,18 +221,6 @@ class Ingredients
         return $this;
     }
 
-    public function getCategory(): ?IngredientRecipe
-    {
-        return $this->Category;
-    }
-
-    public function setCategory(?IngredientRecipe $Category): self
-    {
-        $this->Category = $Category;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Favorites[]
      */
@@ -251,6 +247,42 @@ class Ingredients
                 $favorite->setIngredient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?IngredientCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?IngredientCategory $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Recipes[]
+     */
+    public function getIngRec(): Collection
+    {
+        return $this->IngRec;
+    }
+
+    public function addIngRec(Recipes $ingRec): self
+    {
+        if (!$this->IngRec->contains($ingRec)) {
+            $this->IngRec[] = $ingRec;
+        }
+
+        return $this;
+    }
+
+    public function removeIngRec(Recipes $ingRec): self
+    {
+        $this->IngRec->removeElement($ingRec);
 
         return $this;
     }

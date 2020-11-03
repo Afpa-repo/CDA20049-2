@@ -54,10 +54,16 @@ class Recipes
      */
     private $ingredient;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Ingredients::class, mappedBy="IngRec")
+     */
+    private $ingredients;
+
     public function __construct()
     {
         $this->relatedComments = new ArrayCollection();
         $this->ingredient = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -181,6 +187,33 @@ class Recipes
     public function setInstructions(?string $instructions): self
     {
         $this->instructions = $instructions;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ingredients[]
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredients $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->addIngRec($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredients $ingredient): self
+    {
+        if ($this->ingredients->removeElement($ingredient)) {
+            $ingredient->removeIngRec($this);
+        }
 
         return $this;
     }
