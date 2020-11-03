@@ -28,7 +28,7 @@ $(".category li").click(function () {
 
     requestCategory.done(function (serverData) {
         console.log(serverData);
-        $('#contentAJAX').html(serverData); //Select and change the hmtl content of the #contentAJAX div
+        $('#contentAJAX').html(serverData); //Select and change the HTML content of the #contentAJAX div
 
     });
 

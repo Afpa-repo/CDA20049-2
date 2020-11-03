@@ -143,11 +143,13 @@ $active-link-color: #b35b18;
     .card{
         cursor: pointer;
         .card-image{
+            overflow: inherit;
+            max-height: 100%;
             img{
-                object-fit: cover;
-
+                object-fit:contain;
             }
         }
+
         &:hover{
             transition: transform 0.5s ease-in-out;
             transform-origin: center;

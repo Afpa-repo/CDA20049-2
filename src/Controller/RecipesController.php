@@ -57,6 +57,7 @@ class RecipesController extends AbstractController
 
             if($idCategory != 0){ // If not 'All' category
                 $nbRecipes = $recipesRepository->countElement($idCategory); // Count recipes in DB for this category
+                $nbPage = ceil(intval($nbRecipes[0][1])/$numberElements); // Count necessary number of pages
 
             }
 

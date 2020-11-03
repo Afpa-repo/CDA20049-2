@@ -3,11 +3,15 @@
 {% endblock %}
 {% block body %}
         <div id="contentAJAX" class ="row">
-
             <div class="col s12 l3 category">
                 <h1>Category</h1>
                 <ul>
+                    {% if idCategory == 0 %}
+                        <li class="col s2 m2 l12 active" id="0"><a href="#">All</a></li>
+                    {% else %}
                     <li class="col s2 m2 l12" id="0"><a href="#">All</a></li>
+                    {% endif %}
+
                     {% for category in categories %}
                         {% if category.id == idCategory %}
                             <li class="col s3 l12 active" id="{{ category.id }}"><a href="#">{{ category.name }}</a></li>
