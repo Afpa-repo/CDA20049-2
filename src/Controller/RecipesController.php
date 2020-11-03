@@ -6,16 +6,10 @@ use App\Entity\Recipes;
 use App\Form\RecipesType;
 use App\Repository\RecipeCategoryRepository;
 use App\Repository\RecipesRepository;
-use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\LazyProxy\Instantiator\RealServiceInstantiator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/recipes")
@@ -40,7 +34,7 @@ class RecipesController extends AbstractController
         }
 
         return $this->render('recipes/index.html.twig', [
-            'recipes' => $recipesRepository->findLimit($numberElements,$offset),
+            'recipes' => $recipesRepository->findRecipesCustom($numberElements,$offset),
             'nbPage' => $nbPage,
             'currentPage' => $currentPage,
             'nbRecipes' =>$nbRecipes,
@@ -49,7 +43,7 @@ class RecipesController extends AbstractController
     }
 
     /**
-     * @Route("/AJAXCategoryID", name="AJAX_Category_ID", methods={"GET","POST"})
+     * @Route("/AJAXCategoryID", name="AJAX_Category_ID_Recipes", methods={"GET","POST"})
      */
     public function AJAXCategorySelected(RecipesRepository $recipesRepository,RecipeCategoryRepository $recipeCategoryRepository,Request $request) :Response
     {
@@ -67,7 +61,7 @@ class RecipesController extends AbstractController
             }
 
             return $this->render('recipes/indexAJAX.html.twig', [
-                'recipes' => $recipesRepository->findLimit($numberElements,0,$idCategory),
+                'recipes' => $recipesRepository->findRecipesCustom($numberElements,0,$idCategory),
                 'nbPage' => $nbPage,
                 'currentPage' => 1,
                 'nbRecipes' =>$nbRecipes,

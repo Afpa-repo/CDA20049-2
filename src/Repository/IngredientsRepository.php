@@ -19,32 +19,49 @@ class IngredientsRepository extends ServiceEntityRepository
         parent::__construct($registry, Ingredients::class);
     }
 
-    // /**
-    //  * @return Ingredients[] Returns an array of Ingredients objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @label ('Return $limit element from ingredients, starting at $offset index')
+     * @param integer limit - number of returned recipes
+     * @param integer offset - starting index for returned element
+     * @param integer category - (OPTIONAL) ID of the category
+     * @return Returns An array of {$limit} Ingredients objects starting at {$offset} index
+     */
+    public function findIngredientsCustom($numberElements,$offset,$category = false)
     {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        // Find elements from all categories with limit and offset
+        $qb = $this->createQueryBuilder('i')
+            ->setFirstResult( $offset )
+            ->setMaxResults( $numberElements );
 
-    /*
-    public function findOneBySomeField($value): ?Ingredients
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        // Add a category criteria if needed
+        if($category){
+            $qb = $qb->where('i.Category = :category')
+                ->setParameter('category', $category);
+        }
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
     }
-    */
+
+    /**
+     * @param integer category - (OPTIONAL) ID of the category
+     * @return the number of elements in Ingredients
+     */
+    public function countElement($category = false)
+    {
+        if(!$category || $category === 0){
+            $qb = $this->createQueryBuilder('i')
+                ->select('count(i.id)');
+        }else{
+            $qb = $this->createQueryBuilder('i')
+                ->select('count(i.id)')
+                ->where('i.Category = :category')
+                ->setParameter('category',$category);
+        }
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 }

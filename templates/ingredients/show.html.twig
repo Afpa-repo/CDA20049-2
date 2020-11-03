@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipes Menu{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('RecipesDetails') }}
+
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col s3 center-align leftMenu">
+            <h1>{{ ingredient.name }}</h1>
+            <img src="/pictures/{{ ingredient.picture }}">
+            <div>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="#">Instructions</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Ingredients</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Comments</a>
+            </div>
+        </div>
+
+        <div class="col s9 embed">
+            {% block content %}
+                {% embed "ingredients_details/instructions.html.twig" %}
+
+                {% endembed %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="row">
+        <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="{{ path('ingredients_index') }}">back to list</a>
+        <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('ingredients_edit', {'id': ingredient.id}) }}">edit</a>
+    </div>
+
+    {{ include('ingredients/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('RecipesDetails') }}
+{% endblock %}

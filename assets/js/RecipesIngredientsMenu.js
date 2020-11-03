@@ -16,9 +16,6 @@ import 'jquery';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
-//Manage redirection to details pages after clicking on a card
-//$(".card").click(function () {console.log(this.children('p'))});
-
 //Manage AJAX request when selecting a specific category
 $(".category li").click(function () {
     let idCategory = $(this).attr('id'); // Get the ID of the selected category in menu
@@ -30,6 +27,7 @@ $(".category li").click(function () {
         });
 
     requestCategory.done(function (serverData) {
+        console.log(serverData);
         $('#contentAJAX').html(serverData); //Select and change the hmtl content of the #contentAJAX div
 
     });

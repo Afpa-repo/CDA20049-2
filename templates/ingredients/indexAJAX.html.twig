@@ -1,0 +1,75 @@
+{% block stylesheets %}
+    {{ encore_entry_link_tags('RecipesIngredientsMenu') }}
+{% endblock %}
+{% block body %}
+        <div id="contentAJAX" class ="row">
+
+            <div class="col s12 l3 category">
+                <h1>Category</h1>
+                <ul>
+                    <li class="col s2 m2 l12" id="0"><a href="#">All</a></li>
+                    {% for category in categories %}
+                        {% if category.id == idCategory %}
+                            <li class="col s3 l12 active" id="{{ category.id }}"><a href="#">{{ category.name }}</a></li>
+                        {% else %}
+                            <li class="col s3 l12" id="{{ category.id }}"><a href="#">{{ category.name }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col s12 l9 list">
+                <div>
+                    <div class="searchbar input-field">
+                        <i class="fas fa-search prefix active"></i>
+                        <label for="search" hidden>Search</label>
+                        <input id="search" type="text" placeholder="type your search here...">
+                    </div>
+                </div>
+
+                <div class="row items">
+                    {% for ingredient in ingredients %}
+                        <div class="col s6 l4">
+                            <a href="{{ path('ingredients_show', {'id': ingredient.id}) }}" class="card-title">
+                                <div class="card hoverable">
+                                    <div class="card-image">
+                                        <img src="/pictures/{{ ingredient.picture }}" alt="{{ ingredient.picture }}" >
+                                    </div>
+                                    <div class="card-action">
+                                        {{ ingredient.name }}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="pageSelection center-align col s8 offset-s2 m6 offset-m3 l6 offset-l3 xl4 offset-xl4">
+                    <ul class="pagination">
+                        {% if currentPage-1 >= 1 %}
+                            <li class="ArrowPrevious"><a href="{{ path('ingredients_index', {'currentPage': currentPage-1}) }}"><i class="fas fa-angle-left fa-2x"></i></a></li>
+                        {% else %}
+                            <li class="ArrowPrevious disable"><i class="fas fa-angle-left fa-2x"></i></li>
+                        {% endif %}
+                        {% for i in 1..nbPage %}
+                            {% if i == currentPage %}
+                            <li class="waves-effect active"><a href="{{ path('ingredients_index', {'currentPage': i}) }}">{{ i }}</a></li>
+                            {% else %}
+                            <li class="waves-effect"><a href="{{ path('ingredients_index', {'currentPage': i}) }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if currentPage+1 <= nbPage %}
+                            <li class="ArrowNext"><a href="{{ path('ingredients_index', {'currentPage': currentPage+1}) }}"><i class="fas fa-angle-right fa-2x"></i></a>
+                        {% else %}
+                            <li class="ArrowNext disable"><i class="fas fa-angle-right fa-2x"></i></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('RecipesIngredientsMenu') }}
+{% endblock %}

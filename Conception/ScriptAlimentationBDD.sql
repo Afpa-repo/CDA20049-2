@@ -32,3 +32,14 @@ VALUES (3,1,'Brussel Sprouts in Bacon and Garlic Sauce','ChickenFajitaStuffedBel
 (6,1,'Creamy Broccoli Spinach Soup','CreamyBroccoliSpinachSoup.png'),
 (6,1,'Creamy Broccoli Spinach Soup','CreamyBroccoliSpinachSoup.png'),
 (6,1,'Creamy Broccoli Spinach Soup','CreamyBroccoliSpinachSoup.png');
+
+INSERT INTO ingredients (category_id, name, picture)
+VALUES (2,'Pineapple','Pineapple.png'),
+       (2,'Kiwi','Kiwi.png'),
+       (4,'Onion','Onion.png'),
+       (2,'Orange','Orange.png'),
+       (2,'Cucumber','Cucumber.png'),
+       (2,'Tomato','Tomato.png'),
+       (2,'Melon','Melon.png'),
+       (3,'Pasta','Pasta.png'),
+       (2,'Pepper','Pepper.png');

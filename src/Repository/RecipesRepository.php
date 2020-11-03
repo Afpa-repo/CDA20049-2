@@ -26,7 +26,7 @@ class RecipesRepository extends ServiceEntityRepository
      * @param integer category - (OPTIONAL) ID of the category
      * @return Returns An array of {$limit} Recipes objects starting at {$offset} index
     */
-    public function findLimit($numberElements,$offset,$category = false)
+    public function findRecipesCustom($numberElements,$offset,$category = false)
     {
         // Find elements from all categories with limit and offset
         $qb = $this->createQueryBuilder('r')
@@ -64,16 +64,4 @@ class RecipesRepository extends ServiceEntityRepository
 
         return $query->execute();
     }
-
-    /*
-    public function findOneBySomeField($value): ?Recipes
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
