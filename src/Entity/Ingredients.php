@@ -59,15 +59,17 @@ class Ingredients
      */
     private $relatedGroceryLists;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=IngredientRecipe::class, inversedBy="RelatedIngredients")
-     */
-    private $Category;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="ingredient")
      */
     private $favorites;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=IngredientCategory::class, inversedBy="RelatedIngredients")
+     */
+    private $category;
 
     public function __construct()
     {
@@ -213,18 +215,6 @@ class Ingredients
         return $this;
     }
 
-    public function getCategory(): ?IngredientRecipe
-    {
-        return $this->Category;
-    }
-
-    public function setCategory(?IngredientRecipe $Category): self
-    {
-        $this->Category = $Category;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Favorites[]
      */
@@ -251,6 +241,18 @@ class Ingredients
                 $favorite->setIngredient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?IngredientCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?IngredientCategory $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
