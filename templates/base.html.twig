@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Meal With{% endblock %}</title>
-    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('base') }}
     {% block stylesheets %}
 
     {% endblock %}
@@ -29,9 +29,7 @@
 
 {% block body %}{% endblock %}
 
-{{ encore_entry_script_tags('app') }}
-
-{% block javascripts %}{% endblock %}
+{{ encore_entry_script_tags('base') }}
 
 </body>
 </html>

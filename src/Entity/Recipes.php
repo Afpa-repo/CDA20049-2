@@ -35,11 +35,6 @@ class Recipes
     private $picture;
 
     /**
-     *  @ORM\Column(type="text", nullable=true)
-     */
-    private $instructions;
-
-    /**
      * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="idRecipe")
      */
     private $relatedComments;
@@ -53,6 +48,11 @@ class Recipes
      * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="recipe")
      */
     private $ingredient;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $instructions;
 
     public function __construct()
     {

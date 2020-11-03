@@ -17,8 +17,7 @@ class RecipesType extends AbstractType
             ->add('name')
             ->add('category')
             ->add('instructions')
-            ->add('picture')
-        ;
+            ->add('picture');
 
     }
 
