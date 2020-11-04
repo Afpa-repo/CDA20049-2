@@ -109,6 +109,7 @@ class IngredientsController extends AbstractController
      */
     public function show(Ingredients $ingredient): Response
     {
+
         return $this->render('ingredients/show.html.twig', [
             'ingredient' => $ingredient,
         ]);

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipes Menu{% endblock %}
+{% block title %}Recipes details{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('RecipesDetails') }}
@@ -69,7 +69,7 @@
                 <div class="row">
                     {% for i in 1..9%}
                         <div class="col s12 commentUser valign-wrapper">
-                            <img class="col s1 userImg" src="{{ asset('pictures/user1.png')}}">
+                            <img class="col s1 userImg" src="{{ asset('pictures/user'~loop.index~'.png')}}">
                             <div class="col s11">
                                 <div class="col s12 userRating">
                                     <img src="{{ asset('pictures/RatingStarFullIcon.svg') }}">
