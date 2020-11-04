@@ -21,3 +21,7 @@ ___
 
 A TESTER : LiipImagineBundle => dimensionnement d'image à l'upload
 A TESTER : KNP Paginator => gestion pagination PHP
+
+___
+### API Utilisée(s)
+1. Spoonacular <https://spoonacular.com/food-api/docs>
