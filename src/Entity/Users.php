@@ -6,11 +6,12 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
  */
-class Users
+class Users implements UserInterface
 {
     /**
      * @ORM\Id
@@ -20,54 +21,45 @@ class Users
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="json")
      */
-    private $firstname;
+    private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $lastname;
-
-    /**
-     * @ORM\Column(type="string", length=255)
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
     private $password;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="string", length=100)
      */
-    private $role = [];
+    private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=100)
      */
-    private $address;
+    private $lastname;
 
     /**
-     * @ORM\OneToOne(targetEntity=GroceryList::class, mappedBy="idUser", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity=Recipes::class, inversedBy="UsersFavorite")
      */
-    private $groceryList;
+    private $favoredRecipes;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Ingredients::class, mappedBy="favorites")
+     * @ORM\ManyToMany(targetEntity=Ingredients::class, inversedBy="UsersFavorite")
      */
-    private $ingredients;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Recipes::class, mappedBy="favorites")
-     */
-    private $recipes;
+    private $favoredIngredients;
 
     public function __construct()
     {
-        $this->ingredients = new ArrayCollection();
-        $this->recipes = new ArrayCollection();
+        $this->favoredRecipes = new ArrayCollection();
+        $this->favoredIngredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,12 +79,73 @@ class Users
         return $this;
     }
 
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
+    {
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
+    {
+        return (string) $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
     public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
-    public function setFirstname(?string $firstname): self
+    public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
 
@@ -111,55 +164,26 @@ class Users
         return $this;
     }
 
-    public function getPassword(): ?string
+    /**
+     * @return Collection|Recipes[]
+     */
+    public function getFavoredRecipes(): Collection
     {
-        return $this->password;
+        return $this->favoredRecipes;
     }
 
-    public function setPassword(string $password): self
+    public function addFavoredRecipe(Recipes $favoredRecipe): self
     {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getRole(): ?array
-    {
-        return $this->role;
-    }
-
-    public function setRole(array $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(?string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    public function getGroceryList(): ?GroceryList
-    {
-        return $this->groceryList;
-    }
-
-    public function setGroceryList(GroceryList $groceryList): self
-    {
-        $this->groceryList = $groceryList;
-
-        // set the owning side of the relation if necessary
-        if ($groceryList->getIdUser() !== $this) {
-            $groceryList->setIdUser($this);
+        if (!$this->favoredRecipes->contains($favoredRecipe)) {
+            $this->favoredRecipes[] = $favoredRecipe;
         }
+
+        return $this;
+    }
+
+    public function removeFavoredRecipe(Recipes $favoredRecipe): self
+    {
+        $this->favoredRecipes->removeElement($favoredRecipe);
 
         return $this;
     }
@@ -167,53 +191,23 @@ class Users
     /**
      * @return Collection|Ingredients[]
      */
-    public function getIngredients(): Collection
+    public function getFavoredIngredients(): Collection
     {
-        return $this->ingredients;
+        return $this->favoredIngredients;
     }
 
-    public function addIngredient(Ingredients $ingredient): self
+    public function addFavoredIngredient(Ingredients $favoredIngredient): self
     {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients[] = $ingredient;
-            $ingredient->addFavorite($this);
+        if (!$this->favoredIngredients->contains($favoredIngredient)) {
+            $this->favoredIngredients[] = $favoredIngredient;
         }
 
         return $this;
     }
 
-    public function removeIngredient(Ingredients $ingredient): self
+    public function removeFavoredIngredient(Ingredients $favoredIngredient): self
     {
-        if ($this->ingredients->removeElement($ingredient)) {
-            $ingredient->removeFavorite($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Recipes[]
-     */
-    public function getRecipes(): Collection
-    {
-        return $this->recipes;
-    }
-
-    public function addRecipe(Recipes $recipe): self
-    {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes[] = $recipe;
-            $recipe->addFavorite($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecipe(Recipes $recipe): self
-    {
-        if ($this->recipes->removeElement($recipe)) {
-            $recipe->removeFavorite($this);
-        }
+        $this->favoredIngredients->removeElement($favoredIngredient);
 
         return $this;
     }
