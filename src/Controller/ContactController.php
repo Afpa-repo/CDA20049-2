@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,12 +22,12 @@ class ContactController extends AbstractController
             $contact = $form->getData();
 
             //ici on envoie le mail
-            $message = (new \Swift_Message('comment'))
+            $message = (new \Swift_Message('Comment'))
                 //attribue l'expediteur
                 ->setFrom($contact['email'])
 
                 //attribue destinataire
-                ->setTo('testtestfabien@gmail.com')
+                ->setTo('reptail80hotmail@gmail.com')
 
                 //on cree le message
                 ->setBody(
@@ -39,7 +38,6 @@ class ContactController extends AbstractController
                 );
             //on envoie le message
             $mailer->send($message);
-            $this->addFlash('message', 'Le message a bien ete envoyer');
             return $this->redirectToRoute('home');
         }
         return $this->render('contact/index.html.twig', [

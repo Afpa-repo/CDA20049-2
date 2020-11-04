@@ -37,10 +37,7 @@
             <h1>Leave A Comment</h1>
             <p>Our staff will call back later and answer your questions.</p>
 
-            {{ form_start(contactForm) }}
-            <div class="my-custom-class-for-errors">
-                {{ form_errors(contactForm) }}
-            </div>
+            {{ form_start(contactForm, {'attr': {'novalidate': 'novalidate'}}) }}
 
             <div class="row">
                 <div class="col s12 m6">
