@@ -5,4 +5,26 @@ nav{
 }
 .nav-wrapper{
   background-color: $main-orange;
+  font-family: Roboto;
+  font-weight: bold;
+  a {
+    font-size: 1.5rem;
+  }
+
+}
+div {
+  .meal {
+    color: $main-orange !important;
+    font-size: 3rem;
+    font-family: Roboto;
+    font-weight: bold;
+    margin-bottom: -2rem;
+  }
+  .my {
+    color: $main-orange !important;
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
 }
