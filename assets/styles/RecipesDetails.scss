@@ -1,10 +1,5 @@
 @import 'const.scss';
 
-div.embed {
-    margin-top: 10px;
-    background-color: wheat;
-}
-
 .leftMenu{
     margin-top: 10px;
 
@@ -14,17 +9,129 @@ div.embed {
         filter: drop-shadow(10px 5px 5px black);
         text-align: center;
     }
+
     img{
         border-radius: 20px !important;
     }
 
-    a{
-        margin-top: 10px;
-        background-color: $main-orange;
-        border-radius: 20px;
+    .navigationBtn {
+        a {
+            margin-top: 10px;
+            background-color: $main-orange;
+            border-radius: 20px;
 
-        &:hover, &:focus, &.active{
-            background-color: darken($main-orange,20%);
+            &:hover, &:focus, &.active {
+                background-color: darken($main-orange, 20%);
+            }
+        }
+    }
+
+    .backBtn{
+        a{
+            margin-top: 50px;
+            background-color: grey;
+            border-radius: 20px;
+
+            &:hover{
+                background-color: darken(grey,20%);
+            }
+        }
+    }
+    .CRUD {
+        margin-top: 50px;
+
+        a{
+            margin-top: 10px;
+            background-color: darken(cyan,10%);
+            border-radius: 20px;
+
+            &:hover{
+                background-color: darken(cyan,30%);
+            }
+        }
+    }
+
+
+}
+
+#details {
+    scroll-behavior: smooth;
+    margin-top: 10px;
+    padding-top: 0;
+    max-height: 80vh;
+    overflow: auto;
+
+    h2{
+        font-size: 2rem;
+    }
+
+    #Instructions{
+        h2{
+            margin-top: 0;
+        }
+
+        .instructionNumber{
+            text-align: center;
+            font-size: 2rem;
+            line-height: 1rem;
+            padding: 0px;
+            font-weight: bold;
+        }
+
+        .instructionContent{
+            text-align: justify;
+        }
+    }
+
+    #Ingredients{
+        input{
+            text-align: center;
+
+            &::placeholder{
+                text-align: center;
+            }
+
+            &:focus{
+                border-bottom-color: $main-orange !important;
+                box-shadow: 0 2px 0 0 $main-orange !important;
+                background-color: lighten(#F2F2F2,30);
+                transition: all 0.6s ease-in-out;
+            }
+        }
+
+        .ingredientItem{
+            margin-top: 30px;
+
+            .ingredientName{
+                color: black ;
+            }
+        }
+
+        .btnMore, .btnLess{
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .btnMore{
+            background-color: #488C03;
+        }
+
+        .btnLess{
+            background-color: #BF0426;
+        }
+    }
+
+    #Comments{
+        .commentUser{
+            margin-top: 20px;
+        }
+    }
+
+    #Details{
+        img{
+           margin-top: 30px;
         }
     }
 }

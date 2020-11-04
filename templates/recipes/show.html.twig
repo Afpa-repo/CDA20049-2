@@ -12,28 +12,84 @@
         <div class="col s3 center-align leftMenu">
             <h1>{{ recipe.name }}</h1>
             <img src="/pictures/{{ recipe.picture }}">
-            <div>
-                <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="#">Instructions</a>
-                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Ingredients</a>
-                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Comments</a>
+            <div class="col s12 navigationBtn">
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Instructions">Instructions</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Ingredients">Ingredients</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Comments">Comments</a>
+            </div>
+            <div class="col s12 backBtn">
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('recipes_index') }}">back to list</a>
+            </div>
+            <div class="col s12 CRUD">
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('recipes_edit', {'id': recipe.id}) }}">edit</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="">{{ include('recipes/_delete_form.html.twig') }}</a>
             </div>
         </div>
 
-        <div class="col s9 embed">
-            {% block content %}
-                {% embed "recipes_details/instructions.html.twig" %}
+        <div class="col s9" id="details">
+            <section class="section" id="Instructions">
+                {#Section Instructions#}
+                <h2>Instructions</h2>
+                {% for i in 1..5 %}
+                <div class="row">
+                    <p class="col s1 instructionNumber">{{ i }}</p>
+                    <p class="col s11 instructionContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto aspernatur beatae deserunt distinctio dolore, eius illo, ipsam, necessitatibus ratione saepe sint unde veniam voluptatem de veniam voluptatemde veniam voluptatemde veniam voluptatemde veniam voluptatem</p>
+                </div>
+                {% endfor %}
+            </section>
 
-                {% endembed %}
-            {% endblock %}
+            {#Section Ingredients#}
+            <section class="section" id="Ingredients">
+                    <h2>Ingredients</h2>
+                <div class="row">
+                    <div class="col s2 recipeNbPerson valign-wrapper ">
+                        <button class="col s3 btnMore">+</button>
+                        <input class="col s3" type="text" placeholder="3">
+                        <button class="col s3 btnLess">-</button>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for i in 1..5%}
+                    <div class="col s8 ingredientItem valign-wrapper">
+                        <img class="col s4" src="{{ asset('pictures/Pineapple.png') }}">
+                        <p class="col s6 ingredientName left-align">Pineapple</p>
+                        <div class="col s2 ingredientQte valign-wrapper">
+                            <button class="col s3 btnMore center-align">+</button>
+                            <input class="col s3" type="text" placeholder="3">
+                            <button class="col s3 btnLess">-</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            {#Section Comments#}
+            <section class="section" id="Comments">
+                <h2>Comments</h2>
+                <div class="row">
+                    {% for i in 1..9%}
+                        <div class="col s12 commentUser valign-wrapper">
+                            <img class="col s1 userImg" src="{{ asset('pictures/user1.png')}}">
+                            <div class="col s11">
+                                <div class="col s12 userRating">
+                                    <img src="{{ asset('pictures/RatingStarFullIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarFullIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarFullIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarEmptyIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarEmptyIcon.svg') }}">
+                                </div>
+                                <p class="commentContent left-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi iste iure nulla odit repellat ullam. Ad beatae labore molestias nemo quam repellendus sed voluptatem?</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
         </div>
     </div>
 
-    <div class="row">
-        <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="{{ path('recipes_index') }}">back to list</a>
-        <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('recipes_edit', {'id': recipe.id}) }}">edit</a>
-    </div>
 
-    {{ include('recipes/_delete_form.html.twig') }}
+
+
 {% endblock %}
 
 {% block javascripts %}
