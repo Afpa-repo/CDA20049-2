@@ -33,13 +33,13 @@ VALUES (3,1,'Brussel Sprouts in Bacon and Garlic Sauce','ChickenFajitaStuffedBel
 (6,1,'Creamy Broccoli Spinach Soup','CreamyBroccoliSpinachSoup.png'),
 (6,1,'Creamy Broccoli Spinach Soup','CreamyBroccoliSpinachSoup.png');
 
-INSERT INTO ingredients (category_id, name, picture)
-VALUES (2,'Pineapple','Pineapple.png'),
-       (2,'Kiwi','Kiwi.png'),
-       (4,'Onion','Onion.png'),
-       (2,'Orange','Orange.png'),
-       (2,'Cucumber','Cucumber.png'),
-       (2,'Tomato','Tomato.png'),
-       (2,'Melon','Melon.png'),
-       (3,'Pasta','Pasta.png'),
-       (2,'Pepper','Pepper.png');
+INSERT INTO ingredients (category_id, name,price,temp_min,temp_max,shelf_life, picture)
+VALUES (2,'Pineapple',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Pineapple.png'),
+       (2,'Kiwi',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Kiwi.png'),
+       (4,'Onion',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Onion.png'),
+       (2,'Orange',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Orange.png'),
+       (2,'Cucumber',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Cucumber.png'),
+       (2,'Tomato',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Tomato.png'),
+       (2,'Melon',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Melon.png'),
+       (3,'Pasta',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Pasta.png'),
+       (2,'Pepper',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Pepper.png');

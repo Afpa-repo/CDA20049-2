@@ -12,28 +12,94 @@
         <div class="col s3 center-align leftMenu">
             <h1>{{ ingredient.name }}</h1>
             <img src="/pictures/{{ ingredient.picture }}">
-            <div>
-                <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="#">Instructions</a>
-                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Ingredients</a>
-                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#">Comments</a>
+            <div class="col s12 navigationBtn">
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Details">Details</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#topRecipes">Top recipes</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Comments">Comments</a>
+            </div>
+            <div class="col s12 backBtn">
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('ingredients_index') }}">back to list</a>
+            </div>
+            <div class="col s12 CRUD">
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('ingredients_edit', {'id': ingredient.id}) }}">edit</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="">{{ include('ingredients/_delete_form.html.twig') }}</a>
             </div>
         </div>
 
-        <div class="col s9 embed">
-            {% block content %}
-                {% embed "ingredients_details/instructions.html.twig" %}
+        <div class="col s9" id="details">
+            {#Section Properties#}
+            <section class="section" id="Details">
+                <h2>Details</h2>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="col s6 valign-wrapper">
+                            <img class="col s2" src="{{ asset('pictures/LocationIcon.svg') }}">
+                            <p class="col s10" >France</p>
+                        </div>
+                        <div class="col s6 valign-wrapper">
+                            <img class="col s2" src="{{ asset('pictures/PackageIcon.svg') }}">
+                            <p class="col s10" >Packed by 250 g</p>
+                        </div>
+                        <div class="col s6 valign-wrapper">
+                            <img class="col s2" src="{{ asset('pictures/TempIcon.svg') }}">
+                            <p class="col s10">Keep between <b>{{ ingredient.tempMin }}</b>°C and <b>{{ ingredient.tempMax }}</b>°C</p>
+                        </div>
+                        <div class="col s6 valign-wrapper">
+                            <img class="col s2" src="{{ asset('pictures/ClockIcon.svg') }}">
+                            <p class="col s10" >Shelf life : <b>{{ ingredient.shelfLife}}</b> days</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                {% endembed %}
-            {% endblock %}
+            {#Section Top Recipes#}
+            <section class="section" id="topRecipes">
+                <div class="row">
+                    <h2>Top recipes</h2>
+                    <div class="col s12">
+                        <div class="col s12 valign-wrapper">
+                            <img class="col s1" src="{{ asset('pictures/1posIcon.svg') }}">
+                            <a class="col s11" href="{{ path('recipes_show', {'id': 1}) }}">Recipe 1 - </a>
+                        </div>
+                        <div class="col s12 valign-wrapper">
+                            <img class="col s1" src="{{ asset('pictures/2posIcon.svg') }}">
+                            <a class="col s11" href="{{ path('recipes_show', {'id': 2}) }}">Recipe 2 - </a>
+                        </div>
+                        <div class="col s12 valign-wrapper">
+                            <img class="col s1" src="{{ asset('pictures/3posIcon.svg') }}">
+                            <a class="col s11" href="{{ path('recipes_show', {'id': 3}) }}">Recipe 3 - </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {#Section Comments#}
+            <section class="section" id="Comments">
+                <h2>Comments</h2>
+                <div class="row">
+                    {% for i in 1..9%}
+                        <div class="col s12 commentUser valign-wrapper">
+                            <img class="col s1 userImg" src="{{ asset('pictures/user1.png')}}">
+                            <div class="col s11">
+                                <div class="col s12 userRating">
+                                    <img src="{{ asset('pictures/RatingStarFullIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarFullIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarFullIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarEmptyIcon.svg') }}">
+                                    <img src="{{ asset('pictures/RatingStarEmptyIcon.svg') }}">
+                                </div>
+                                <p class="commentContent left-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi iste iure nulla odit repellat ullam. Ad beatae labore molestias nemo quam repellendus sed voluptatem?</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
         </div>
     </div>
 
-    <div class="row">
-        <a class="waves-effect waves-light btn-large col s6 offset-s3 active" href="{{ path('ingredients_index') }}">back to list</a>
-        <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('ingredients_edit', {'id': ingredient.id}) }}">edit</a>
-    </div>
 
-    {{ include('ingredients/_delete_form.html.twig') }}
+
+
 {% endblock %}
 
 {% block javascripts %}
