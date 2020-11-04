@@ -62,11 +62,6 @@ class Ingredients
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="ingredient")
-     */
-    private $favorites;
-
-    /**
      * @ORM\ManyToOne(targetEntity=IngredientCategory::class, inversedBy="RelatedIngredients")
      */
     private $category;
@@ -76,12 +71,19 @@ class Ingredients
      */
     private $IngRec;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Users::class, inversedBy="ingredients")
+     */
+    private $favorites;
+
+
+
     public function __construct()
     {
         $this->relatedCartItems = new ArrayCollection();
         $this->relatedGroceryLists = new ArrayCollection();
-        $this->favorites = new ArrayCollection();
         $this->IngRec = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -221,35 +223,6 @@ class Ingredients
         return $this;
     }
 
-    /**
-     * @return Collection|Favorites[]
-     */
-    public function getFavorites(): Collection
-    {
-        return $this->favorites;
-    }
-
-    public function addFavorite(Favorites $favorite): self
-    {
-        if (!$this->favorites->contains($favorite)) {
-            $this->favorites[] = $favorite;
-            $favorite->setIngredient($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFavorite(Favorites $favorite): self
-    {
-        if ($this->favorites->removeElement($favorite)) {
-            // set the owning side to null (unless already changed)
-            if ($favorite->getIngredient() === $this) {
-                $favorite->setIngredient(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getCategory(): ?IngredientCategory
     {
@@ -283,6 +256,30 @@ class Ingredients
     public function removeIngRec(Recipes $ingRec): self
     {
         $this->IngRec->removeElement($ingRec);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Users[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Users $favorite): self
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites[] = $favorite;
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Users $favorite): self
+    {
+        $this->favorites->removeElement($favorite);
 
         return $this;
     }

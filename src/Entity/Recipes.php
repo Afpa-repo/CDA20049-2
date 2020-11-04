@@ -50,20 +50,20 @@ class Recipes
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Favorites::class, mappedBy="recipe")
-     */
-    private $ingredient;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Ingredients::class, mappedBy="IngRec")
      */
     private $ingredients;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Users::class, inversedBy="recipes")
+     */
+    private $favorites;
+
     public function __construct()
     {
         $this->relatedComments = new ArrayCollection();
-        $this->ingredient = new ArrayCollection();
         $this->ingredients = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -149,35 +149,7 @@ class Recipes
         return $this;
     }
 
-    /**
-     * @return Collection|Favorites[]
-     */
-    public function getFavorites(): Collection
-    {
-        return $this->favorites;
-    }
 
-    public function addFavorite(Favorites $favorites): self
-    {
-        if (!$this->favorites->contains($favorites)) {
-            $this->favorites[] = $favorites;
-            $favorites->setRecipe($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFavorite(Favorites $favorites): self
-    {
-        if ($this->favorites->removeElement($favorites)) {
-            // set the owning side to null (unless already changed)
-            if ($favorites->getRecipe() === $this) {
-                $favorites->setRecipe(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getInstructions(): ?string
     {
@@ -214,6 +186,30 @@ class Recipes
         if ($this->ingredients->removeElement($ingredient)) {
             $ingredient->removeIngRec($this);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Users[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Users $favorite): self
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites[] = $favorite;
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Users $favorite): self
+    {
+        $this->favorites->removeElement($favorite);
 
         return $this;
     }
