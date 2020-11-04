@@ -57,11 +57,14 @@
                 <div class="row">
                     <h2>Top recipes</h2>
                     <div class="col s12">
+                        {# Show only top 3 most liked Recipes#}
                         {% for recipe in ingredient.ingRec %}
+                            {% if loop.index <=3 %}
                             <div class="col s12 valign-wrapper">
                                 <img class="col s1" src="{{ asset('pictures/'~ loop.index ~'posIcon.svg') }}">
                                 <a class="col s11" href="{{ path('recipes_show', {'id': recipe.id}) }}">Recipe {{ loop.index}} - {{ recipe.name }}</a>
                             </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>
