@@ -17,6 +17,7 @@ ___
 ### Bundles installés
 1. webpack-Encore-Bundle v.1.7.3
 <https://symfony.com/doc/current/frontend.html>
+1.security-bundle
 
 A TESTER : LiipImagineBundle => dimensionnement d'image à l'upload
 A TESTER : KNP Paginator => gestion pagination PHP
