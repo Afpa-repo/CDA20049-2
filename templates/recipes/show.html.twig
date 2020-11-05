@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col s3 center-align leftMenu">
             <h1>{{ recipe.name }}</h1>
-            <img src="/pictures/{{ recipe.picture }}" alt="Picture of the recipe">
+            <img src="/pictures/{{ recipe.picture }}" alt="Picture of {{ recipe.name }}">
             <div class="col s12 navigationBtn">
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Instructions">Instructions</a>
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Ingredients">Ingredients</a>
@@ -51,15 +51,21 @@
                 <div class="row">
                     {% for ingredient in recipe.ingredients %}
                     <div class="col s8 ingredientItem valign-wrapper">
-                        <img class="col s4" src="{{ asset('pictures/'~ ingredient.ingredient.picture) }}" alt="Picture of the ingredient">
-                        <p class="col s6 ingredientName left-align"><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a> - <b>{{ ingredient.quantity }} {{ ingredient.unit }}(s)</b></p>
+                        <img class="col s4" src="{{ asset('pictures/'~ ingredient.ingredient.picture) }}" alt="Picture of {{ ingredient.ingredient.name }}">
+                        <p class="col s4 ingredientName left-align"><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a> - <b>{{ ingredient.quantity }} {{ ingredient.unit }}(s)</b></p>
                         <div class="col s2 ingredientQte valign-wrapper">
-                            <button class="col s3 btnMore center-align">+</button>
+                            <button class="col s3 btnMore">+</button>
                             <input class="col s3" type="text" placeholder="{{ ingredient.quantity }}" value="{{ ingredient.quantity }}">
                             <button class="col s3 btnLess">-</button>
                         </div>
+                        <div class="col s2">
+                            <button class=" col s12 btnCart"><i class="fas fa-cart-plus"></i></button>
+                        </div>
                     </div>
                     {% endfor %}
+                    <div class="col s8 ingredientItem">
+                        <button class="col s2 offset-s10 btnCart">Add all to cart</button>
+                    </div>
                 </div>
             </section>
 
