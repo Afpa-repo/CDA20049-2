@@ -50,20 +50,21 @@ class Recipes
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Ingredients::class, mappedBy="IngRec")
+     * @ORM\ManyToMany(targetEntity=Users::class, mappedBy="favoredRecipes")
+     */
+    private $UsersFavorite;
+
+    /**
+     * @ORM\OneToMany(targetEntity=IngredientRecipe::class, mappedBy="recipe")
      */
     private $ingredients;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Users::class, inversedBy="recipes")
-     */
-    private $favorites;
 
     public function __construct()
     {
         $this->relatedComments = new ArrayCollection();
+        $this->UsersFavorite = new ArrayCollection();
         $this->ingredients = new ArrayCollection();
-        $this->favorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -149,8 +150,6 @@ class Recipes
         return $this;
     }
 
-
-
     public function getInstructions(): ?string
     {
         return $this->instructions;
@@ -164,52 +163,58 @@ class Recipes
     }
 
     /**
-     * @return Collection|Ingredients[]
+     * @return Collection|Users[]
      */
-    public function getIngredients(): Collection
+    public function getUsersFavorite(): Collection
     {
-        return $this->ingredients;
+        return $this->UsersFavorite;
     }
 
-    public function addIngredient(Ingredients $ingredient): self
+    public function addUsersFavorite(Users $usersFavorite): self
     {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients[] = $ingredient;
-            $ingredient->addIngRec($this);
+        if (!$this->UsersFavorite->contains($usersFavorite)) {
+            $this->UsersFavorite[] = $usersFavorite;
+            $usersFavorite->addFavoredRecipe($this);
         }
 
         return $this;
     }
 
-    public function removeIngredient(Ingredients $ingredient): self
+    public function removeUsersFavorite(Users $usersFavorite): self
     {
-        if ($this->ingredients->removeElement($ingredient)) {
-            $ingredient->removeIngRec($this);
+        if ($this->UsersFavorite->removeElement($usersFavorite)) {
+            $usersFavorite->removeFavoredRecipe($this);
         }
 
         return $this;
     }
 
     /**
-     * @return Collection|Users[]
+     * @return Collection|IngredientRecipe[]
      */
-    public function getFavorites(): Collection
+    public function getIngredients(): Collection
     {
-        return $this->favorites;
+        return $this->ingredients;
     }
 
-    public function addFavorite(Users $favorite): self
+    public function addIngredient(IngredientRecipe $ingredient): self
     {
-        if (!$this->favorites->contains($favorite)) {
-            $this->favorites[] = $favorite;
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->setRecipe($this);
         }
 
         return $this;
     }
 
-    public function removeFavorite(Users $favorite): self
+    public function removeIngredient(IngredientRecipe $ingredient): self
     {
-        $this->favorites->removeElement($favorite);
+        if ($this->ingredients->removeElement($ingredient)) {
+            // set the owning side to null (unless already changed)
+            if ($ingredient->getRecipe() === $this) {
+                $ingredient->setRecipe(null);
+            }
+        }
 
         return $this;
     }

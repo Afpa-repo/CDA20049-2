@@ -10,11 +10,34 @@
     {% endblock %}
 </head>
 <body>
+    {% block inscription %}{% endblock %}
 
     <div class="row">
-        <a class="col meal" id="appTitle" href="{{ path('home') }}"><img src="{{ asset('pictures/Logo.svg') }}">MealsWith</a>
-        <a class="col s2 right my" href=""><i class="fas fa-shopping-cart"></i> My cart</a>
-        <a class="col s2 right my" href=""><i class="far fa-user-circle"></i> My account</a>
+        <a class="col" id="appTitle" href="{{ path('home') }}"><img src="{{ asset('pictures/Logo.svg') }}">MealsWith</a>
+        <a class="col s2 right modal-trigger" href="#modalInscription"><i class="far fa-user-circle fa-2x"></i>My account</a>
+        <!-- Modal Structure -->
+        <div id="modalInscription" class="modal">
+            <div class="modal-content">
+                <h4>Inscription</h4>
+                <p>A bunch of text</p>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
+        <div id="modalConnexion" class="modal">
+            <div class="modal-content">
+                <h4>Connexion</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
+        <a class="col s2 right" href=""><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
     </div>
 
     <nav>
@@ -30,7 +53,7 @@
 
 {% block body %}{% endblock %}
 
-{{ encore_entry_script_tags('app') }}
+{{ encore_entry_script_tags('base') }}
 
 {% block javascripts %}{% endblock %}
 
