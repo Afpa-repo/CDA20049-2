@@ -58,11 +58,11 @@
                     <h2>Top recipes</h2>
                     <div class="col s12">
                         {# Show only top 3 most liked Recipes#}
-                        {% for recipe in ingredient.ingRec %}
+                        {% for recipe in ingredient.recipes %}
                             {% if loop.index <=3 %}
                             <div class="col s12 valign-wrapper">
                                 <img class="col s1" src="{{ asset('pictures/'~ loop.index ~'posIcon.svg') }}" alt="Position picture">
-                                <a class="col s11" href="{{ path('recipes_show', {'id': recipe.id}) }}">Recipe {{ loop.index}} - {{ recipe.name }}</a>
+                                <a class="col s11" href="{{ path('recipes_show', {'id': recipe.id}) }}">Recipe {{ loop.index}} - {{ recipe.getRecipe.name }}</a>
                             </div>
                             {% endif %}
                         {% endfor %}

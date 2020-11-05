@@ -14,14 +14,12 @@ ___
 1. JQUERY v.3.5.1
 1. Vue.js v.2.6.12
 ___
-### Bundles installés
-1. webpack-Encore-Bundle v.1.7.3
-<https://symfony.com/doc/current/frontend.html>
-1.security-bundle
+### Bundles installé(s)
+1. webpack-Encore-Bundle v.1.7.3 <https://symfony.com/doc/current/frontend.html>
+1. security-bundle <https://symfony.com/doc/current/security.html>
 
 A TESTER : LiipImagineBundle => dimensionnement d'image à l'upload
-A TESTER : KNP Paginator => gestion pagination PHP
 
 ___
-### API Utilisée(s)
+### API utilisée(s)
 1. Spoonacular <https://spoonacular.com/food-api/docs>
