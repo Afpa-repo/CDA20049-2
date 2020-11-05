@@ -49,13 +49,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    {% for i in 1..5%}
+                    {% for ingredient in recipe.ingredients %}
                     <div class="col s8 ingredientItem valign-wrapper">
-                        <img class="col s4" src="{{ asset('pictures/Pineapple.png') }}" alt="Picture of the ingredient">
-                        <p class="col s6 ingredientName left-align">Pineapple</p>
+                        <img class="col s4" src="{{ asset('pictures/'~ ingredient.ingredient.picture) }}" alt="Picture of the ingredient">
+                        <p class="col s6 ingredientName left-align"><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a> - <b>{{ ingredient.quantity }} {{ ingredient.unit }}(s)</b></p>
                         <div class="col s2 ingredientQte valign-wrapper">
                             <button class="col s3 btnMore center-align">+</button>
-                            <input class="col s3" type="text" placeholder="3">
+                            <input class="col s3" type="text" placeholder="{{ ingredient.quantity }}" value="{{ ingredient.quantity }}">
                             <button class="col s3 btnLess">-</button>
                         </div>
                     </div>

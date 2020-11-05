@@ -34,6 +34,11 @@ class Units
         $this->RelatedIngredients = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->type;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
