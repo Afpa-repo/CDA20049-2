@@ -62,7 +62,7 @@
                             {% if loop.index <=3 %}
                             <div class="col s12 valign-wrapper">
                                 <img class="col s1" src="{{ asset('pictures/'~ loop.index ~'posIcon.svg') }}" alt="Position picture">
-                                <a class="col s11" href="{{ path('recipes_show', {'id': recipe.id}) }}">Recipe {{ loop.index}} - {{ recipe.getRecipe.name }}</a>
+                                <a class="col s11" href="{{ path('recipes_show', {'id': recipe.getRecipe.id}) }}">Recipe {{ loop.index}} - {{ recipe.getRecipe.name }}</a>
                             </div>
                             {% endif %}
                         {% endfor %}
