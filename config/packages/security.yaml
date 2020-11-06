@@ -16,6 +16,9 @@ security:
             security: false
         main:
             anonymous: lazy
+            form_login:
+                login_path: login
+                check_path: home
             provider: app_user_provider
             guard:
                 authenticators:

@@ -37,7 +37,7 @@ INSERT INTO ingredients (category_id, name,price,temp_min,temp_max,shelf_life, p
 VALUES (2,'Pineapple',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Pineapple.png'),
        (2,'Kiwi',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Kiwi.png'),
        (4,'Onion',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Onion.png'),
-       (2,'Orange',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Orange.png'),
+       (2,'Orange',ROUND((1+RAND()*(3++++0-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Orange.png'),
        (2,'Cucumber',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Cucumber.png'),
        (2,'Tomato',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Tomato.png'),
        (2,'Melon',ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Melon.png'),
