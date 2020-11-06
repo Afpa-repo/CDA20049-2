@@ -37,6 +37,12 @@ class Comments
      */
     private $idRecipe;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +92,18 @@ class Comments
     public function setIdRecipe(?recipes $idRecipe): self
     {
         $this->idRecipe = $idRecipe;
+
+        return $this;
+    }
+
+    public function getUser(): ?Users
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Users $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
