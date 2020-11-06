@@ -107,19 +107,32 @@
             }
         }
 
-        .btnMore, .btnLess{
+        .btnMore, .btnLess, .btnCart{
+            cursor: pointer;
             color: white;
             font-weight: bold;
             border-radius: 5px;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
 
-        .btnMore{
+        .btnMore,.btnCart {
             background-color: #488C03;
+
+            &:hover{
+                background-color: darken(#488C03,20%);
+            }
         }
 
         .btnLess{
             background-color: #BF0426;
+
+            &:hover{
+                background-color: darken(#BF0426,20%);
+            }
+        }
+
+        .btnCart{
+            line-height: 2rem;
         }
     }
 

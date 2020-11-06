@@ -55,7 +55,7 @@ class Recipes
     private $UsersFavorite;
 
     /**
-     * @ORM\OneToMany(targetEntity=IngredientRecipe::class, mappedBy="recipe")
+     * @ORM\OneToMany(targetEntity=IngredientRecipe::class, mappedBy="recipe",fetch="EAGER")
      */
     private $ingredients;
 
