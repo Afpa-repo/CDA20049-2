@@ -13,6 +13,7 @@ ___
     1. "sass-loader": "^9.0.1",
 1. JQUERY v.3.5.1
 1. Vue.js v.2.6.12
+
 ___
 ### Bundles installé(s)
 1. webpack-Encore-Bundle v.1.7.3 <https://symfony.com/doc/current/frontend.html>
@@ -23,3 +24,5 @@ A TESTER : LiipImagineBundle => dimensionnement d'image à l'upload
 ___
 ### API utilisée(s)
 1. Spoonacular <https://spoonacular.com/food-api/docs>
+
+A TESTER : API Platform <https://api-platform.com/docs/>

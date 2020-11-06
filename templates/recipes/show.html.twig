@@ -18,7 +18,7 @@
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Comments">Comments</a>
             </div>
             <div class="col s12 backBtn">
-                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('recipes_index') }}">back to list</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('recipes_index') }}">Back to list</a>
             </div>
             <div class="col s12 CRUD">
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="{{ path('recipes_edit', {'id': recipe.id}) }}">edit</a>
@@ -43,20 +43,22 @@
                     <h2>Ingredients</h2>
                 <div class="row">
                     <div class="col s2 recipeNbPerson valign-wrapper ">
-                        <button class="col s3 btnMore">+</button>
-                        <input class="col s3" type="text" placeholder="3">
                         <button class="col s3 btnLess">-</button>
+                        <input class="col s3 inputNbPerson" type="text" placeholder="3" value="3">
+                        <button class="col s3 btnMore">+</button>
                     </div>
                 </div>
                 <div class="row">
                     {% for ingredient in recipe.ingredients %}
                     <div class="col s8 ingredientItem valign-wrapper">
                         <img class="col s4" src="{{ asset('pictures/'~ ingredient.ingredient.picture) }}" alt="Picture of {{ ingredient.ingredient.name }}">
-                        <p class="col s4 ingredientName left-align"><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a> - <b>{{ ingredient.quantity }} {{ ingredient.unit }}(s)</b></p>
+                        <p class="col s4 ingredientName left-align">
+                            <span><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a></span> - <span id="qte"><b>{{ ingredient.quantity }}</b></span> <b>{{ ingredient.unit }}(s)</b>
+                        </p>
                         <div class="col s2 ingredientQte valign-wrapper">
-                            <button class="col s3 btnMore">+</button>
-                            <input class="col s3" type="text" placeholder="{{ ingredient.quantity }}" value="{{ ingredient.quantity }}">
                             <button class="col s3 btnLess">-</button>
+                            <input class="col s3" type="text" placeholder="{{ ingredient.quantity }}" value="{{ ingredient.quantity }}">
+                            <button class="col s3 btnMore">+</button>
                         </div>
                         <div class="col s2">
                             <button class=" col s12 btnCart"><i class="fas fa-cart-plus"></i></button>
