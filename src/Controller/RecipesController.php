@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Recipes;
+use App\Entity\Category;
 use App\Form\RecipesType;
 use App\Repository\RecipeCategoryRepository;
 use App\Repository\RecipesRepository;

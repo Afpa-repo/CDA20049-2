@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\IngredientRecipesRepository;
+use App\Repository\IngredientRecipeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=IngredientRecipesRepository::class)
+ * @ORM\Entity(repositoryClass=IngredientRecipeRepository::class)
  */
 class IngredientRecipe
 {

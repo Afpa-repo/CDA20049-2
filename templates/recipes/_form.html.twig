@@ -1,4 +1,26 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_row(form.idAuthor) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.category) }}
+    {{ form_row(form.ingredients) }}
+    {{ form_label(form.instructions) }}
+    {{ form_errors(form.instructions) }}
+    <ul id="instruction-fields-list"
+        data-prototype="{{ form_widget(form.instructions.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li></li>'|e }}"
+        data-widget-counter="{{ form.instructions|length }}">
+
+        {% for instructionField in form.instructions %}
+            <li>
+                {{ form_errors(instructionField) }}
+                {{ form_widget(instructionField) }}
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="button" class="add-another-collection-widget btn" data-list-selector="#instruction-fields-list">Add another email</button>
+    {{ form_row(form.picture) }}
+
     <button class="btn">{{ button_label|default('Confirmer') }}</button>
 {{ form_end(form) }}
+
