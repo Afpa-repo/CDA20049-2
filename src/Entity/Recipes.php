@@ -35,7 +35,7 @@ class Recipes
     private $picture;
 
     /**
-     *  @ORM\Column(type="text", nullable=true)
+     *  @ORM\Column(type="json", nullable=true)
      */
     private $instructions;
 
@@ -150,12 +150,17 @@ class Recipes
         return $this;
     }
 
-    public function getInstructions(): ?string
+    public function getInstructions(): array
     {
-        return $this->instructions;
+        $instructions = $this->instructions;
+
+        $instructions[] = 'éplucher, cuire, touiller?!';
+
+
+        return array_unique($instructions);
     }
 
-    public function setInstructions(?string $instructions): self
+    public function setInstructions(array $instructions): self
     {
         $this->instructions = $instructions;
 
