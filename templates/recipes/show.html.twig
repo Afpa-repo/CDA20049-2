@@ -63,7 +63,7 @@
                             <button class="col s3 btnMore">+</button>
                         </div>
                         <div class="col s2 ingredientData">
-                            <input type="hidden" value="{{ ingredient.ingredient.id }}" name="id"> {#used when sending data with Ajax request#}
+                            <input type="hidden" value="{{ ingredient.ingredient.id }}" name="id"> {#used for simplyfy sending id with AJAX request#}
                             <button class=" col s12 btnCart"><i class="fas fa-cart-plus"></i></button>
                         </div>
                     </div>
@@ -99,7 +99,16 @@
         </div>
     </div>
 
-
+    {# Modal showing success/error of addition of new ingredient to cart#}
+    <div id="statusAdd" class="modal">
+        <div class="modal-content">
+            <h4>Information</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#Ingredients" class="modal-close waves-effect waves-green btn-flat">Understood</a>
+        </div>
+    </div>
 
 
 {% endblock %}

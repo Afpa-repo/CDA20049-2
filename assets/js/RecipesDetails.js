@@ -16,9 +16,16 @@ import 'jquery';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
+// Initialize materialize components
+$(document).ready(function(){
+   $('.modal').modal(); // Use of modals in page
+});
+
 // Declare global variables
    let inputs = $('.ingredientQte input'); // All ingredient input inside DOM (JQUERY OBJECT)
    let initNbPerson = parseInt($(".inputNbPerson").val()); // Save initial value of number of person
+   let modal = $('#statusAdd'); // Link to the only one modal on the page
+   let message = modal.children('.modal-content').children('p'); // Link to the paragraph of the modal
 
 // Save initial value of ingredient quantity in an array
    let QteForOne = [];
@@ -92,30 +99,66 @@ $('.recipeNbPerson .btnLess, .recipeNbPerson .btnMore').click(function(){
 $('.btnCart').click(function(){
 
    // Get data from page
-   const id = $(this).parent('div').children("input[name='id']").val();
-   const quantity = $(this).parent('div').parent('div').children('div .ingredientQte').children('input').val();
+      const id = $(this).parent('div').children("input[name='id']").val();
+      const quantity = $(this).parent('div').parent('div').children('div .ingredientQte').children('input').val();
 
    // Send data to server via AJAX
-   let addProductRequest = $.ajax({
-      url: "/cart/add",
-      method: "POST",
-      async: true,
-      data: {id: id, quantity:quantity}
-   });
+      let addProductRequest = $.ajax({
+         url: "/cart/add",
+         method: "POST",
+         async: true,
+         data: {id: id, quantity:quantity}
+      });
 
-   // Trigger message if success/error
-   addProductRequest.done(function (serverData) {
-      alert("Product added to cart");
-   });
+   // Edit the modal to display success / error
+      addProductRequest.done(function () {
+         message.html('<p style="font-weight: bold; color: green"><i class=\"fas fa-check\" style="margin-right: 10px"></i>The ingredient has been added to your cart.</p> ');
+      });
 
-   addProductRequest.fail(function () {
-      alert("Request failed");
-   });
+      addProductRequest.fail(function () {
+         message.html('<p style="font-weight: bold; color: red"><i class="fas fa-times" style=\"margin-right: 10px\"></i>An error occurred. Please check your cart.</p>');
+      });
+
+   // Open the modal
+   const instance = M.Modal.getInstance(modal);
+   instance.open();
 
 });
 
 
 // Add all items with quantity to $_SESSION
 $('#btnCartTotal').click(function(){
-   alert('test total');
+
+   // Initialize a counter error
+      let countError = 0;
+
+   // Loop through all ingredient of the recipe
+      inputs.each(function (index) {
+         // Get data from page fot each ingredient
+         const id = $(this).parent('div').parent('div').children('div .ingredientData').children("input[name='id']").val();
+         const quantity = $(this).parent('div').parent('div').children('div .ingredientQte').children('input').val();
+
+         // Send data to server via AJAX
+         let addProductRequest = $.ajax({
+            url: "/cart/add",
+            method: "POST",
+            async: true,
+            data: {id: id, quantity:quantity}
+         });
+
+         addProductRequest.fail(function () {
+            countError++;
+         });
+      });
+
+   // Edit the modal to display success / error
+      if (countError > 0){
+         message.html('<p style="font-weight: bold; color: red"><i class="fas fa-times" style=\"margin-right: 10px\"></i>At least one error occurred. Please check your cart.</p>');
+      } else {
+         message.html('<p style="font-weight: bold; color: green"><i class=\"fas fa-check\" style="margin-right: 10px"></i>All ingredient has been added to your cart.</p> ');
+      }
+
+   // Open the modal
+      const instance = M.Modal.getInstance(modal);
+      instance.open();
 });
