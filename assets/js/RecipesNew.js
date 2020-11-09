@@ -1,4 +1,5 @@
 jQuery(document).ready(function () {
+    $('select').formSelect();
     jQuery('.add-another-collection-widget').click(function (e) {
         var list = jQuery(jQuery(this).attr('data-list-selector'));
         // Try to find the counter of the list or use the length of the list
