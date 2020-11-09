@@ -51,8 +51,10 @@ $('.ingredientQte .btnLess,.ingredientQte .btnMore').click(function(){
    let parentDiv = $(this).parent('div');
    let input = parentDiv.children('input');
    let value = parseInt(input.val());
-   let name =  $('#qte b');
-   console.log(name);
+
+/*   let name =  $('#qte b');
+   console.log(name);*/
+
 
    if($(this).hasClass('btnMore')){
       value = value + 1;
@@ -62,7 +64,7 @@ $('.ingredientQte .btnLess,.ingredientQte .btnMore').click(function(){
       if(value !== 0){ // Check quantity is equal to 0
          value = value - 1;
          input.val(value);
-         // name.text(value);
+      // name.text(value);
       }
    }
 });
@@ -85,3 +87,35 @@ $('.recipeNbPerson .btnLess, .recipeNbPerson .btnMore').click(function(){
    nbPersonChange(); // Change input value of each ingredient
 });
 
+
+// Add unique item with quantity to $_SESSION
+$('.btnCart').click(function(){
+
+   // Get data from page
+   const id = $(this).parent('div').children("input[name='id']").val();
+   const quantity = $(this).parent('div').parent('div').children('div .ingredientQte').children('input').val();
+
+   // Send data to server via AJAX
+   let addProductRequest = $.ajax({
+      url: "/cart/add",
+      method: "POST",
+      async: true,
+      data: {id: id, quantity:quantity}
+   });
+
+   // Trigger message if success/error
+   addProductRequest.done(function (serverData) {
+      alert("Product added to cart");
+   });
+
+   addProductRequest.fail(function () {
+      alert("Request failed");
+   });
+
+});
+
+
+// Add all items with quantity to $_SESSION
+$('#btnCartTotal').click(function(){
+   alert('test total');
+});

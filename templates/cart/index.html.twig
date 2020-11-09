@@ -20,13 +20,14 @@
             </thead>
             <tbody>
             {% for item in items %}
+
                 <tr>
-                    <td><img src="/pictures/{{ item.product.picture }}" alt="{{ item.product.picture }}" ></td>
-                    <td>{{ item.product.name }}</td>
-                    <td>{{ item.product.price }}</td>
+                    <td><img src="/pictures/{{ item.ingredient.picture }}" alt="{{ item.ingredient.picture }}" ></td>
+                    <td>{{ item.ingredient.name }}</td>
+                    <td>{{ item.ingredient.price }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.price * item.quantity }}</td>
-                    <td><a class="btn" href="{{ path('cart_remove', {'id': item.product.id}) }}"><i class="fas fa-trash"></i></td>
+                    <td>{{ item.ingredient.price * item.quantity }}</td>
+                    <td><a class="btn" href="{{ path('cart_remove', {'id': item.ingredient.id}) }}"><i class="fas fa-trash"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>

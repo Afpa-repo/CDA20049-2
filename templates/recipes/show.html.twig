@@ -41,6 +41,7 @@
             {#Section Ingredients#}
             <section class="section" id="Ingredients">
                     <h2>Ingredients</h2>
+
                 <div class="row">
                     <div class="col s2 recipeNbPerson valign-wrapper ">
                         <button class="col s3 btnLess">-</button>
@@ -48,6 +49,7 @@
                         <button class="col s3 btnMore">+</button>
                     </div>
                 </div>
+
                 <div class="row">
                     {% for ingredient in recipe.ingredients %}
                     <div class="col s8 ingredientItem valign-wrapper">
@@ -60,15 +62,17 @@
                             <input class="col s3" type="text" placeholder="{{ ingredient.quantity }}" value="{{ ingredient.quantity }}">
                             <button class="col s3 btnMore">+</button>
                         </div>
-                        <div class="col s2">
+                        <div class="col s2 ingredientData">
+                            <input type="hidden" value="{{ ingredient.ingredient.id }}" name="id"> {#used when sending data with Ajax request#}
                             <button class=" col s12 btnCart"><i class="fas fa-cart-plus"></i></button>
                         </div>
                     </div>
                     {% endfor %}
-                    <div class="col s8 ingredientItem">
-                        <button class="col s2 offset-s10 btnCart">Add all to cart</button>
+                    <div class="col s8" id="ingredientTotal">
+                        <button class="col s2 offset-s10" id="btnCartTotal">Add all to cart</button>
                     </div>
                 </div>
+
             </section>
 
             {#Section Comments#}
