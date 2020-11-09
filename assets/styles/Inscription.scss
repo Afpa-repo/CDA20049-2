@@ -1,0 +1,17 @@
+@import 'const.scss';
+
+input{
+    text-align: center;
+
+    &::placeholder{
+        text-align: center;
+    }
+
+    &:focus{
+        border-bottom-color: $main-orange !important;
+        box-shadow: 0 2px 0 0 $main-orange !important;
+        background-color: lighten(#F2F2F2,30);
+        transition: all 0.6s ease-in-out;
+    }
+}
+
