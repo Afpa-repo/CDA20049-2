@@ -23,22 +23,24 @@ class CartController extends AbstractController
         // Initialize empty array witch will get all data
         $cartWithData = [];
 
-        // Loop to get entity and its quantity for each element in cart
-        foreach ($cart as $item){
-            $id = $item['id']; //get id for the ingredient
-            $ingredient = $ingredientsRepository->find($id); //get ingredient for specific id
-
-            array_push($cartWithData,array('ingredient'=>$ingredient,'quantity'=>$item['quantity']));
-        }
-
         // Initialize total equal to zero
         $total = 0;
 
-        // Loop to get price of each element in cart
-        foreach ($cartWithData as $item) {
-            $ingredient = $cartWithData[0]['ingredient'];
-            $priceItem = $ingredient->getPrice() * $item['quantity'];
-            $total += $priceItem;
+        if(!empty($cart)){
+            // Loop to get entity and its quantity for each element in cart
+            foreach ($cart as $item){
+                $id = $item['id']; //get id for the ingredient
+                $ingredient = $ingredientsRepository->find($id); //get ingredient for specific id
+
+                array_push($cartWithData,array('ingredient'=>$ingredient,'quantity'=>$item['quantity']));
+            }
+
+            // Loop to get price of each element in cart
+            foreach ($cartWithData as $item) {
+                $ingredient = $cartWithData[0]['ingredient'];
+                $priceItem = $ingredient->getPrice() * $item['quantity'];
+                $total += $priceItem;
+            }
         }
 
         return $this->render('cart/index.html.twig', [
