@@ -40,6 +40,11 @@ class IngredientRecipe
      */
     private $unit;
 
+    public function __toString()
+    {
+        return $this->quantity;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
