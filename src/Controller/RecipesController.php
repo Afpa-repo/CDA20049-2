@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Recipes;
 use App\Entity\Category;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\RecipesType;
 use App\Repository\RecipeCategoryRepository;
 use App\Repository\RecipesRepository;
@@ -82,6 +83,7 @@ class RecipesController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/new", name="recipes_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

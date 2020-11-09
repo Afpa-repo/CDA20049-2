@@ -14,28 +14,12 @@
 
     <div class="row">
         <a class="col meal" id="appTitle" href="{{ path('home') }}"><img src="{{ asset('pictures/Logo.svg') }}">MealsWith</a>
-        <a class="col s2 right modal-trigger my" href="#modalInscription"><i class="far fa-user-circle fa-2x"></i>My account</a>
-        <!-- Modal Structure -->
-        <div id="modalInscription" class="modal">
-            <div class="modal-content">
-                <h4>Inscription</h4>
-                <p>A bunch of text</p>
-
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div>
-
-        <div id="modalConnexion" class="modal">
-            <div class="modal-content">
-                <h4>Connexion</h4>
-                <p>A bunch of text</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a class='col s2 right my' href='{{ path('logout') }}'><i class="fas fa-sign-out-alt fa-2x"></i>Logout</a>
+        {% else %}
+            <a class="col s2 right my" href="{{ path('login') }}"><i class="fas fa-user-plus fa-2x"></i>Connexion</a>
+            <a class="col s2 right my" href="{{ path('register') }}"><i class="fas fa-user-circle fa-2x"></i>Inscription</a>
+        {% endif %}
 
         <a class="col s2 right my" href="{{ path('cart') }}"><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
     </div>
