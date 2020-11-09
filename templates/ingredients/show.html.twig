@@ -15,6 +15,7 @@
             <div class="col s12 navigationBtn">
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Details">Details</a>
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#topRecipes">Top recipes</a>
+                <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Buy">Buy</a>
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Comments">Comments</a>
             </div>
             <div class="col s12 backBtn">
@@ -70,6 +71,23 @@
                 </div>
             </section>
 
+            {#Section Buy#}
+            <section class="section" id="Buy">
+                <h2>Buy product</h2>
+                <div class="row valign-wrapper">
+                    <div class="ingredientQte valign-wrapper">
+                        <button class="col s6 btnLess">-</button>
+                        <input class="col" type="text" placeholder="0" value="0">
+                        <button class="col s6 btnMore">+</button>
+                    </div>
+                    <div class="ingredientData valign-wrapper">
+                        <input type="hidden" value="{{ ingredient.id }}" name="id"> {#used for simplyfy sending id with AJAX request#}
+                        <button class="btnCart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+
             {#Section Comments#}
             <section class="section" id="Comments">
                 <h2>Comments</h2>
@@ -94,7 +112,16 @@
         </div>
     </div>
 
-
+    {# Modal showing success/error of addition of new ingredient to cart#}
+    <div id="statusAdd" class="modal">
+        <div class="modal-content">
+            <h4>Information</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#Buy" class="modal-close waves-effect waves-green btn-flat">Understood</a>
+        </div>
+    </div>
 
 
 {% endblock %}
