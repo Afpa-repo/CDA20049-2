@@ -25,7 +25,8 @@ $(document).ready(function(){
    let inputs = $('.ingredientQte input'); // All ingredient input inside DOM (JQUERY OBJECT)
    let initNbPerson = parseInt($(".inputNbPerson").val()); // Save initial value of number of person
    let modal = $('#statusAdd'); // Link to the only one modal on the page
-   let message = modal.children('.modal-content').children('p'); // Link to the paragraph of the modal
+   let message = modal.children('.modal-content').children('p').first(); // Link to the paragraph of the modal
+   let messageHelp = modal.children('.modal-content').children('p#help'); // Link to the span of the modal
 
 // Save initial value of ingredient quantity in an array
    let QteForOne = [];
@@ -102,22 +103,29 @@ $('.btnCart').click(function(){
       const id = $(this).parent('div').children("input[name='id']").val();
       const quantity = $(this).parent('div').parent('div').children('div .ingredientQte').children('input').val();
 
-   // Send data to server via AJAX
-      let addProductRequest = $.ajax({
-         url: "/cart/add",
-         method: "POST",
-         async: true,
-         data: {id: id, quantity:quantity}
-      });
+    if(isNaN(quantity) || quantity == 0){ //Check if quantity is not equal to zero OR if it's not a number
 
-   // Edit the modal to display success / error
-      addProductRequest.done(function () {
-         message.html('<p style="font-weight: bold; color: green"><i class=\"fas fa-check\" style="margin-right: 10px"></i>The ingredient has been added to your cart.</p> ');
-      });
+        // Edit the modal to display success / error
+        message.html('<p style="font-weight: bold; color: orange"><i class="fas fa-info" style="margin-right: 10px"></i>Ingredient with a quantity equal to zero or NAN has been ignored.</p> ');
 
-      addProductRequest.fail(function () {
-         message.html('<p style="font-weight: bold; color: red"><i class="fas fa-times" style=\"margin-right: 10px\"></i>An error occurred. Please check your cart.</p>');
-      });
+    } else {
+        // Send data to server via AJAX
+        let addProductRequest = $.ajax({
+            url: "/cart/add",
+            method: "POST",
+            async: true,
+            data: {id: id, quantity:quantity}
+        });
+
+        // Edit the modal to display success / error
+        addProductRequest.done(function () {
+            message.html('<p style="font-weight: bold; color: green"><i class=\"fas fa-check\" style="margin-right: 10px"></i>The ingredient has been added to your cart.</p> ');
+        });
+
+        addProductRequest.fail(function () {
+            message.html('<p style="font-weight: bold; color: red"><i class="fas fa-times" style=\"margin-right: 10px\"></i>An error occurred. Please check your cart.</p>');
+        });
+    }
 
    // Open the modal
    const instance = M.Modal.getInstance(modal);
@@ -133,32 +141,41 @@ $('#btnCartTotal').click(function(){
       let countError = 0;
 
    // Loop through all ingredient of the recipe
-      inputs.each(function (index) {
-         // Get data from page fot each ingredient
-         const id = $(this).parent('div').parent('div').children('div .ingredientData').children("input[name='id']").val();
-         const quantity = $(this).parent('div').parent('div').children('div .ingredientQte').children('input').val();
+      inputs.each(function () {
+        // Get data from page fot each ingredient
+            const id = $(this).parent('div').parent('div').children('div .ingredientData').children("input[name='id']").val();
+            const quantity = $(this).parent('div').parent('div').children('div .ingredientQte').children('input').val();
 
-         // Send data to server via AJAX
-         let addProductRequest = $.ajax({
-            url: "/cart/add",
-            method: "POST",
-            async: true,
-            data: {id: id, quantity:quantity}
-         });
+            if(isNaN(quantity) || quantity == 0) { //Check if quantity is not equal to zero OR if it's not a number
 
-         addProductRequest.fail(function () {
-            countError++;
-         });
+                // Edit the modal to display success / error
+                messageHelp.html('<p style="font-weight: bold; color: orange"><i class="fas fa-info" style="margin-right: 10px"></i>Ingredient(s) with a quantity equal to zero or NAN has been ignored.</p> ');
+
+            }else {
+
+                // Send data to server via AJAX
+                    let addProductRequest = $.ajax({
+                        url: "/cart/add",
+                        method: "POST",
+                        async: true,
+                        data: {id: id, quantity:quantity}
+                    });
+
+                    addProductRequest.fail(function () {
+                        countError++;
+                    });
+
+
+                // Edit the modal to display success / error
+                if (countError > 0){
+                    message.html('<p style="font-weight: bold; color: red"><i class="fas fa-times" style=\"margin-right: 10px\"></i>At least one error occurred. Please check your cart.</p>');
+                } else {
+                    message.html('<p style="font-weight: bold; color: green"><i class=\"fas fa-check\" style="margin-right: 10px"></i>All ingredient has been added to your cart.</p> ');
+                }
+            }
+
+            // Open the modal
+              const instance = M.Modal.getInstance(modal);
+              instance.open();
       });
-
-   // Edit the modal to display success / error
-      if (countError > 0){
-         message.html('<p style="font-weight: bold; color: red"><i class="fas fa-times" style=\"margin-right: 10px\"></i>At least one error occurred. Please check your cart.</p>');
-      } else {
-         message.html('<p style="font-weight: bold; color: green"><i class=\"fas fa-check\" style="margin-right: 10px"></i>All ingredient has been added to your cart.</p> ');
-      }
-
-   // Open the modal
-      const instance = M.Modal.getInstance(modal);
-      instance.open();
 });
