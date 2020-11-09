@@ -35,8 +35,7 @@ class CartController extends AbstractController
 
             // Loop to get price of each element in cart
             foreach ($cartWithData as $item) {
-                $ingredient = $cartWithData[0]['ingredient'];
-                $priceItem = $ingredient->getPrice() * $item['quantity'];
+                $priceItem = $item['ingredient']->getPrice() * $item['quantity'];
                 $total += $priceItem;
             }
         }
