@@ -1,0 +1,20 @@
+@import 'const.scss';
+
+h1 {
+  color: $main-orange;
+  font-family: roboto;
+  font-size: 3rem;
+}
+h2 {
+  font-family: roboto;
+  font-size: 2rem;
+}
+
+
+tr {
+  font-size: 1.5rem;
+    .price {
+      color: #D9C45B;
+      font-weight: bold;
+    }
+}
