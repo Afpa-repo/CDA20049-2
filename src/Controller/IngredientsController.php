@@ -8,6 +8,7 @@ use App\Repository\IngredientCategoryRepository;
 use App\Repository\IngredientsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -79,6 +80,28 @@ class IngredientsController extends AbstractController
             'nbIngredients' =>$nbIngredients,
             'categories'=>$categoriesList,
         ]);
+    }
+
+    /**
+     * @Route("/AJAXListName", name="AJAX_liste_Ingredients", methods={"GET","POST"})
+     */
+    public function AJAXListRecipes(IngredientsRepository $ingredientsRepository,Request $request): Response
+    {
+        if($request->isXmlHttpRequest()) {
+            $ingredientsList = $ingredientsRepository->findAll();
+
+            $data = [];
+
+            foreach ($ingredientsList as $ingredients){ // Get all recipes name in DB
+                array_push($data,($ingredients->getName()));
+            }
+            $response = new JsonResponse($data);
+            $response->headers->set('Content-Type', 'application/json');
+
+            return $response;
+        }
+
+        return new Response('');
     }
 
     /**

@@ -11,6 +11,7 @@ ___
 1. Composer v.2
 1. Npm v.6.14.8
     1. "sass-loader": "^9.0.1",
+    1. "jquery-ui": "^1.12.1",
 1. JQUERY v.3.5.1
 1. Vue.js v.2.6.12
 
