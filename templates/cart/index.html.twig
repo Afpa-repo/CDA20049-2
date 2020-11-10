@@ -26,8 +26,8 @@
             {% for item in items %}
 
                 <tr>
-                    <td><a class="btn" href="{{ path('cart_remove', {'id': item.ingredient.id}) }}"><i class="fas fa-trash"></i></a></td>
-                    <td classe="image"><img src="/pictures/{{ item.ingredient.picture }}" alt="{{ item.ingredient.picture }}" ></td>
+                    <td><a class="btn cross" href="{{ path('cart_remove', {'id': item.ingredient.id}) }}"><i class="fas fa-times fa-3x"></i></a></td>
+                    <td><img src="/pictures/{{ item.ingredient.picture }}" alt="{{ item.ingredient.picture }}" ></td>
                     <td class="name">{{ item.ingredient.name }}</td>
                     <td class="price">{{ item.ingredient.price }}€</td>
                     <td>{{ item.quantity }}</td>
@@ -37,7 +37,7 @@
             </tbody>
             <tfoot>
             <tr>
-                <td></td>
+                <td><a class="btn all" href="{{ path('cart_remove_all')}}"><i class="fas fa-trash"></i> Delete All</a></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -46,7 +46,11 @@
             </tr>
             </tfoot>
         </table>
+            <div class="right">
+                <a class="btn validate" href=""><i class="fas fa-check"></i> OK</a>
+            </div>
         </div>
+
     {% else %}
         <h2 class="center">Your cart is empty</h2>
     {% endif %}
