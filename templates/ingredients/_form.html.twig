@@ -1,4 +1,45 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+<div class="row">
+    <div class="input-field col s12 m6">
+        {{ form_row(form.name) }}
+    </div>
+    <div class="input-field col s12 m6">
+        {{ form_row(form.category)}}
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12 m6">
+        {{ form_row(form.tempMin) }}
+    </div>
+    <div class="input-field col s12 m6">
+        {{ form_row(form.tempMax) }}
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12 m6">
+        {{ form_row(form.shelfLife) }}
+    </div>
+    <div class="input-field col s12 m6">
+        {{ form_row(form.price) }}
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12 m6">
+        {{ form_row(form.picture) }}
+    </div>
+    <div class="input-field col s12 m6">
+        {{ form_row(form.photo) }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s6 m6">
+        <button type="submit" class="btn">{{ button_label|default('Add') }}</button>
+    </div>
+    <div class="col s6 m6">
+        <a href="{{ path('ingredients_index') }}"><button class="btn">Back to list</button></a>
+    </div>
+</div>
+
 {{ form_end(form) }}

@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('newIngredient') }}
+{% endblock %}
+
 {% block title %}New Ingredient{% endblock %}
 
 {% block body %}
@@ -7,5 +12,10 @@
 
     {{ include('ingredients/_form.html.twig') }}
 
-    <a href="{{ path('ingredients_index') }}">Back to list</a>
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ encore_entry_script_tags('newIngredient') }}
+
 {% endblock %}
