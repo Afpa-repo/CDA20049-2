@@ -30,8 +30,7 @@ Encore
     .addEntry('ContactM', './assets/js/ContactM.js')
     .addEntry('base', './assets/js/base.js')
     .addEntry('RecipesNew', './assets/js/RecipesNew.js')
-    .addStyleEntry('Inscription','./assets/styles/Inscription.scss')
-
+    .addEntry('Cart', './assets/js/Cart.js')
     //.addEntry('page2', './assets/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
