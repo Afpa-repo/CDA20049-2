@@ -1,0 +1,42 @@
+@import 'const.scss';
+
+h1 {
+  color: $main-orange;
+  font-family: roboto;
+  font-size: 3rem;
+}
+h2 {
+  font-family: roboto;
+  font-size: 2rem;
+}
+
+
+tr {
+  font-size: 1.5rem;
+  .price {
+    color: $main-orange;
+    font-weight: bold;
+  }
+  .cross {
+    color: red;
+    background: transparent;
+    box-shadow: none;
+    &:hover {
+      color: red;
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+  .all {
+    background: $main-orange;
+    &:hover{
+      background: red;
+    }
+  }
+}
+.validate {
+  background: #488C03;
+  &:hover {
+    background: darken(#488C03,20%);
+  }
+}
