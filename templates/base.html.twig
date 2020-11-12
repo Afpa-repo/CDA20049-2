@@ -20,8 +20,8 @@
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a class='my' href='{{ path('logout') }}'><i class="fas fa-sign-out-alt fa-2x"></i>Logout</a>
             {% else %}
-                <a class="my" href="{{ path('login') }}"><i class="fas fa-user-plus fa-2x"></i>Connexion</a>
-                <a class="my" href="{{ path('register') }}"><i class="fas fa-user-circle fa-2x"></i>Inscription</a>
+                <a class="my" href="{{ path('login') }}"><i class="fas fa-user-circle fa-2x"></i>Connexion</a>
+                <a class="my" href="{{ path('register') }}"><i class="fas fa-user-plus fa-2x"></i>Inscription</a>
             {% endif %}
             <a class="my" href="{{ path('cart') }}"><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
         </div>

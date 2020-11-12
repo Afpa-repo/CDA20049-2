@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
@@ -66,6 +67,9 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Check your entry: invalid character']),
                 ],
             ])
+            ->add('city', TextType::class)
+            ->add('address', TextType::class)
+            ->add('zipcode', NumberType::class)
             ->add('agreeTerms', CheckboxType::class, [
                 'label'    => 'Please agree to our terms and conditions',
                 'required' => true,

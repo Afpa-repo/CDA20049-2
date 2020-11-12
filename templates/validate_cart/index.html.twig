@@ -40,12 +40,12 @@
 
         {{ form_start(validatecartForm, {'attr': {'novalidate': 'novalidate'}}) }}
 
-            {{ form_row(validatecartForm.first_name, {'attr': {'value': user.firstname }}) }}
-            {{ form_row(validatecartForm.last_name, {'attr': {'value': user.lastname }}) }}
-            {{ form_row(validatecartForm.email, {'attr': {'value': user.email }}) }}
-            {{ form_row(validatecartForm.zip_code, {'attr': {'value': user.zipcode }}) }}
-            {{ form_row(validatecartForm.city, {'attr': {'value': user.city }}) }}
-            {{ form_row(validatecartForm.address, {'attr': {'value': user.adress }}) }}
+        {{ form_row(validatecartForm.first_name, {'attr': {'value': user.firstname }}) }}
+        {{ form_row(validatecartForm.last_name, {'attr': {'value': user.lastname }}) }}
+        {{ form_row(validatecartForm.email, {'attr': {'value': user.email }}) }}
+        {{ form_row(validatecartForm.zip_code, {'attr': {'value': user.zipcode }}) }}
+        {{ form_row(validatecartForm.city, {'attr': {'value': user.city }}) }}
+        {{ form_row(validatecartForm.address, {'attr': {'value': user.address }}) }}
 
         {{ form_end(validatecartForm) }}
 
