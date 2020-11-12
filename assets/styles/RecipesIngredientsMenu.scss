@@ -110,7 +110,7 @@ $active-link-color: #b35b18;
             svg{
                 &.active{
                     transition: all 0.6s ease-in-out;
-                    color: $main-orange !important;
+                    color: $main-orange;
                     transform: scale(1.2);
                 }
             }
@@ -124,7 +124,7 @@ $active-link-color: #b35b18;
                     animation-iteration-count: 1, infinite;
                     animation-fill-mode: forwards,forwards;
                     transition: all 0.6s ease-in-out;
-                    color: $active-link-color;
+                    color: $active-link-color !important;
                     transform: scale(1.2);
 
                     @keyframes shakeSearch {
