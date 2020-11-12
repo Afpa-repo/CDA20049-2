@@ -32,6 +32,11 @@ class Orders
      */
     private $deliveryDate;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Cart::class, inversedBy="relatedOrder", cascade={"persist", "remove"})
+     */
+    private $cart;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Orders
     public function setDeliveryDate(?\DateTimeInterface $deliveryDate): self
     {
         $this->deliveryDate = $deliveryDate;
+
+        return $this;
+    }
+
+    public function getCart(): ?Cart
+    {
+        return $this->cart;
+    }
+
+    public function setCart(?Cart $cart): self
+    {
+        $this->cart = $cart;
 
         return $this;
     }

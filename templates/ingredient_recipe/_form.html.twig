@@ -1,6 +1,8 @@
 {{ form_start(form) }}
-    {{ form_row(form.quantity) }}
+    <div class="row">
+    <div class="col s4">{{ form_row(form.ingredient) }}</div>
+    <div class="col s4">{{ form_row(form.quantity) }}</div>
     {{ form_row(form.recipe) }}
-    {{ form_row(form.ingredient) }}
+    </div>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -42,7 +42,9 @@ class CartController extends AbstractController
 
         return $this->render('cart/index.html.twig', [
             'items' => $cartWithData,
-            'total' =>$total
+            'total' =>$total,
+            $session->set('cart', $cartWithData),//creation donnee session pour validate
+            $session->set('total', $total)
         ]);
     }
 
