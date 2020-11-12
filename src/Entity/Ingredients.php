@@ -6,6 +6,7 @@ use App\Repository\IngredientsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=IngredientsRepository::class)
@@ -21,6 +22,7 @@ class Ingredients
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $name;
 
@@ -78,6 +80,11 @@ class Ingredients
      * @ORM\OneToMany(targetEntity=IngredientRecipe::class, mappedBy="ingredient")
      */
     private $recipes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Units::class, fetch="EAGER")
+     */
+    private $unit;
 
     public function __construct()
     {
@@ -326,6 +333,18 @@ class Ingredients
                 $recipe->setIngredient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUnit(): ?Units
+    {
+        return $this->unit;
+    }
+
+    public function setUnit(?Units $unit): self
+    {
+        $this->unit = $unit;
 
         return $this;
     }

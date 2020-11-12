@@ -34,12 +34,6 @@ class IngredientRecipe
      */
     private $quantity;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Units::class, inversedBy="RelatedIngredients")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $unit;
-
     public function __toString()
     {
         return $this->quantity;
@@ -82,18 +76,6 @@ class IngredientRecipe
     public function setQuantity(string $quantity): self
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    public function getUnit(): ?Units
-    {
-        return $this->unit;
-    }
-
-    public function setUnit(?Units $unit): self
-    {
-        $this->unit = $unit;
 
         return $this;
     }

@@ -30,6 +30,8 @@ Encore
     .addEntry('ContactM', './assets/js/ContactM.js')
     .addEntry('base', './assets/js/base.js')
     .addEntry('RecipesNew', './assets/js/RecipesNew.js')
+    .addEntry('newIngredient', './assets/js/newIngredient.js')
+    .addEntry('IngredientRecipeNew', './assets/js/IngredientRecipeNew.js')
     .addEntry('Cart', './assets/js/Cart.js')
     .addStyleEntry('Inscription', './assets/styles/Inscription.scss')
     //.addEntry('page2', './assets/page2.js')
