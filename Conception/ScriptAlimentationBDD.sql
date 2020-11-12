@@ -18,7 +18,7 @@ INSERT INTO recipes (category_id, id_author, name, picture)
 VALUES (3,1,'Brussel Sprouts in Bacon and Garlic Sauce','ChickenFajitaStuffedBellPepper.png'),
        (3,1,'Chicken Fajita Stuffed Bell Pepper','ChickenFajitaStuffedBellPepper.png'),
        (2,1,'OREO Cookie Balls – Snowman','OREOCookieBalls.png'),
-       (2,1,'Dessert Apple Rings With Cinnamon Cream Syrup','/DessertAppleRingsWithCinnamonCreamSyrup.png'),
+       (2,1,'Dessert Apple Rings With Cinnamon Cream Syrup','DessertAppleRingsWithCinnamonCreamSyrup.png'),
        (2,1,'Triple Citrus Cake','TripleCitrusCake.png'),
        (1,1,'Holiday Egg Nog','HolidayEggNog.png'),
        (3,1,'Layered Poppy Seed Pastries','LayeredPoppySeedPastries.png'),
