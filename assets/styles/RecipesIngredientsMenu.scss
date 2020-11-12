@@ -106,17 +106,21 @@ $active-link-color: #b35b18;
 
 .list{
     .searchbar{
+        svg{
+            cursor: pointer;
 
-        svg.active{
-            transition: all 0.6s ease-in-out;
-            color: $main-orange;
-            transform: scale(1.2);
+            &.active{
+                transition: all 0.6s ease-in-out;
+                color: $main-orange;
+                transform: scale(1.2);
+            }
         }
+
         input{
             background-color: #F2F2F2;
             border-radius: 10px;
             padding-left: 10px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
 
             &::placeholder{
                 font-size: 1.5rem;
@@ -177,7 +181,32 @@ $active-link-color: #b35b18;
                     color: $active-link-color;
                 }
             }
-
         }
     }
 }
+
+//Searchbar with Jquery-UI
+    .ui-autocomplete {
+        border-radius: 5px;
+        max-height: 40vh; // set max height for the scrollable results
+        overflow-y: auto; // enable scrollbar for browsing vertically
+        overflow-x: hidden; // prevent horizontal scrollbar
+    }
+
+    //Manage render of solution
+    .ui-menu-item{
+        font-size: 1.2rem;
+
+    }
+
+    //Manage active state on research solution
+    .ui-state-active{
+        background: $main-orange !important;
+        border:none !important;
+        border-radius: 5px;
+    }
+
+    //Manage gif shown on loading result
+    .ui-autocomplete-loading {
+        background: white url("/pictures/loading.gif") no-repeat;
+    }

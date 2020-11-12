@@ -81,6 +81,11 @@ class Ingredients
      */
     private $recipes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Units::class)
+     */
+    private $unit;
+
     public function __construct()
     {
         $this->relatedCartItems = new ArrayCollection();
@@ -328,6 +333,18 @@ class Ingredients
                 $recipe->setIngredient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUnit(): ?Units
+    {
+        return $this->unit;
+    }
+
+    public function setUnit(?Units $unit): self
+    {
+        $this->unit = $unit;
 
         return $this;
     }
