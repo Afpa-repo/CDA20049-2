@@ -15,7 +15,6 @@ class IngredientRecipeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('quantity')
             ->add('ingredient', EntityType::class, [
                 // looks for choices from this entity
                 'class' => Ingredients::class,
@@ -24,6 +23,7 @@ class IngredientRecipeType extends AbstractType
                     return $ingredient->getName();
                 }
             ])
+            ->add('quantity')
             ->add('recipe', EntityType::class, [
                 // looks for choices from this entity
                 'class' => recipes::class,
