@@ -49,6 +49,7 @@ class RegistrationFormType extends AbstractType
                 ],
 
             ])
+
             ->add('firstname', TextType::class, [
                 'label' => 'First Name',
                 'constraints' => [
@@ -67,6 +68,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Check your entry: invalid character']),
                 ],
             ])
+
             ->add('city', TextType::class)
             ->add('address', TextType::class)
             ->add('zipcode', NumberType::class)
