@@ -95,6 +95,9 @@ class RecipesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($recipe);
+            foreach ($recipe->getIngredients() as &$ingredient) {
+                $entityManager->persist($ingredient);
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('recipes_index');
