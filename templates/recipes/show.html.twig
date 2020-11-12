@@ -55,7 +55,7 @@
                     <div class="col s8 ingredientItem valign-wrapper">
                         <img class="col s4" src="{{ asset('pictures/'~ ingredient.ingredient.picture) }}" alt="Picture of {{ ingredient.ingredient.name }}">
                         <p class="col s4 ingredientName left-align">
-                            <span><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a></span> - <span id="qte"><b>{{ ingredient.quantity }}</b></span> <b>{{ ingredient.unit }}(s)</b>
+                            <span><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a></span> - <span id="qte"><b>{{ ingredient.quantity }}</b></span>
                         </p>
                         <div class="col s2 ingredientQte valign-wrapper">
                             <button class="col s3 btnLess">-</button>
