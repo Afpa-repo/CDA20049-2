@@ -24,6 +24,11 @@ class Cart
      */
     private $relatedCartItems;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Orders::class, mappedBy="cart", cascade={"persist", "remove"})
+     */
+    private $relatedOrder;
+
     public function __construct()
     {
         $this->relatedCartItems = new ArrayCollection();
@@ -59,6 +64,24 @@ class Cart
             if ($relatedCartItem->getIdCart() === $this) {
                 $relatedCartItem->setIdCart(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getRelatedOrder(): ?Orders
+    {
+        return $this->relatedOrder;
+    }
+
+    public function setRelatedOrder(?Orders $relatedOrder): self
+    {
+        $this->relatedOrder = $relatedOrder;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newCart = null === $relatedOrder ? null : $this;
+        if ($relatedOrder->getCart() !== $newCart) {
+            $relatedOrder->setCart($newCart);
         }
 
         return $this;

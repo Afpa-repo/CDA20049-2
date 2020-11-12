@@ -7,11 +7,17 @@
 {% block title %}New Recipes{% endblock %}
 
 {% block body %}
-    <h1>Create new Recipes</h1>
+    <div class="container">
+        <div class="row">
 
-    {{ include('recipes/_form.html.twig') }}
+            <h1>Create a new Recipes</h1>
 
-    <a href="{{ path('recipes_index') }}">back to list</a>
+            {{ include('recipes/_form.html.twig') }}
+
+            <a href="{{ path('recipes_index') }}">back to list</a>
+
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
