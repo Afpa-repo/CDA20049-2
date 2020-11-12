@@ -98,7 +98,7 @@ class RecipesController extends AbstractController
                 $recipesAuthorID=$recipes->getIdAuthor();
                 $recipesAuthorName=$usersRepository->find($recipesAuthorID);
 
-                array_push($data,array('name'=>$recipes->getName(),'author'=>$recipesAuthorName->getUsername()));
+                array_push($data,array('name'=>$recipes->getName(),'author'=>$recipesAuthorName->getUsername(),'id'=>$recipes->getId()));
             }
             $response = new JsonResponse($data);
             $response->headers->set('Content-Type', 'application/json');

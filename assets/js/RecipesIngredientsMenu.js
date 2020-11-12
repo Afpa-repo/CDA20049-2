@@ -27,7 +27,6 @@ let listName = '' ;
             });
 
         requestCategory.done(function (serverData) {
-            console.log(serverData);
             $('#contentAJAX').html(serverData); //Select and change the HTML content of the #contentAJAX div
         });
 
@@ -38,7 +37,7 @@ let listName = '' ;
 
 
 /*
-    Autocomplete search with JQUERY-UI
+    Autocomplete with JQUERY-UI
 */
 
     // Function using AJAX request to list all known recipes/ingredients from database. Will be used for autocomplete search later
@@ -66,21 +65,25 @@ let listName = '' ;
     listName = RecipeListAJAX();
 
     // Declare empty array witch could receive element for recipe list
-    let selectionData ;
+    let selectionData = [];
 
     //Get URL of the current page
     let url = $(location).attr('href');
 
     if( url.search('recipes') !== -1){ // Check if current page is recipes
-        selectionData =  [];
 
         // Rearrange data to fill with no error the completion data array
         listName.forEach(function(index,element){
             selectionData.push(listName[element].name+ ' / ' + listName[element].author); // Concatenation here with the two attribute of the JSON
             return selectionData;
         })
-    } else { // If it's not, so it's ingredients. We don't need to rearrange data from listName
-        selectionData = listName;
+    } else { // If it's not, so it's ingredients. We need a different set of data from listName
+
+        // Rearrange data to fill with no error the completion data array
+        listName.forEach(function(index,element){
+            selectionData.push(listName[element].name);
+            return selectionData;
+        })
     }
 
     // Use the JQUERY UI autocomplete method on searchbar input field
@@ -95,3 +98,19 @@ let listName = '' ;
                 }) );
             }
         });
+
+    let idItem = ''; // Initialize item ID used for searching after autocomplete
+/*
+    Go to details on search value change
+*/
+    $('#search').focusout(function (){
+        let itemSelected = $(this).val(); // Get the data typed in the searchbar input
+
+        if (selectionData.indexOf(itemSelected) !== -1) { // If data selected appear is the list of possible choices, then search, otherwise, do nothing.
+            let indexSelectionData = selectionData.indexOf(itemSelected); // Get index 'n' of this element
+            idItem = listName[indexSelectionData].id; // Get the ID of the nth item, searching through listName data
+
+            $('a.prefix').attr("href",idItem); // Change link href to match item's ID
+            $('a.prefix').addClass("waitingSearch"); // Add waitingSearch class to the search link witch animate the magnifying glass
+        }
+    });

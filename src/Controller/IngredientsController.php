@@ -93,7 +93,7 @@ class IngredientsController extends AbstractController
             $data = [];
 
             foreach ($ingredientsList as $ingredients){ // Get all recipes name in DB
-                array_push($data,($ingredients->getName()));
+                array_push($data,array('name'=>$ingredients->getName(),'id'=>$ingredients->getId()));
             }
             $response = new JsonResponse($data);
             $response->headers->set('Content-Type', 'application/json');

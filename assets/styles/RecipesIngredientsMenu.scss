@@ -106,13 +106,48 @@ $active-link-color: #b35b18;
 
 .list{
     .searchbar{
-        svg{
-            cursor: pointer;
+        a{
+            svg{
+                &.active{
+                    transition: all 0.6s ease-in-out;
+                    color: $main-orange !important;
+                    transform: scale(1.2);
+                }
+            }
 
-            &.active{
-                transition: all 0.6s ease-in-out;
-                color: $main-orange;
-                transform: scale(1.2);
+            &.waitingSearch {
+                svg{
+                    animation-name: shakeSearch, pulseSearch;
+                    animation-delay: 0s,1s;
+                    animation-duration: 1s, 2s;
+                    animation-timing-function: ease-out,linear;
+                    animation-iteration-count: 1, infinite;
+                    animation-fill-mode: forwards,forwards;
+                    transition: all 0.6s ease-in-out;
+                    color: $active-link-color;
+                    transform: scale(1.2);
+
+                    @keyframes shakeSearch {
+                        from{
+                            transform: rotate(0deg);
+                        }
+                        to{
+                            transform: rotate(-35deg);
+                        }
+                    };
+
+                    @keyframes pulseSearch {
+                        0%{
+                            transform: scale(1) rotate(-35deg);
+                        }
+                        50%{
+                            transform: scale(1.2) rotate(-45deg);
+                        }
+                        100%{
+                            transform: scale(1) rotate(-35deg);
+                        }
+                    };
+                }
             }
         }
 
@@ -204,9 +239,4 @@ $active-link-color: #b35b18;
         background: $main-orange !important;
         border:none !important;
         border-radius: 5px;
-    }
-
-    //Manage gif shown on loading result
-    .ui-autocomplete-loading {
-        background: white url("/pictures/loading.gif") no-repeat;
     }
