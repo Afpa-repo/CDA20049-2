@@ -1,7 +1,7 @@
 {
     "devDependencies": {
         "@symfony/webpack-encore": "^0.31.0",
-        "core-js": "^3.0.0",
+        "core-js": "^3.7.0",
         "regenerator-runtime": "^0.13.2",
         "sass-loader": "^9.0.3",
         "webpack-notifier": "^1.6.0"
@@ -17,6 +17,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
         "jquery": "^3.5.1",
+        "jquery-ui": "^1.12.1",
         "materialize-css": "^1.0.0",
         "sass": "^1.29.0",
         "vue": "^2.6.12"

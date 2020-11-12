@@ -24,40 +24,34 @@ class RecipesType extends AbstractType
             ->add('category', EntityType::class, [
                 // looks for choices from this entity
                 'class' => RecipeCategory::class,
-                // uses the User.username property as the visible option string
+                // define the visible option string
                 'choice_label' => function ($category) {
                 return $category->getName();
                 }
             ])
 
+            //CollectionType allow a variable amount of inputs
             ->add('instructions', CollectionType::class, [
                 // each entry in the array will be an "instruction" field
                 'entry_type' => TextType::class,
+                //Allow the creation of a new field
                 'allow_add' => true,
+                //Allow deletion of fields
                 'allow_delete' => true,
                 'prototype' => true
             ])
             ->add('picture')
             ->add('ingredients', CollectionType::class, [
-                // each entry in the array will be an "instruction" field
+                // We include the IngredientRecipeType form
                 'entry_type' => IngredientRecipeType::class,
+                //Allow the creation of a new field
                 'allow_add' => true,
+                //Allow deletion of fields
                 'allow_delete' => true,
                 'prototype' => true
             ])
         ;
     }
-
-    /*$builder->create('ingredients', FormType::class, ['by_reference' => false])
-                    ->add('name', EntityType::class, [
-                    // looks for choices from this entity
-                    'class' => Ingredients::class,
-                    // uses the User.username property as the visible option string
-                    'choice_label' => function ($ingredient) {
-                        return $ingredient->getName();
-                        }
-                    ])
-                    ->add('quantity', NumberType::class)*/
 
     public function configureOptions(OptionsResolver $resolver)
     {

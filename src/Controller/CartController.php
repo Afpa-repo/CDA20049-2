@@ -35,8 +35,7 @@ class CartController extends AbstractController
 
             // Loop to get price of each element in cart
             foreach ($cartWithData as $item) {
-                $ingredient = $cartWithData[0]['ingredient'];
-                $priceItem = $ingredient->getPrice() * $item['quantity'];
+                $priceItem = $item['ingredient']->getPrice() * $item['quantity'];
                 $total += $priceItem;
             }
         }
@@ -58,9 +57,22 @@ class CartController extends AbstractController
         // Get data from AJAX request
         $id = $request->request->get('id');
         $quantity = $request->request->get('quantity');
+        $atrouver = false;//create variable bool
 
+        if(!empty($cart)){//if cart is not empty boucle to research id to add quantity
+            foreach ($cart as $index=>$element) {
+                if($element['id']==$id) {//if element find add quantity as this element
+                    $element['quantity']+=$quantity;
+                    array_push($cart,array('id'=>$id,'quantity'=>$element['quantity']));
+                    unset($cart[$index]);//delete element cart
+                    $atrouver = true;
+                }
+            }
+        }
         // Add item to cart
-        array_push($cart,array('id'=>$id,'quantity'=>$quantity));
+        if(!$atrouver){//if atrouver = true push new id in cart
+            array_push($cart,array('id'=>$id,'quantity'=>$quantity));
+        }
 
         // Set session variable cart
         $session->set('cart', $cart);
@@ -87,4 +99,22 @@ class CartController extends AbstractController
 
         return $this->redirectToRoute('cart');
     }
+    //remove all cart
+    /**
+     * @Route("/cart/remove", name="cart_remove_all")
+     */
+    public function removeall(SessionInterface $session) {
+        $cart = $session->get('panier', []);
+        $id = 1;
+        $panier = 0;
+
+        if(!empty($cart[$id])) {
+            unset($panier[$id]);
+        }
+        $session->set('cart', $cart);
+
+        return $this->redirectToRoute('cart');
+    }
+
+
 }

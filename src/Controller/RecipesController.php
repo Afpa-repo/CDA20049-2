@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Recipes;
 use App\Entity\Category;
+use App\Repository\UsersRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\RecipesType;
 use App\Repository\RecipeCategoryRepository;
 use App\Repository\RecipesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -70,7 +72,7 @@ class RecipesController extends AbstractController
                 'nbRecipes' =>$nbRecipes,
                 'idCategory' => intval($idCategory),
                 'categories'=>$categoriesList,
-                ]);
+            ]);
         }
 
         return $this->render('recipes/index.html.twig', [
@@ -80,6 +82,31 @@ class RecipesController extends AbstractController
             'nbRecipes' =>$nbRecipes,
             'categories'=>$categoriesList,
         ]);
+    }
+
+    /**
+     * @Route("/AJAXListName", name="AJAX_liste_Recipes", methods={"GET","POST"})
+     */
+    public function AJAXListRecipes(RecipesRepository $recipesRepository,UsersRepository $usersRepository,Request $request): Response
+    {
+        if($request->isXmlHttpRequest()) {
+            $recipesList = $recipesRepository->findAll();
+
+            $data = [];
+
+            foreach ($recipesList as $recipes){ // Get all recipes name in DB
+                $recipesAuthorID=$recipes->getIdAuthor();
+                $recipesAuthorName=$usersRepository->find($recipesAuthorID);
+
+                array_push($data,array('name'=>$recipes->getName(),'author'=>$recipesAuthorName->getUsername()));
+            }
+            $response = new JsonResponse($data);
+            $response->headers->set('Content-Type', 'application/json');
+
+            return $response;
+        }
+
+        return new Response('');
     }
 
     /**
