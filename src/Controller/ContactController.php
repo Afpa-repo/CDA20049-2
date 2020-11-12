@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
+use Swift_Mailer;
+use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
@@ -13,7 +14,7 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(Request $request, \Swift_Mailer $mailer)
+    public function index(Request $request, Swift_Mailer $mailer)
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -22,7 +23,7 @@ class ContactController extends AbstractController
             $contact = $form->getData();
 
             //ici on envoie le mail
-            $message = (new \Swift_Message('Comment'))
+            $message = (new Swift_Message('Comment'))
                 //attribue l'expediteur
                 ->setFrom($contact['email'])
 
