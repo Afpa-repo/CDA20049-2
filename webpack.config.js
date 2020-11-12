@@ -34,7 +34,8 @@ Encore
     .addEntry('IngredientRecipeNew', './assets/js/IngredientRecipeNew.js')
     .addEntry('Cart', './assets/js/Cart.js')
     .addStyleEntry('Inscription', './assets/styles/Inscription.scss')
-    //.addEntry('page2', './assets/page2.js')
+    .addStyleEntry('PrivacyPolicy', './assets/styles/PrivacyPolicy.scss')
+    .addStyleEntry('About', './assets/styles/About.scss')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
