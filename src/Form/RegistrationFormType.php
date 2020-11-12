@@ -70,16 +70,6 @@ class RegistrationFormType extends AbstractType
             ->add('city', TextType::class)
             ->add('address', TextType::class)
             ->add('zipcode', NumberType::class)
-            ->add('agreeTerms', CheckboxType::class, [
-                'label'    => 'Please agree to our terms and conditions',
-                'required' => true,
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ])
         ;
     }
 
