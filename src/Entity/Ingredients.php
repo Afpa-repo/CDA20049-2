@@ -82,7 +82,7 @@ class Ingredients
     private $recipes;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Units::class)
+     * @ORM\ManyToOne(targetEntity=Units::class, fetch="EAGER")
      */
     private $unit;
 
