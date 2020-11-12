@@ -35,7 +35,7 @@
                     <div class="col s12">
                         <div class="col s6 valign-wrapper">
                             <img class="col s2" src="{{ asset('pictures/LocationIcon.svg') }}" alt="Location logo">
-                            <p class="col s10" >France</p>
+                            <p class="col s10" >{{ ingredient.origin.getCountry }} - {{ ingredient.origin.getRegion }}</p>
                         </div>
                         <div class="col s6 valign-wrapper">
                             <img class="col s2" src="{{ asset('pictures/PackageIcon.svg') }}" alt="Package logo">
