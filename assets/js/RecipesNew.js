@@ -1,5 +1,9 @@
 jQuery(document).ready(function () {
+
+    //Initialise l'input select de Materialize;
     $('select').formSelect();
+
+    //Gère l'ajout de champs de type collection.
     jQuery('.add-another-collection-widget').click(function (e) {
         var list = jQuery(jQuery(this).attr('data-list-selector'));
         // Try to find the counter of the list or use the length of the list
@@ -19,5 +23,6 @@ jQuery(document).ready(function () {
         // create a new list element and add it to the list
         var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
         newElem.appendTo(list);
+        //$('select').formSelect();
     });
 });

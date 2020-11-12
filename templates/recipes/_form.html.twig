@@ -3,8 +3,8 @@
     {{ form_row(form.idAuthor) }}
     {{ form_row(form.name) }}
     {{ form_row(form.category) }}
-    {{ form_row(form.ingredients) }}
-    {{ form_row(form.category) }}
+    {{ form_row(form.picture) }}
+
     {{ form_label(form.instructions) }}
     {{ form_errors(form.instructions) }}
     <ul id="instruction-fields-list"
@@ -19,8 +19,24 @@
             </li>
         {% endfor %}
     </ul>
-    <button type="button" class="add-another-collection-widget btn" data-list-selector="#instruction-fields-list">Add another email</button>
-    {{ form_row(form.picture) }}
+    <button type="button" class="add-another-collection-widget btn" data-list-selector="#instruction-fields-list">Add another instruction</button>
+
+    {{ form_label(form.ingredients) }}
+        {{ form_errors(form.ingredients) }}
+    <ul id="ingredient-fields-list"
+        data-prototype="{{ form_widget(form.ingredients.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li></li>'|e }}"
+        data-widget-counter="{{ form.ingredients|length }}">
+    
+        {% for ingredientField in form.ingredients %}
+            <li>
+                {{ form_errors(ingredientField) }}
+                {{ form_widget(ingredientField) }}
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="button" class="add-another-collection-widget btn" data-list-selector="#ingredient-fields-list">Add another ingredient</button>
+
 
     <button class="btn">{{ button_label|default('Confirmer') }}</button>
 {{ form_end(form) }}
