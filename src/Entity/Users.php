@@ -73,7 +73,7 @@ class Users implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $adress;
+    private $address;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -279,12 +279,12 @@ class Users implements UserInterface
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getAddress(): ?string
     {
-        return $this->adress;
+        return $this->address;
     }
 
-    public function setAdress(?string $adress): self
+    public function setAddress(?string $adress): self
     {
         $this->adress = $adress;
 

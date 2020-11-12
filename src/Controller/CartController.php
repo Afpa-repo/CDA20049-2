@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use app\Entity\Cart;
 use App\Repository\IngredientsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,12 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, IngredientsRepository $ingredientsRepository)
     {
-        $cart = $session->get('cart');
+        /*if($session.isset($cart)){
+            $cart = new Cart();
+        }
+        else{
+            $cart = $session->get('cart');
+        }*/
 
         // Initialize empty array witch will get all data
         $cartWithData = [];
@@ -83,6 +89,7 @@ class CartController extends AbstractController
     }
 
     /**
+     * Remove item from cart
      * @Route("/cart/remove/{id}", name="cart_remove")
      */
     public function remove($id, SessionInterface $session) {
@@ -101,8 +108,10 @@ class CartController extends AbstractController
 
         return $this->redirectToRoute('cart');
     }
-    //remove all cart
+
+
     /**
+     * Remove all items from cart
      * @Route("/cart/remove", name="cart_remove_all")
      */
     public function removeall(SessionInterface $session) {

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CartItems{% endblock %}
+
+{% block body %}
+    <h1>CartItems</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cart_item.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ cart_item.Quantity }}</td>
+            </tr>
+            <tr>
+                <th>PriceWhenBought</th>
+                <td>{{ cart_item.PriceWhenBought }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('cart_items_index') }}">back to list</a>
+
+    <a href="{{ path('cart_items_edit', {'id': cart_item.id}) }}">edit</a>
+
+    {{ include('cart_items/_delete_form.html.twig') }}
+{% endblock %}

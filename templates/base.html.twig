@@ -16,27 +16,27 @@
         <div id="topbar">
             <a id="appTitle" href="{{ path('home') }}"><img src="{{ asset('pictures/Logo.svg') }}"><span id="textTitle">MealWith</span></a>
 
-            <div id="rightOptions">
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a class='my' href='{{ path('logout') }}'><i class="fas fa-sign-out-alt fa-2x"></i>Logout</a>
-                {% else %}
-                    <a class="my" href="{{ path('login') }}"><i class="fas fa-user-plus fa-2x"></i>Connexion</a>
-                    <a class="my" href="{{ path('register') }}"><i class="fas fa-user-circle fa-2x"></i>Inscription</a>
-                {% endif %}
-                <a class="my" href="{{ path('cart') }}"><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
-            </div>
+        <div id="rightOptions">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a class='my' href='{{ path('logout') }}'><i class="fas fa-sign-out-alt fa-2x"></i>Logout</a>
+            {% else %}
+                <a class="my" href="{{ path('login') }}"><i class="fas fa-user-circle fa-2x"></i>Connexion</a>
+                <a class="my" href="{{ path('register') }}"><i class="fas fa-user-plus fa-2x"></i>Inscription</a>
+            {% endif %}
+            <a class="my" href="{{ path('cart') }}"><i class="fas fa-shopping-cart fa-2x"></i>My cart</a>
         </div>
+    </div>
 
-            <nav>
-                <div class="nav-wrapper">
-                    <ul id="nav-mobile" class="row hide-on-med-and-down">
-                        <li class="col"></li>
-                        <li class="col"><a href="{{ path('recipes_index') }}" >Recipes</a></li>
-                        <li class="col"><a href="{{ path('ingredients_index') }}">Ingredients</a></li>
-                        <li class="col right"><a href="{{ path('contact') }}">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
+        <nav>
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="row hide-on-med-and-down">
+                    <li class="col"></li>
+                    <li class="col"><a href="{{ path('recipes_index') }}" >Recipes</a></li>
+                    <li class="col"><a href="{{ path('ingredients_index') }}">Ingredients</a></li>
+                    <li class="col right"><a href="{{ path('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
 
     {% block body %}{% endblock %}
     </main>
