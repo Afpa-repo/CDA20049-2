@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Ingredients;
 use App\Form\IngredientsType;
 use App\Repository\IngredientCategoryRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\IngredientsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,6 +42,7 @@ class IngredientsController extends AbstractController
                 'currentPage' => $currentPage,
                 'nbIngredients' =>$nbIngredients,
                 'categories'=>$categoriesList,
+                'user'=>$this->getUser(),
             ]);
         }
     }
@@ -70,6 +72,7 @@ class IngredientsController extends AbstractController
                 'nbIngredients' =>$nbIngredients,
                 'idCategory' => intval($idCategory),
                 'categories'=>$categoriesList,
+                'user'=>$this->getUser(),
             ]);
         }
 
@@ -79,6 +82,7 @@ class IngredientsController extends AbstractController
             'currentPage' => 1,
             'nbIngredients' =>$nbIngredients,
             'categories'=>$categoriesList,
+            'user'=>$this->getUser(),
         ]);
     }
 
@@ -101,6 +105,37 @@ class IngredientsController extends AbstractController
             return $response;
         }
 
+        return new Response('');
+    }
+
+    /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/LikeAJAX", name="AJAX_like_Ingredients", methods={"GET","POST"})
+     */
+    public function LikeAJAX(IngredientsRepository $ingredientsRepository,Request $request) : Response
+    {
+        if($request->isXmlHttpRequest()) {
+            $id = $request->get('id');
+            $operation = $request->get('operation');
+            $ingredient = $ingredientsRepository->find($id); // Get recipe object for specific ID
+            $entityManager= $this->getDoctrine()->getManager(); // Get recipe manager
+
+            if ($operation === 'add'){
+                $ingredient->addUsersFavorite($this->getUser());
+                $entityManager->persist($ingredient);
+                $entityManager->flush();
+
+                return new Response('added');
+
+            }else {
+                $ingredient->removeUsersFavorite($this->getUser());
+                $entityManager->persist($ingredient);
+                $entityManager->flush();
+
+                return new Response('removed');
+            }
+
+        }
         return new Response('');
     }
 
@@ -135,6 +170,7 @@ class IngredientsController extends AbstractController
 
         return $this->render('ingredients/show.html.twig', [
             'ingredient' => $ingredient,
+            'user'=>$this->getUser(),
         ]);
     }
 

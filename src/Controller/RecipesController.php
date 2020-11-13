@@ -6,7 +6,6 @@ use App\Entity\Recipes;
 use App\Repository\UsersRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\RecipesType;
-use App\Security\MealWithAuthenticator;
 use App\Repository\RecipeCategoryRepository;
 use App\Repository\RecipesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,9 +13,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserChecker;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
  * @Route("/recipes")
@@ -46,6 +42,7 @@ class RecipesController extends AbstractController
             'currentPage' => $currentPage,
             'nbRecipes' =>$nbRecipes,
             'categories'=>$categoriesList,
+            'user'=>$this->getUser(),
         ]);
     }
 
@@ -75,6 +72,7 @@ class RecipesController extends AbstractController
                 'nbRecipes' =>$nbRecipes,
                 'idCategory' => intval($idCategory),
                 'categories'=>$categoriesList,
+                'user'=>$this->getUser(),
             ]);
         }
 
@@ -84,6 +82,7 @@ class RecipesController extends AbstractController
             'currentPage' => 1,
             'nbRecipes' =>$nbRecipes,
             'categories'=>$categoriesList,
+            'user'=>$this->getUser(),
         ]);
     }
 
@@ -116,26 +115,31 @@ class RecipesController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/LikeAJAX", name="AJAX_like_Recipes", methods={"GET","POST"})
      */
-    public function LikeAJAX(UserInterface $authenticator,UserProviderInterface $authenticator2,RecipesRepository $recipesRepository,UsersRepository $usersRepository,Request $request)
+    public function LikeAJAX(RecipesRepository $recipesRepository,Request $request) : Response
     {
         if($request->isXmlHttpRequest()) {
             $id = $request->get('id');
             $operation = $request->get('operation');
-            $recipe = $recipesRepository->find($id);
+            $recipe = $recipesRepository->find($id); // Get recipe object for specific ID
+            $entityManager= $this->getDoctrine()->getManager(); // Get recipe manager
 
-            $username = $authenticator->getUsername();
-            $user2 = $authenticator2->loadUserByUsername($username);
-            $user = $usersRepository->findOneBy(['email' => $username]);
+            if ($operation === 'add'){
+                $recipe->addUsersFavorite($this->getUser());
+                $entityManager->persist($recipe);
+                $entityManager->flush();
 
-//            if ($operation === 'add'){
-//                $recipe->addUsersFavorite($usersRepository->find($user));
-//            }else {
-//                $recipe->removeUsersFavorite($usersRepository->find($user));
-//            }
-            return new JsonResponse($user2);
+                return new Response('added');
+
+            }else {
+                $recipe->removeUsersFavorite($this->getUser());
+                $entityManager->persist($recipe);
+                $entityManager->flush();
+
+                return new Response('removed');
+            }
 
         }
-        return new JsonResponse('');
+        return new Response('');
     }
 
     /**
@@ -172,6 +176,7 @@ class RecipesController extends AbstractController
     {
         return $this->render('recipes/show.html.twig', [
             'recipe' => $recipe,
+            'user'=>$this->getUser(),
         ]);
     }
 

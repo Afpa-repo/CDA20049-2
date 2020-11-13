@@ -41,6 +41,11 @@
                                     </div>
                                     <div class="card-action">
                                         {{ ingredient.name }}
+                                        {% if  user|length >0%}
+                                            {% if ingredient in user.getFavoredIngredients.values %}
+                                                <div class="favorite"><i class="fas fa-heart fa-2x"></i></div>
+                                            {% endif %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             </a>

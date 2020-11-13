@@ -26,7 +26,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('RecipesIngredientsMenu', './assets/js/RecipesIngredientsMenu.js')
     .addEntry('HomeMenu', './assets/js/HomeMenu.js')
-    .addEntry('RecipesDetails', './assets/js/RecipesDetails.js')
+    .addEntry('RecipesIngredientsDetails', './assets/js/RecipesIngredientsDetails.js')
     .addEntry('ContactM', './assets/js/ContactM.js')
     .addEntry('base', './assets/js/base.js')
     .addEntry('RecipesNew', './assets/js/RecipesNew.js')
