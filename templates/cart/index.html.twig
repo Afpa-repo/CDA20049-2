@@ -28,7 +28,7 @@
                 <tr>
                     <td><a class="btn cross" href="{{ path('cart_remove', {'id': item.ingredient.id}) }}"><i class="fas fa-times fa-3x"></i></a></td>
                     <td><img src="/pictures/{{ item.ingredient.picture }}" alt="{{ item.ingredient.picture }}" ></td>
-                    <td class="name">{{ item.ingredient.name }}</td>
+                    <td class="name"><a href="{{ path('ingredients_show', {'id': item.ingredient.id}) }}">{{ item.ingredient.name }}</a></td>
                     <td class="price">{{ item.ingredient.price }}€</td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.ingredient.price * item.quantity }}€</td>

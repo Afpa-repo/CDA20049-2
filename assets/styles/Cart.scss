@@ -36,7 +36,33 @@ tr {
 }
 .validate {
   background: #488C03;
+  margin-bottom: 2rem;
   &:hover {
     background: darken(#488C03,20%);
+  }
+}
+section {
+  margin-top: 5rem;
+  label {
+    color: black;
+    font-size: 1rem;
+  }
+
+  input {
+    &:focus {
+      border-bottom-color: $main-orange !important;
+      box-shadow: 0 2px 0 0 $main-orange !important;
+      transition: all 0.6s ease-in-out
+    }
+  }
+  button {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 10px 10px 10px 10px;
+    background: #488C03;
+    font-family: Roboto;
+    font-size: 2rem;
+    color: white;
+    border-radius: 10px;
   }
 }
