@@ -17,12 +17,12 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, IngredientsRepository $ingredientsRepository)
     {
-        /*if($session.isset($cart)){
+      /*  if($session.isset($cart)){
             $cart = new Cart();
         }
-        else{
+        else{*/
             $cart = $session->get('cart');
-        }*/
+//        }
 
         // Initialize empty array witch will get all data
         $cartWithData = [];
@@ -36,7 +36,7 @@ class CartController extends AbstractController
                 $id = $item['id']; //get id for the ingredient
                 $ingredient = $ingredientsRepository->find($id); //get ingredient for specific id
 
-                array_push($cartWithData,array('ingredient'=>$ingredient,'quantity'=>$item['quantity']));
+                array_push($cartWithData,array('id'=>$id,'ingredient'=>$ingredient,'quantity'=>$item['quantity']));
             }
 
             // Loop to get price of each element in cart
@@ -71,7 +71,7 @@ class CartController extends AbstractController
             foreach ($cart as $index=>$element) {
                 if($element['id']==$id) {//if element find add quantity as this element
                     $element['quantity']+=$quantity;
-                    array_push($cart,array('id'=>$id,'quantity'=>$element['quantity']));
+                    array_push($cart,array('id'=>$id,'ingredient'=>'','quantity'=>$element['quantity']));
                     unset($cart[$index]);//delete element cart
                     $atrouver = true;
                 }
@@ -79,7 +79,7 @@ class CartController extends AbstractController
         }
         // Add item to cart
         if(!$atrouver){//if atrouver = true push new id in cart
-            array_push($cart,array('id'=>$id,'quantity'=>$quantity));
+            array_push($cart,array('id'=>$id,'ingredient'=>'','quantity'=>$quantity));
         }
 
         // Set session variable cart
