@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Recipes;
-use App\Entity\Category;
 use App\Repository\UsersRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\RecipesType;
+use App\Security\MealWithAuthenticator;
 use App\Repository\RecipeCategoryRepository;
 use App\Repository\RecipesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +14,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserChecker;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
  * @Route("/recipes")
@@ -107,6 +110,32 @@ class RecipesController extends AbstractController
         }
 
         return new Response('');
+    }
+
+    /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/LikeAJAX", name="AJAX_like_Recipes", methods={"GET","POST"})
+     */
+    public function LikeAJAX(UserInterface $authenticator,UserProviderInterface $authenticator2,RecipesRepository $recipesRepository,UsersRepository $usersRepository,Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+            $id = $request->get('id');
+            $operation = $request->get('operation');
+            $recipe = $recipesRepository->find($id);
+
+            $username = $authenticator->getUsername();
+            $user2 = $authenticator2->loadUserByUsername($username);
+            $user = $usersRepository->findOneBy(['email' => $username]);
+
+//            if ($operation === 'add'){
+//                $recipe->addUsersFavorite($usersRepository->find($user));
+//            }else {
+//                $recipe->removeUsersFavorite($usersRepository->find($user));
+//            }
+            return new JsonResponse($user2);
+
+        }
+        return new JsonResponse('');
     }
 
     /**

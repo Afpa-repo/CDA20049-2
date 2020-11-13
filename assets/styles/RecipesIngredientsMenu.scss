@@ -179,6 +179,7 @@ $active-link-color: #b35b18;
     }
     .card{
         cursor: pointer;
+
         .card-image{
             overflow: inherit;
             max-height: 100%;
@@ -191,6 +192,28 @@ $active-link-color: #b35b18;
             transition: transform 0.5s ease-in-out;
             transform-origin: center;
             transform: scale(1.08);
+        }
+
+        .favorite{
+            position: absolute;
+            z-index: 3;
+            top: 0;
+            right: 5%;
+            stroke: black;
+            stroke-width: 20px;
+            stroke-opacity: 1;
+            stroke-linecap: butt;
+            opacity: 60%;
+            color: white;
+
+            &.active{
+                color: darken(red,10);
+                opacity: 100%;
+            }
+
+            &:hover{
+                transform: scale(1.3);
+            }
         }
     }
 }

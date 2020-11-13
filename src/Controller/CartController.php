@@ -17,12 +17,12 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, IngredientsRepository $ingredientsRepository)
     {
-        /*if($session.isset($cart)){
-            $cart = new Cart();
-        }
-        else{
+//        if($session.isset($cart)){
+//            $cart = new Cart();
+//        }
+//        else{
             $cart = $session->get('cart');
-        }*/
+//        }
 
         // Initialize empty array witch will get all data
         $cartWithData = [];

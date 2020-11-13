@@ -100,6 +100,7 @@ let listName = '' ;
         });
 
     let idItem = ''; // Initialize item ID used for searching after autocomplete
+
 /*
     Go to details on search value change
 */
@@ -110,7 +111,62 @@ let listName = '' ;
             let indexSelectionData = selectionData.indexOf(itemSelected); // Get index 'n' of this element
             idItem = listName[indexSelectionData].id; // Get the ID of the nth item, searching through listName data
 
-            $('a.prefix').attr("href",idItem); // Change link href to match item's ID
-            $('a.prefix').addClass("waitingSearch"); // Add waitingSearch class to the search link witch animate the magnifying glass
+            $('a.prefix').attr("href",idItem).addClass("waitingSearch"); // Change link href to match item's ID and add waitingSearch class to the search link witch animate the magnifying glass
         }
     });
+
+/*
+    Implement likes feature
+*/
+
+    // AJAX request triggered when liking/disliking an element
+    function FavoriteAJAX(element){
+        let idElement = element.parent('div').parent('div').parent('a').attr('href'); // Get href url from the link
+        idElement = parseInt(idElement.match(/^.*\/(.*)$/)[1]); //Extract ID from href url expected on the link
+        let favoriteAJAX; // Declare variable which will be used for the AJAX request
+
+        if(element.hasClass('active')){ // If liked, remove like
+            favoriteAJAX = $.ajax({
+                url: "LikeAJAX",
+                method: "POST",
+                data: {id:idElement, operation:"remove"}});
+
+        } else { // If not liked, add like
+            favoriteAJAX = $.ajax({
+                url: "LikeAJAX",
+                method: "POST",
+                data: {id:idElement, operation:"add"}});
+        }
+
+        // Error message if the request failed
+        favoriteAJAX.done(function(serverData){
+            console.log(serverData);
+        });
+
+        // Error message if the request failed
+        favoriteAJAX.fail(function(){
+            alert("Request favoriteAJAX failed");
+        });
+
+    }
+
+    // Enable click on like
+    $('.favorite').mouseenter(function (){
+        console.log('focus in ');
+        $(this).click(function (){
+            FavoriteAJAX($(this));
+            $(this).toggleClass('active');
+        });
+
+        // Temporary disable redirect by clicking on card
+        $(".card-title").click(function(event){
+            event.preventDefault();
+        });
+
+        $(this).mouseleave(function (){
+            // Reactivate redirect by clicking on card
+            $(".card-title").unbind('click').click();
+        });
+    });
+
+
