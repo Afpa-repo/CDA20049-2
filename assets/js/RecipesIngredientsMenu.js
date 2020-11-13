@@ -100,6 +100,7 @@ let listName = '' ;
         });
 
     let idItem = ''; // Initialize item ID used for searching after autocomplete
+
 /*
     Go to details on search value change
 */
@@ -110,7 +111,6 @@ let listName = '' ;
             let indexSelectionData = selectionData.indexOf(itemSelected); // Get index 'n' of this element
             idItem = listName[indexSelectionData].id; // Get the ID of the nth item, searching through listName data
 
-            $('a.prefix').attr("href",idItem); // Change link href to match item's ID
-            $('a.prefix').addClass("waitingSearch"); // Add waitingSearch class to the search link witch animate the magnifying glass
+            $('a.prefix').attr("href",idItem).addClass("waitingSearch"); // Change link href to match item's ID and add waitingSearch class to the search link witch animate the magnifying glass
         }
     });

@@ -50,7 +50,7 @@ class Recipes
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Users::class, mappedBy="favoredRecipes")
+     * @ORM\ManyToMany(targetEntity=Users::class, mappedBy="favoredRecipes",fetch="EAGER")
      */
     private $UsersFavorite;
 

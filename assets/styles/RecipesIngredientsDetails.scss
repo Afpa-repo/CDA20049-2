@@ -14,6 +14,23 @@
         border-radius: 20px !important;
     }
 
+    .favorite {
+        a{
+            cursor: pointer;
+            stroke: black;
+            stroke-width: 20px;
+            stroke-opacity: 1;
+            stroke-linecap: butt;
+            color: white;
+        }
+
+        &.active {
+            a {
+                color: darken(red,10);
+            }
+        }
+    }
+
     .navigationBtn {
         a {
             margin-top: 10px;
@@ -37,6 +54,7 @@
             }
         }
     }
+
     .CRUD {
         margin-top: 50px;
 

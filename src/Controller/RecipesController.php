@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Recipes;
-use App\Entity\Category;
 use App\Repository\UsersRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\RecipesType;
@@ -43,6 +42,7 @@ class RecipesController extends AbstractController
             'currentPage' => $currentPage,
             'nbRecipes' =>$nbRecipes,
             'categories'=>$categoriesList,
+            'user'=>$this->getUser(),
         ]);
     }
 
@@ -72,6 +72,7 @@ class RecipesController extends AbstractController
                 'nbRecipes' =>$nbRecipes,
                 'idCategory' => intval($idCategory),
                 'categories'=>$categoriesList,
+                'user'=>$this->getUser(),
             ]);
         }
 
@@ -81,6 +82,7 @@ class RecipesController extends AbstractController
             'currentPage' => 1,
             'nbRecipes' =>$nbRecipes,
             'categories'=>$categoriesList,
+            'user'=>$this->getUser(),
         ]);
     }
 
@@ -106,6 +108,37 @@ class RecipesController extends AbstractController
             return $response;
         }
 
+        return new Response('');
+    }
+
+    /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/LikeAJAX", name="AJAX_like_Recipes", methods={"GET","POST"})
+     */
+    public function LikeAJAX(RecipesRepository $recipesRepository,Request $request) : Response
+    {
+        if($request->isXmlHttpRequest()) {
+            $id = $request->get('id');
+            $operation = $request->get('operation');
+            $recipe = $recipesRepository->find($id); // Get recipe object for specific ID
+            $entityManager= $this->getDoctrine()->getManager(); // Get recipe manager
+
+            if ($operation === 'add'){
+                $recipe->addUsersFavorite($this->getUser());
+                $entityManager->persist($recipe);
+                $entityManager->flush();
+
+                return new Response('added');
+
+            }else {
+                $recipe->removeUsersFavorite($this->getUser());
+                $entityManager->persist($recipe);
+                $entityManager->flush();
+
+                return new Response('removed');
+            }
+
+        }
         return new Response('');
     }
 
@@ -143,6 +176,7 @@ class RecipesController extends AbstractController
     {
         return $this->render('recipes/show.html.twig', [
             'recipe' => $recipe,
+            'user'=>$this->getUser(),
         ]);
     }
 

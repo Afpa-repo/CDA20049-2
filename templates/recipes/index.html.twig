@@ -37,6 +37,11 @@
                                     </div>
                                     <div class="card-action">
                                         {{ recipe.name }}
+                                        {% if  user|length >0%}
+                                            {% if recipe in user.getFavoredRecipes.values %}
+                                                    <div class="favorite"><i class="fas fa-heart fa-2x"></i></div>
+                                            {% endif %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             </a>

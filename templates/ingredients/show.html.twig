@@ -3,7 +3,7 @@
 {% block title %}Ingredient details{% endblock %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('RecipesDetails') }}
+    {{ encore_entry_link_tags('RecipesIngredientsDetails') }}
 
 {% endblock %}
 
@@ -12,6 +12,17 @@
         <div class="col s3 center-align leftMenu">
             <h1>{{ ingredient.name }}</h1>
             <img src="/pictures/{{ ingredient.picture }}" alt="picture of {{ ingredient.name }}">
+            {% if user|length >0%}
+                {% if user in ingredient.usersFavorite.values %} {#If user has this specific ingredient in favorite#}
+                    <div class="favorite active">
+                        <a><i class="fas fa-heart fa-2x"></i></a>
+                    </div>
+                {% else %}
+                    <div class="favorite">
+                        <a><i class="fas fa-heart fa-2x"></i></a>
+                    </div>
+                {% endif %}
+            {% endif %}
             <div class="col s12 navigationBtn">
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#Details">Details</a>
                 <a class="waves-effect waves-light btn-large col s6 offset-s3" href="#topRecipes">Top recipes</a>
@@ -118,14 +129,11 @@
             <h4>Information</h4>
             <p></p>
         </div>
-        <div class="modal-footer">
-            <a href="#Buy" class="modal-close waves-effect waves-green btn-flat">Understood</a>
-        </div>
     </div>
 
 
 {% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('RecipesDetails') }}
+    {{ encore_entry_script_tags('RecipesIngredientsDetails') }}
 {% endblock %}

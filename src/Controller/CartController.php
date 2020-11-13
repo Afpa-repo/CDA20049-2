@@ -17,6 +17,7 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, IngredientsRepository $ingredientsRepository)
     {
+
       /*  if($session.isset($cart)){
             $cart = new Cart();
         }

@@ -51,12 +51,12 @@ class Users implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Recipes::class, inversedBy="UsersFavorite")
+     * @ORM\ManyToMany(targetEntity=Recipes::class, inversedBy="UsersFavorite",fetch="EAGER")
      */
     private $favoredRecipes;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Ingredients::class, inversedBy="UsersFavorite")
+     * @ORM\ManyToMany(targetEntity=Ingredients::class, inversedBy="UsersFavorite",fetch="EAGER")
      */
     private $favoredIngredients;
 
