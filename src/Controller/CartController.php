@@ -185,7 +185,7 @@ class CartController extends AbstractController
                 $entityManager->persist($order);
                 $entityManager->flush();
 
-                return $this->render('/index.html.twig');
+                return $this->redirectToRoute('home');
         }
 
         return $this->render('cart/validation.html.twig', [
