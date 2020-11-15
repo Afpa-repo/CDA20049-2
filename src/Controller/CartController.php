@@ -152,13 +152,13 @@ class CartController extends AbstractController
         //Once the order is validated
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //Generate cart.
+            //Generate a cart.
                 $cart = new Cart();
 
-            //Insert cart into db so its id is generated and we can use it for cartItems and order.
+            //Make the cart persist so its id can be referenced by cartItems and order.
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($cart);
-                //$entityManager->flush();
+
 
             //Generate cartItems.
                 foreach($items as $item){
@@ -171,7 +171,6 @@ class CartController extends AbstractController
                     $newItem->setQuantity($item["quantity"]);
                     $newItem->setIdCart($cart);
                     $entityManager->persist($newItem);
-                    $entityManager->flush();
                 }
 
             //Generate order.
@@ -183,9 +182,16 @@ class CartController extends AbstractController
                 $order->setDeliveryAddress($_POST['validate_cart']['address']);
                 $order->setOrderDate(new \DateTime());
                 $entityManager->persist($order);
+
+            //Insert cart, cartItem and order into db.
                 $entityManager->flush();
 
-                return $this->redirectToRoute('home');
+            //Clear session data related to the paid cart.
+            //Doesn't work for now.
+                //unset($_SESSION['cart']);
+                //unset($_SESSION['total']);
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('cart/validation.html.twig', [
