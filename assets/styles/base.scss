@@ -1,7 +1,7 @@
 @import 'const.scss';
 
 html{
-  font-family: Lato, Roboto;
+  font-family: $main-font;
   }
 
   // Use by Materialize to manage a sticky footer which always stay on the bottom of the page
@@ -33,7 +33,7 @@ html{
 
     #appTitle {
       font-size: 3.5rem;
-      font-family: Dancing Script;
+      font-family: $fancy-font;
       padding-left: 1rem;
 
       #textTitle {

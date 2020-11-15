@@ -1,68 +1,81 @@
 @import 'const.scss';
 
-h1 {
-  color: $main-orange;
-  font-family: roboto;
-  font-size: 3rem;
-}
-h2 {
-  font-family: roboto;
-  font-size: 2rem;
-}
-
-
-tr {
-  font-size: 1.5rem;
-  .price {
+  h1 {
     color: $main-orange;
-    font-weight: bold;
+    font-size: 3rem;
   }
-  .cross {
-    color: red;
-    background: transparent;
-    box-shadow: none;
-    &:hover {
-      color: red;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+
+  tr {
+    font-size: 1.5rem;
+    .price {
+      color: $main-orange;
+      font-weight: bold;
+    }
+    .cross {
+      color: $redError;
       background: transparent;
       box-shadow: none;
+      &:hover {
+        color: red;
+        background: transparent;
+        box-shadow: none;
+      }
     }
-  }
-  .all {
-    background: $main-orange;
-    &:hover{
-      background: red;
-    }
-  }
-}
-.validate {
-  background: #488C03;
-  margin-bottom: 2rem;
-  &:hover {
-    background: darken(#488C03,20%);
-  }
-}
-section {
-  margin-top: 5rem;
-  label {
-    color: black;
-    font-size: 1rem;
   }
 
-  input {
-    &:focus {
-      border-bottom-color: $main-orange !important;
-      box-shadow: 0 2px 0 0 $main-orange !important;
-      transition: all 0.6s ease-in-out
+  section {
+    margin-top: 5rem;
+    label {
+      color: black;
+      font-size: 1rem;
+    }
+
+    input {
+      &:focus {
+        border-bottom-color: $main-orange !important;
+        box-shadow: 0 2px 0 0 $main-orange !important;
+        transition: all 0.6s ease-in-out
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      padding: 10px 10px 10px 10px;
+      background: $greenValid;
+      font-family: $fancy-font;
+      font-size: 2rem;
+      color: white;
+      border-radius: 10px;
+
+      &:hover {
+        background: darken($greenValid,5%);
+      }
     }
   }
-  button {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    padding: 10px 10px 10px 10px;
-    background: #488C03;
-    font-family: Roboto;
-    font-size: 2rem;
-    color: white;
-    border-radius: 10px;
+
+  .lowBtns{
+      display: flex;
+      justify-content: space-evenly;
+      margin: 2rem;
+
+      .clear {
+        background: $redError;
+
+        &:hover {
+          background: darken($redError,5%);
+        }
+      }
+
+      .buy {
+        background: $greenValid;
+        &:hover {
+          background: darken($greenValid,5%);
+        }
+      }
   }
-}

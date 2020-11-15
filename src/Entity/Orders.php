@@ -25,7 +25,7 @@ class Orders
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $deliveryAddres;
+    private $deliveryAddress;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -36,6 +36,21 @@ class Orders
      * @ORM\OneToOne(targetEntity=Cart::class, inversedBy="relatedOrder", cascade={"persist", "remove"})
      */
     private $cart;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
     public function getId(): ?int
     {
@@ -54,14 +69,14 @@ class Orders
         return $this;
     }
 
-    public function getDeliveryAddres(): ?string
+    public function getDeliveryAddress(): ?string
     {
-        return $this->deliveryAddres;
+        return $this->deliveryAddress;
     }
 
-    public function setDeliveryAddres(string $deliveryAddres): self
+    public function setDeliveryAddress(string $deliveryAddress): self
     {
-        $this->deliveryAddres = $deliveryAddres;
+        $this->deliveryAddress = $deliveryAddress;
 
         return $this;
     }
@@ -86,6 +101,42 @@ class Orders
     public function setCart(?Cart $cart): self
     {
         $this->cart = $cart;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

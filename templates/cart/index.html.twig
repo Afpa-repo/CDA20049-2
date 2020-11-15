@@ -7,54 +7,57 @@
 
 
 {% block body %}
-    <div class="container"><h1>Your Cart</h1></div>
+    <div class="container">
 
     {% if items |length > 0 %}
-        <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Delete</th>
-                    <th class="center">Product</th>
-                    <th></th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for item in items %}
+        <h1 class="center">Your Cart</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="center">Product</th>
+                        <th></th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
 
+                    <tr>
+                        <td><img src="/pictures/{{ item.ingredient.picture }}" alt="{{ item.ingredient.picture }}" ></td>
+                        <td class="name"><a href="{{ path('ingredients_show', {'id': item.ingredient.id}) }}">{{ item.ingredient.name }}</a></td>
+                        <td class="price">{{ item.ingredient.price }}€</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.ingredient.price * item.quantity }}€</td>
+                        <td><a class="btn cross" href="{{ path('cart_remove', {'id': item.ingredient.id}) }}"><i class="fas fa-times fa-3x"></i></a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
                 <tr>
-                    <td><a class="btn cross" href="{{ path('cart_remove', {'id': item.ingredient.id}) }}"><i class="fas fa-times fa-3x"></i></a></td>
-                    <td><img src="/pictures/{{ item.ingredient.picture }}" alt="{{ item.ingredient.picture }}" ></td>
-                    <td class="name"><a href="{{ path('ingredients_show', {'id': item.ingredient.id}) }}">{{ item.ingredient.name }}</a></td>
-                    <td class="price">{{ item.ingredient.price }}€</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.ingredient.price * item.quantity }}€</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="price">Total:</td>
+                    <td class="price">{{ total }}€</td>
                 </tr>
-            {% endfor %}
-            </tbody>
-            <tfoot>
-            <tr>
-                <td><a class="btn all" href="{{ path('cart_remove_all')}}"><i class="fas fa-trash"></i> Delete All</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="price">Total:</td>
-                <td class="price">{{ total }}€</td>
-            </tr>
-            </tfoot>
-        </table>
-            <div class="right">
-                <a class="btn validate" href="{{ path('validate_cart')}}"><i class="fas fa-check"></i> OK</a>
+                </tfoot>
+            </table>
+
+            <div class="lowBtns">
+                <a class="btn clear" href="{{ path('cart_remove_all')}}"><i class="fas fa-trash"></i>Clear All</a>
+                <a class="btn buy" href="{{ path('cart_validate')}}"><i class="fas fa-check"></i>Buy</a>
             </div>
+
         </div>
 
     {% else %}
-        <h2 class="center">Your cart is empty</h2>
+        <h2 class="center">Your cart is empty for now.</h2>
     {% endif %}
-
+    </div>
 
 
 

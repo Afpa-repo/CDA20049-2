@@ -285,6 +285,10 @@ VALUES ('Andorra', 'Europe'),
        ('Zambia', 'Africa'),
        ('Zimbabwe', 'Africa');
 
+INSERT INTO `units` (`id`, `type`)
+VALUES (1, 'kilogram'),
+       (2, 'piece');
+
 INSERT INTO ingredients (category_id,name,origin_id,unit_id,price,temp_min,temp_max,shelf_life, picture)
 VALUES (2,'Pineapple',ROUND((1+RAND()*(250-1))),1,ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Pineapple.png'),
        (2,'Kiwi',ROUND((1+RAND()*(250-1))),1,ROUND((1+RAND()*(30-1))),ROUND((10+RAND()*(20-10))),ROUND((21+RAND()*(35-21))),ROUND((1+RAND()*(15-1))),'Kiwi.png'),
@@ -300,6 +304,4 @@ INSERT INTO `users` (`id`, `email`, `firstname`, `lastname`, `password`, `roles`
 VALUES (1, 'test@test.fr', 'Testeur', 'Testeur', '$argon2id$v=19$m=65536,t=4,p=1$VzMwM0V0MGRILkFjTHJHYQ$+Aae6cVX7XUCKsWeR7uykM3uTVFg/2XT5CJD/uCL0I0', '["ROLE_USER"]'),
        (2, 'testguillaume@test.fr', 'Firstname', 'Lastname', '$argon2id$v=19$m=65536,t=4,p=1$VzMwM0V0MGRILkFjTHJHYQ$+Aae6cVX7XUCKsWeR7uykM3uTVFg/2XT5CJD/uCL0I0', '["ROLE_USER"]');
 
-INSERT INTO `units` (`id`, `type`)
-VALUES (1, 'kilogram'),
-       (2, 'piece');
+
