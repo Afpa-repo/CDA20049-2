@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Cart;
+use App\Entity\User;
 use App\Entity\CartItems;
 use App\Entity\Orders;
 use App\Form\ValidateCartType;
-use App\Repository\CartRepository;
 use App\Repository\IngredientsRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -139,12 +139,10 @@ class CartController extends AbstractController
     public function validate(SessionInterface $session, IngredientsRepository $ingredientsRepository, Request $request): Response
     {
         // returns your User object, or null if the user is not authenticated
-        // use inline documentation to tell your editor your exact User class
-        /** @var \App\Entity\User $user */
         $user = $this->getUser();
 
         $items = $session->get('cart');//retrieval of session data to display for validation
-        $total = $session->get('total');
+        $total = 0; //total will be incremented when adding cart items
 
         $form = $this->createForm(ValidateCartType::class);
         $form->handleRequest($request);
@@ -167,10 +165,12 @@ class CartController extends AbstractController
                     $ingredient = $ingredientsRepository->find($item["ingredient"]->getId());
                     $newItem->setIdIngredient($ingredient);
 
-                    $newItem->setPriceWhenBought($item["ingredient"]->getPrice());
+                    $newItem->setPriceWhenBought($ingredient->getPrice());
                     $newItem->setQuantity($item["quantity"]);
                     $newItem->setIdCart($cart);
                     $entityManager->persist($newItem);
+
+                    $total += $ingredient->getPrice();
                 }
 
             //Generate order.
