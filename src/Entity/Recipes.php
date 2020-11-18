@@ -5,10 +5,16 @@ namespace App\Entity;
 use App\Repository\RecipesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=RecipesRepository::class)
+ * @ApiResource(
+ *     normalizationContext={"groups"={"read"}},
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  */
 class Recipes
 {
@@ -16,46 +22,55 @@ class Recipes
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"read", "write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read", "write"})
      */
     private $idAuthor;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read", "write"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read", "write"})
      */
     private $picture;
 
     /**
      *  @ORM\Column(type="json", nullable=true)
+     *  @Groups({"read", "write"})
      */
     private $instructions;
 
     /**
      * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="idRecipe")
+     * @Groups({"read", "write"})
      */
     private $relatedComments;
 
     /**
      * @ORM\ManyToOne(targetEntity=RecipeCategory::class, inversedBy="relatedRecipes", fetch="EAGER")
+     * @Groups({"read", "write"})
      */
     private $category;
 
     /**
      * @ORM\ManyToMany(targetEntity=Users::class, mappedBy="favoredRecipes",fetch="EAGER")
+     * @Groups({"read", "write"})*
      */
     private $UsersFavorite;
 
     /**
      * @ORM\OneToMany(targetEntity=IngredientRecipe::class, mappedBy="recipe",fetch="EAGER")
+     * @Groups({"read", "write"})
      */
     private $ingredients;
 
