@@ -5,10 +5,13 @@ namespace App\Entity;
 use App\Repository\RecipeCategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=RecipeCategoryRepository::class)
+ * @ApiResource
  */
 class RecipeCategory
 {
@@ -21,6 +24,7 @@ class RecipeCategory
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read"})
      */
     private $name;
 

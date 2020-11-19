@@ -3,7 +3,8 @@ api_platform:
         paths: ['%kernel.project_dir%/src/Entity',
                 '%kernel.project_dir%/config/api_platform']
     patch_formats:
-        json: ['application/merge-patch+json']
+        json: ['application/merge-patch+json',
+                'application/json;charset=UTF-8']
     swagger:
         versions: [3]
     
@@ -17,6 +18,8 @@ api_platform:
         # If disabled, it will only join relations having the EAGER fetch mode.
         force_eager: true
     
+        # Enhance max join limit to 100
+        max_joins: 100
     # Enable the Swagger documentation and export.
     enable_swagger: true
     
