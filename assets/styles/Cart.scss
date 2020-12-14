@@ -64,6 +64,10 @@ section {
     font-size: 2rem;
     color: white;
     border-radius: 10px;
+
+    &:hover {
+      background: darken($greenValid,5%);
+    }
   }
 }
 
@@ -72,3 +76,24 @@ img{
   width: auto;
   margin: 0 auto;
 }
+
+  .lowBtns{
+      display: flex;
+      justify-content: space-evenly;
+      margin: 2rem;
+
+      .clear {
+        background: $redError;
+
+        &:hover {
+          background: darken($redError,5%);
+        }
+      }
+
+      .buy {
+        background: $greenValid;
+        &:hover {
+          background: darken($greenValid,5%);
+        }
+      }
+  }

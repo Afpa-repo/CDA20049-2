@@ -7,9 +7,10 @@
 
 
 {% block body %}
-    <div class="container"><h1>Recap {{ user.firstname }}</h1></div>
-
     <div class="container">
+        <div class="center">
+            <h1 class="">Order Summary</h1>
+        </div>
         <table class="table">
             <thead>
             <tr>
@@ -63,7 +64,7 @@
                         {{ form_row(validatecartForm.address, {'attr': {'value': user.address }}) }}
                     </div>
                 </div>
-                <div class="center">
+                <div class="right">
                     {{ form_row(validatecartForm.validate) }}
                 </div>
             {{ form_end(validatecartForm) }}
