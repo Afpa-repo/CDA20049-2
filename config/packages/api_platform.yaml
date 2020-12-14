@@ -7,7 +7,7 @@ api_platform:
                 'application/json;charset=UTF-8']
     swagger:
         versions: [3]
-    
+        
     eager_loading:
         # To enable or disable eager loading.
         enabled: true
@@ -29,5 +29,3 @@ api_platform:
     collection:
         # The default order of results.
         order: 'ASC'
-
-        

@@ -19,8 +19,8 @@ function curlRequestSpoonacular(string $url,array $parameters)
         CURLOPT_URL => $url.'?'.$parameters_string, // Set the request URL
         CURLOPT_RETURNTRANSFER => true, // Return data in case of curl request success
         CURLOPT_HTTPHEADER => array('Content-Type: application/json'), // Response header of Spoonacular are JSON
-        CURLOPT_SSL_VERIFYHOST => false, // Enable request without needed a certificate for https URL
-        CURLOPT_SSL_VERIFYPEER => false, // Enable request without needed a certificate for https URL
+        /*CURLOPT_SSL_VERIFYHOST => false, // Enable request without needed a certificate for https URL
+        CURLOPT_SSL_VERIFYPEER => false, // Enable request without needed a certificate for https URL*/
     ];
 
     // Add options and parameters to the curl session
@@ -45,7 +45,7 @@ $apiKey = '7dbf6a69290c4971a9ea8e019bfb3867';
 // Set parameters
 $parameters = [
     'apiKey' => $apiKey,
-    'number' => '50', //parameter 1
+    'number' => '2', //parameter 1
     //parameter 2
     //parameter 3
 ];
@@ -71,9 +71,9 @@ foreach($response['recipes'] as $index => $element){
     }
 }
 var_dump($data);
-
-//JUste une idée
-/*foreach($data as $i=>$recipe){
+/*
+foreach($data as $i=>$recipe) {
+    $data.$i = new
     $i = new \Symfony\Flex\Recipe();
     $i = $this->setID($recipe['id']);
     $i = $this->setName($recipe['name']);

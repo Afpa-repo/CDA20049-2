@@ -169,9 +169,6 @@ class Recipes
     {
         $instructions = $this->instructions;
 
-        $instructions[] = 'éplucher, cuire, touiller?!';
-
-
         return array_unique($instructions);
     }
 

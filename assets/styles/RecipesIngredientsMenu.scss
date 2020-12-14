@@ -180,12 +180,10 @@ $active-link-color: #b35b18;
     .card{
         cursor: pointer;
 
-        .card-image{
-            overflow: inherit;
-            max-height: 100%;
-            img{
-                object-fit:contain;
-            }
+        img{
+            width: auto;
+            height: 200px;
+            margin: 0 auto;
         }
 
         &:hover{

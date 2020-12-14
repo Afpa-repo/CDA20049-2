@@ -21,9 +21,8 @@ ___
 1. security-bundle <https://symfony.com/doc/current/security.html>
 
 A TESTER : LiipImagineBundle => dimensionnement d'image à l'upload
-
+A TESTER : KNP Paginator => <https://github.com/KnpLabs/KnpPaginatorBundle>
 ___
 ### API utilisée(s)
 1. Spoonacular <https://spoonacular.com/food-api/docs>
-
-A TESTER : API Platform <https://api-platform.com/docs/>
+1. API Platform <https://api-platform.com/docs/>

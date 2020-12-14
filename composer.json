@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "api-platform/core": "^2.5",
         "composer/package-versions-deprecated": "^1.11",
+        "curl/curl": "^2.3",
         "doctrine/annotations": "^1.11",
         "doctrine/doctrine-bundle": "^2.1",
         "doctrine/doctrine-migrations-bundle": "^3.0",
@@ -40,7 +41,9 @@
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "4.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.4",

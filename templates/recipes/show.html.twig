@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col s3 center-align leftMenu">
             <h1>{{ recipe.name }}</h1>
-            <img src="/pictures/{{ recipe.picture }}" alt="Picture of {{ recipe.name }}">
+            <img src="{{ recipe.picture }}" alt="Picture of {{ recipe.name }}">
             {% if user|length >0%}
                 {% if user in recipe.usersFavorite.values %} {#If user has this specific recipe in favorite#}
                     <div class="favorite active">
@@ -41,10 +41,10 @@
             <section class="section" id="Instructions">
                 {#Section Instructions#}
                 <h2>Instructions</h2>
-                {% for i in 1..5 %}
+                {% for instruction in recipe.instructions %}
                 <div class="row">
-                    <p class="col s1 instructionNumber">{{ i }}</p>
-                    <p class="col s11 instructionContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto aspernatur beatae deserunt distinctio dolore, eius illo, ipsam, necessitatibus ratione saepe sint unde veniam voluptatem de veniam voluptatemde veniam voluptatemde veniam voluptatemde veniam voluptatem</p>
+                    <p class="col s1 instructionNumber">{{ loop.index }}</p>
+                    <p class="col s11 instructionContent">{{ instruction }}</p>
                 </div>
                 {% endfor %}
             </section>
@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col s2 recipeNbPerson valign-wrapper ">
                         <button class="col s3 btnLess">-</button>
-                        <input class="col s3 inputNbPerson" type="text" placeholder="3" value="3">
+                        <input class="col s3 inputNbPerson" type="text" placeholder="1" value="1">
                         <button class="col s3 btnMore">+</button>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="row">
                     {% for ingredient in recipe.ingredients %}
                     <div class="col s8 ingredientItem valign-wrapper">
-                        <img class="col s4" src="{{ asset('pictures/'~ ingredient.ingredient.picture) }}" alt="Picture of {{ ingredient.ingredient.name }}">
+                        <img class="col s4" src="{{ingredient.ingredient.picture }}" alt="Picture of {{ ingredient.ingredient.name }}">
                         <p class="col s4 ingredientName left-align">
                             <span><a href="{{ path('ingredients_show', {'id': ingredient.ingredient.id}) }}">{{ ingredient.ingredient.name }}</a></span> - <span id="qte"><b>{{ ingredient.quantity }} - {{ ingredient.ingredient.getUnit }}(s)</b></span>
                         </p>

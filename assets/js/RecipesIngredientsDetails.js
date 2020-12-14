@@ -42,7 +42,7 @@ $(document).ready(function(){
    let QteForOne = [];
 
    inputs.each(function (index) {
-      QteForOne[index] = parseInt($(this).val()) / initNbPerson; //Save Qte for each ingredient for only one person rounded
+      QteForOne[index] = parseFloat($(this).val()) / initNbPerson; //Save Qte for each ingredient for only one person rounded
    });
 
 /*
@@ -51,7 +51,7 @@ $(document).ready(function(){
     $('.ingredientQte .btnLess,.ingredientQte .btnMore').click(function(){
        let parentDiv = $(this).parent('div');
        let input = parentDiv.children('input');
-       let value = parseInt(input.val());
+       let value = parseFloat(input.val());
 
        if($(this).hasClass('btnMore')){
           value = value + 1;
