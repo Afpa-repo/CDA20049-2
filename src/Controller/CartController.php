@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Cart;
-use App\Entity\User;
+use App\Entity\Users;
 use App\Entity\CartItems;
 use App\Entity\Orders;
 use App\Form\ValidateCartType;
@@ -22,13 +22,7 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, IngredientsRepository $ingredientsRepository)
     {
-
-      /*  if($session.isset($cart)){
-            $cart = new Cart();
-        }
-        else{*/
-            $cart = $session->get('cart');
-//        }
+        $cart = $session->get('cart');
 
         // Initialize empty array witch will get all data
         $cartWithData = [];
@@ -139,11 +133,11 @@ class CartController extends AbstractController
      */
     public function validate(SessionInterface $session, IngredientsRepository $ingredientsRepository, Request $request): Response
     {
-        // returns your User object, or null if the user is not authenticated
+        // returns your Users object, or null if the user is not authenticated
         $user = $this->getUser();
 
         $items = $session->get('cart');//retrieval of session data to display for validation
-        $total = 0; //total will be incremented when adding cart items
+        $total = $session->get('total'); //total will be incremented when adding cart items
 
         $form = $this->createForm(ValidateCartType::class);
         $form->handleRequest($request);
@@ -170,8 +164,6 @@ class CartController extends AbstractController
                     $newItem->setQuantity($item["quantity"]);
                     $newItem->setIdCart($cart);
                     $entityManager->persist($newItem);
-
-                    $total += $ingredient->getPrice();
                 }
 
             //Generate order.
@@ -180,17 +172,13 @@ class CartController extends AbstractController
                 $order->setFirstname($_POST['validate_cart']['first_name']);
                 $order->setLastname($_POST['validate_cart']['last_name']);
                 $order->setEmail($_POST['validate_cart']['email']);
-                $order->setDeliveryAddress($_POST['validate_cart']['address']);
+                $order->setDeliveryAddress($_POST['validate_cart']['address']." ".$_POST['validate_cart']['zip_code']." ".$_POST['validate_cart']['city']);
                 $order->setOrderDate(new \DateTime());
                 $entityManager->persist($order);
 
             //Insert cart, cartItem and order into db.
                 $entityManager->flush();
-
-            //Clear session data related to the paid cart.
-            //Doesn't work for now.
-                //unset($_SESSION['cart']);
-                //unset($_SESSION['total']);
+                $session->clear();
 
             return $this->redirectToRoute('home');
         }
@@ -199,7 +187,7 @@ class CartController extends AbstractController
             'items' => $items,
             'total' => $total,
             'user' => $user,
-            'validatecartForm' => $form->createView()
+            'validateCartForm' => $form->createView()
         ]);
     }
 

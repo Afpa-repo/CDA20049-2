@@ -26,7 +26,6 @@
                 {% for item in items %}
 
                 <tr>
-
                     <td><img src="/pictures/{{ item.ingredient.picture }}" alt="{{ item.ingredient.picture }}" ></td>
                     <td class="name"><a href="{{ path('ingredients_show', {'id': item.ingredient.id}) }}">{{ item.ingredient.name }}</a></td>
                     <td class="price">{{ item.ingredient.price }}€</td>
@@ -48,7 +47,7 @@
         </table>
             <div class="right">
                 <a class="btn clear" href="{{ path('cart_remove_all')}}"><i class="fas fa-trash"></i>Clear All</a>
-                <a class="btn validate" href="{{ path('validate_cart')}}"><i class="fas fa-check"></i> OK</a>
+                <a class="btn validate" href="{{ path('cart_validate')}}"><i class="fas fa-check"></i> OK</a>
             </div>
         </div>
 
