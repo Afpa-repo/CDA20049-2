@@ -18,8 +18,6 @@ class ValidateCartType extends AbstractType
             ->add('address')
             ->add('zip_code')
             ->add('city')
-            ->add('validate', SubmitType::class)
-
         ;
     }
 
