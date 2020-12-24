@@ -284,9 +284,9 @@ class Users implements UserInterface
         return $this->address;
     }
 
-    public function setAddress(?string $adress): self
+    public function setAddress(?string $address): self
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }

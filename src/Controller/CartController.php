@@ -2,8 +2,13 @@
 
 namespace App\Controller;
 
-use app\Entity\Cart;
+use App\Entity\Cart;
+use App\Entity\Users;
+use App\Entity\CartItems;
+use App\Entity\Orders;
+use App\Form\ValidateCartType;
 use App\Repository\IngredientsRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,13 +22,7 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, IngredientsRepository $ingredientsRepository)
     {
-
-      /*  if($session.isset($cart)){
-            $cart = new Cart();
-        }
-        else{*/
-            $cart = $session->get('cart');
-//        }
+        $cart = $session->get('cart');
 
         // Initialize empty array witch will get all data
         $cartWithData = [];
@@ -128,5 +127,68 @@ class CartController extends AbstractController
         return $this->redirectToRoute('cart');
     }
 
+    /**
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     * @Route("cart/validate", name="cart_validate")
+     */
+    public function validate(SessionInterface $session, IngredientsRepository $ingredientsRepository, Request $request): Response
+    {
+        // returns your Users object, or null if the user is not authenticated
+        $user = $this->getUser();
+
+        $items = $session->get('cart');//retrieval of session data to display for validation
+        $total = $session->get('total'); //total will be incremented when adding cart items
+
+        $form = $this->createForm(ValidateCartType::class);
+        $form->handleRequest($request);
+
+        //Once the order is validated
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            //Generate a cart.
+                $cart = new Cart();
+
+            //Make the cart persist so its id can be referenced by cartItems and order.
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($cart);
+
+
+            //Generate cartItems.
+                foreach($items as $item){
+                    $newItem = new cartItems();
+
+                    $ingredient = $ingredientsRepository->find($item["ingredient"]->getId());
+                    $newItem->setIdIngredient($ingredient);
+
+                    $newItem->setPriceWhenBought($ingredient->getPrice());
+                    $newItem->setQuantity($item["quantity"]);
+                    $newItem->setIdCart($cart);
+                    $entityManager->persist($newItem);
+                }
+
+            //Generate order.
+                $order = new orders();
+                $order->setCart($cart);
+                $order->setFirstname($_POST['validate_cart']['first_name']);
+                $order->setLastname($_POST['validate_cart']['last_name']);
+                $order->setEmail($_POST['validate_cart']['email']);
+                $order->setDeliveryAddress($_POST['validate_cart']['address']." ".$_POST['validate_cart']['zip_code']." ".$_POST['validate_cart']['city']);
+                $order->setOrderDate(new \DateTime());
+                $entityManager->persist($order);
+
+            //Insert cart, cartItem and order into db.
+                $entityManager->flush();
+                $session->clear();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('cart/validation.html.twig', [
+            'items' => $items,
+            'total' => $total,
+            'user' => $user,
+            'validateCartForm' => $form->createView()
+        ]);
+    }
 
 }
