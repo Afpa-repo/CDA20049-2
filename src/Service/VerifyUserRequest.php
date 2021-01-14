@@ -27,10 +27,14 @@ class VerifyUserRequest
      */
     function CheckUserCredentials(String $userLogin, String $userPlainPassword)
     {
+        // Fetch the user by using the $userLogin from the request to the API
         $user = $this->usersRepository->findOneBy(['email' => $userLogin]);
+
+        // Check if the user exist
         if (is_null($user)){
             return false;
         }else{
+            // Check if this user password match the $userPlainPassword using the MealWithAuthenticador password encoder
             return $this->MealWithAuthenticator->checkCredentials(['password' =>$userPlainPassword],$user);
         }
     }
