@@ -17,7 +17,7 @@ class CustomAPIController  extends AbstractController
 {
     /**
      * @IsGranted("ROLE_USER")
-     * @Route("/RecipesSpoonacular/{category}_{number}", name="addRecipesSpoonacular", methods={"GET","POST"})
+     * @Route("/RecipesSpoonacular/{category}_{number}", name="AddRecipesSpoonacular", methods={"GET","POST"})
      */
     public function AddRecipesFromSpoonacular(SpoonacularRequest $spoonacularRequest,Request $request): JsonResponse
     {
@@ -36,6 +36,6 @@ class CustomAPIController  extends AbstractController
         $userLogin = $request->get('userLoginMail');
         $userPlainPassword = $request->get('userPlainPassword');
 
-        return new JsonResponse($verifyUserRequest->CheckUserCredentials($userLogin,$userPlainPassword));
+        return new JsonResponse( ["allowed" => $verifyUserRequest->CheckUserCredentials($userLogin,$userPlainPassword)]);
     }
 }
